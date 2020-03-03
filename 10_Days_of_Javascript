@@ -1,0 +1,712 @@
+10 days of Java Script
+
+Day 0 a: Hello, World!
+function greeting(parameterVariable) {
+    // This line prints 'Hello, World!' to the console:
+    console.log('Hello, World!');
+    // Write a line of code that prints parameterVariable to stdout using console.log:
+    console.log(parameterVariable);
+}
+function main() {
+    const parameterVariable = readLine();  // Welcome to 10 Days of JavaScript!
+    greeting(parameterVariable);
+}
+output:
+Hello, World!
+Welcome to 10 Days of JavaScript!
+
+
+Day 0 b: Data Types
+function performOperation(secondInteger, secondDecimal, secondString) {
+    // Declare a variable named 'firstInteger' (integer)
+    const firstInteger = 4;
+    // Declare a variable named 'firstDecimal' (floating-point)
+    const firstDecimal = 4.0;
+    // Declare a variable named 'firstString' (string)
+    const firstString = 'HackerRank ';
+    // sum of the 'firstInteger' and 'secondInteger' (converted type)
+    console.log(firstInteger+parseInt(secondInteger));
+    // sum of 'firstDecimal' and 'secondDecimal' (converted type)
+    console.log(firstDecimal+parseFloat(secondDecimal));
+    // print the concatenation of 'firstString' and 'secondString'
+    console.log(firstString.concat(secondString));  
+}
+function main() {
+    const secondInteger = readLine();  // 12
+    const secondDecimal = readLine();  // 4.32
+    const secondString = readLine();   // is the best place to learn and practice coding!
+    performOperation(secondInteger, secondDecimal, secondString);
+}
+output:
+16
+8.32
+HackerRank is the best place to learn and practice coding!
+
+
+Day 1 a: Arithmetic Operators
+function getArea(length, width) {
+    let area;
+    area = length*width;
+    return area;
+}
+function getPerimeter(length, width) {
+    let perimeter;
+    perimeter= 2*(length+width);
+    return perimeter;
+}
+function main() {
+    const length = +(readLine());  // 3
+    const width = +(readLine());   // 4.5
+    console.log(getArea(length, width));
+    console.log(getPerimeter(length, width));
+}
+output:
+13.5
+15
+
+
+Day 1 b: Functions
+function factorial(n){  // int n between 1 and 10
+    if(n === 0){
+        return 1;
+    } else{
+        return n * factorial(n-1);  // return the value of n!
+    } 
+}
+function main() {
+    const n = +(readLine());  // 4
+    console.log(factorial(n));
+}
+output:
+24
+
+
+Day 1 c: Let and Const
+function main() {
+    const PI = Math.PI;
+    let r = readLine();  // 2.6
+    // Print the area of the circle:
+    console.log(PI*r*r);
+    // Print the perimeter of the circle:
+    console.log(PI*2*r);
+
+    try {    
+        // Attempt to redefine the value of constant variable PI
+        PI = 0;
+        // Attempt to print the value of PI
+        console.log(PI);
+    } catch(error) {
+        console.error("You correctly declared 'PI' as a constant.");
+    }
+}
+output:
+21.237166338267002
+16.336281798666924
+
+
+Day 2 a: Conditional Statements: If-Else
+function getGrade(score) { 
+    let grade; 
+
+    if(score <=5){
+        grade = 'F';
+    } else if(score <= 10){
+        grade = 'E';
+    } else if(score <= 15){
+        grade = 'D';
+    } else if(score <= 20){
+        grade = 'C';
+    } else if(score <= 25){
+        grade = 'B';
+    } else 
+        grade = 'A';
+
+    return grade;
+}
+function main() {
+    const score = +(readLine());
+    
+    console.log(getGrade(score));
+}
+
+
+Day 2 b: Conditional Statements: Switch
+function getLetter(s) {
+    let letter;
+
+    switch (true) {
+        case 'aeiou'.includes(s[0]):
+            letter = 'A';
+            break;
+        case 'bcdfg'.includes(s[0]):
+            letter = 'B';
+            break;
+        case 'hjklm'.includes(s[0]):
+            letter = 'C';
+            break;
+        case 'npqrstvwxyz'.includes(s[0]):
+            letter = 'D';
+            break;
+    }
+    return letter;
+}
+function main() {
+    const s = readLine();  // adfgt
+    console.log(getLetter(s));
+}
+output:
+A
+
+
+Day 2 c: Loops
+function vowelsAndConsonants(s) {
+    let vowels = ["a", "e", "i", "o", "u"];
+    for (let v of s) {  // print vowels first
+        if(vowels.includes(v))
+            console.log(v);
+    }
+    for (let v of s) {  // next print consonants
+        if(!vowels.includes(v))
+            console.log(v);
+    }  
+}
+function main() {
+    const s = readLine();  // javascriptloops
+    vowelsAndConsonants(s);
+}
+output:
+a
+a
+i
+o
+o
+j
+v
+s
+c
+r
+p
+t
+l
+p
+s
+
+
+Day 3 a: Try, Catch, and Finally
+function reverseString(s) {  // to reverse string s using the split, reverse, and join methods
+  try{
+    console.log( s.split('').reverse().join('') )
+  }
+  catch(e){
+    console.log(e.message);  // If an exception is thrown, catch it and print the contents of the exception's messaage
+    console.log(s);          // If no exception was thrown, then this should be the reversed string; 
+  }                          // if an exception was thrown, this should be the original string.
+}
+function main() {
+    const s = eval(readLine());  // "1234", Number(1234)
+    reverseString(s);
+}
+output: 4321, 
+s.split is not a function 
+1234
+
+
+Day 3 b: Arrays
+/**
+*   Return the second largest number in the array.
+*   @param {Number[]} nums - An array of numbers.
+*   @return {Number} The second largest number in the array.
+**/
+
+function getSecondLargest(nums) { 
+    let first = nums[0]; 
+    let second = -1;
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] > first) {
+            second = first;
+            first = nums[i]
+        }
+        if (nums[i] > second && nums[i] < first) {
+            second = nums[i];
+        }
+    }
+return second;
+}
+function main() {
+    const n = +(readLine());  // 5
+    const nums = readLine().split(' ').map(Number);  // 2 3 6 6 5
+    
+    console.log(getSecondLargest(nums));
+}
+output:
+5
+
+
+Day 3 c: Throw
+/*
+ * Complete the isPositive function.
+ * If 'a' is positive, return "YES".
+ * If 'a' is 0, throw an Error with the message "Zero Error"
+ * If 'a' is negative, throw an Error with the message "Negative Error"
+ */
+function isPositive(a) {
+    if (a == 0)
+        throw Error('Zero Error');
+    if (a < 0)
+        throw Error('Negative Error');
+    return 'YES';
+}
+function main() {
+    const n = +(readLine());  // 5
+    for (let i = 0; i < n; i++) {  // 1, 0, -5, 10, 3
+        const a = +(readLine());
+        try {
+            console.log(isPositive(a));
+        } catch (e) {
+            console.log(e.message);
+        }
+    }
+}
+output:
+YES
+Zero Error
+Negative Error
+YES
+YES
+
+
+Day 4 a: Create a Rectangle Object
+function Rectangle(a, b) {
+  this.length = a;
+  this.width = b;
+  this.area = a * b;
+  this.perimeter = 2 * (a + b);
+}
+function main() {
+    const a = +(readLine());  // 4
+    const b = +(readLine());  // 5
+    const rect = new Rectangle(a, b);
+    console.log(rect.length);  // 4
+    console.log(rect.width);   // 5
+    console.log(rect.perimeter);  // 18
+    console.log(rect.area);       // 20
+}
+output:
+4
+5
+18
+20
+
+
+Day 4 b: Count Objects
+/*
+ * Return a count of the total number of objects 'o' satisfying o.x == o.y.
+ * Parameter(s):
+ * objects: an array of objects with integer properties 'x' and 'y'
+ */
+function getCount(objects) {
+    var ctr = 0;
+    for (var i=0; i<objects.length; i++) {
+        if (objects[i].x == objects[i].y) {
+            ctr++;
+        }
+    }
+    return ctr;
+}
+function main() {
+    const n = +(readLine());  // 5
+    let objects = [];
+    for (let i = 0; i < n; i++) {
+        const [a, b] = readLine().split(' ');  //
+1 1
+2 3
+3 3
+3 4
+4 5
+        objects.push({x: +(a), y: +(b)});
+    }
+    console.log(getCount(objects));
+}
+output:
+2
+
+
+Day 4 c: Classes
+/*
+ * Implement a Polygon class with the following properties:
+ * 1. A constructor that takes an array of integer side lengths.
+ * 2. A 'perimeter' method that returns the sum of the Polygon's side lengths.
+ */
+class Polygon {
+    constructor(sides) {        
+        this.sides = sides
+    }
+    perimeter() {
+        return this.sides.reduce(function add(a,b){return a+b;})
+    } 
+}
+
+class Polygon {
+    constructor(sides) {
+        this.sides = sides;
+    }
+    perimeter() {
+        var sum = 0;
+        for (var i=0; i< this.sides.length; i++) {
+            sum = sum + this.sides[i];
+        }
+        return sum;
+    }
+}
+
+const rectangle = new Polygon([10, 20, 10, 20]);
+const square = new Polygon([10, 10, 10, 10]);
+const pentagon = new Polygon([10, 20, 30, 40, 43]);
+console.log(rectangle.perimeter());
+console.log(square.perimeter());
+console.log(pentagon.perimeter());
+
+output:
+60
+40
+143
+
+
+Day 5 a: Inheritance
+class Rectangle {
+    constructor(w, h) {
+        this.w = w;
+        this.h = h;
+    }
+}
+
+// Write code that adds an 'area' method to the Rectangle class' prototype
+Rectangle.prototype.area = function() {
+    return(this.w*this.h);
+};
+
+// Create a Square class that inherits from Rectangle and implement its class constructor
+class Square extends Rectangle {
+    constructor(s) {
+        super(s);
+        this.h = s;
+        this.w = s;
+    }
+};
+
+if (JSON.stringify(Object.getOwnPropertyNames(Square.prototype)) === JSON.stringify([ 'constructor' ])) {
+    const rec = new Rectangle(3, 4);
+    const sqr = new Square(3);
+    console.log(rec.area());
+    console.log(sqr.area());
+} else {
+    console.log(-1);
+    console.log(-1);
+}
+
+
+Day 5 b: Template Literals
+/*
+ * Determine the original side lengths and return an array:
+ * - The first element is the length of the shorter side
+ * - The second element is the length of the longer side
+ * 
+ * Parameter(s):
+ * literals: The tagged template literal's array of strings.
+ * expressions: The tagged template literal's array of expression values (i.e., [area, perimeter]).
+ */
+function sides(literals, ...expressions) {
+    // ES6 allows destructuring of arrays into multiple variables
+    const [a, p] = expressions;
+    // Perform this operation only once and assign to variable
+    const root = Math.sqrt((p*p)-(16*a))
+    const s1 = (p + root)/4;
+    const s2 = (p - root)/4;
+    // s2 will always be smaller because of the (-/+) above
+    return ([s2, s1]);
+}
+function main() {
+    let s1 = +(readLine());  // 10
+    let s2 = +(readLine());  // 14
+    [s1, s2] = [s1, s2].sort();
+    const [x, y] = sides`The area is: ${s1 * s2}.\nThe perimeter is: ${2 * (s1 + s2)}.`;
+    console.log((s1 === x) ? s1 : -1);
+    console.log((s2 === y) ? s2 : -1);
+}
+output:
+10
+14
+
+
+Day 5 c: Arrow Functions
+/*
+ * Modify and return the array so that all even elements are doubled and all odd elements are tripled.
+ * If the element is even, multiply the element by 2.
+ * If the element is odd, multiply the element by 3.
+ */
+function modifyArray(nums) {
+    var something = function(n) {
+        if (n%2 == 0)
+            return n*2;
+        else
+            return n*3;
+    }
+    var newArray = nums.map(something);
+    return newArray;
+}
+function main() {
+    const n = +(readLine());  // 5
+    const a = readLine().split(' ').map(Number);  // 1 2 3 4 5
+    console.log(modifyArray(a).toString().split(',').join(' '));
+}
+output:
+3 4 9 8 15
+
+
+Day 6 a: Bitwise Operators
+https://en.wikipedia.org/wiki/Bitwise_operation#AND
+Note: The & symbol represents the bitwise AND operator.
+
+function getMaxLessThanK(n, k) {
+    let max_anb = 0;
+    for (let b = n; b > 0; b--) {
+        for (let a = b-1; a > 0; a--) {
+            if ((a & b) < k && (a & b) > max_anb) {
+                max_anb = (a&b);
+            }
+        }
+    }
+    return max_anb;
+}
+function main() {
+    const q = +(readLine());  // 3
+    for (let i = 0; i < q; i++) {
+        const [n, k] = readLine().split(' ').map(Number);
+5 2
+8 5
+2 2
+        console.log(getMaxLessThanK(n, k));
+    }
+}
+output:
+1
+4
+0
+
+
+Day 6 b: JavaScript Dates
+// The days of the week are: "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+
+function getDayName(dateString) {
+    let dayName;
+    const date = new Date(dateString);
+    const options = { weekday: 'long' };
+    dayName = new Intl.DateTimeFormat('en-Us', options).format(date);
+    return dayName;
+}
+function main() {
+    const d = +(readLine());  // 2
+    for (let i = 0; i < d; i++) {
+        const date = readLine();
+10/11/2009
+11/10/2010
+        console.log(getDayName(date));
+    }
+}
+output:
+Sunday
+Wednesday
+
+
+Day 7 a: Regular Expressions I
+function regexVar(str) {
+//  ^ => first item matches:
+// () => stores matching value captured within
+// [aeiou] => matches any of the characters in the brackets
+// . => matches any character:
+// + => for 1 or more occurrances (this ensures str length > 3)
+// \1 => matches to previously stored match. 
+// \2 looks for matched item stored 2 instances ago 
+// \3 looks for matched item stored 3 ago, etc
+//  $ ensures that matched item is at end of the sequence
+
+    let re = /^([aeiou]).+\1$/;
+    return re;
+}
+function main() {
+    const re = regexVar();
+    const s = readLine();     // abcd, abca, abco
+    console.log(re.test(s));  // match a string that starts and ends with the same vowel (a, e, i, o, u)
+}
+output:
+false, true, false
+
+
+Day 7 b: Regular Expressions II
+function regexVar() {
+    /*
+     * Declare a RegExp object variable named 're'
+     * It must match a string that starts with 'Mr.', 'Mrs.', 'Ms.', 'Dr.', or 'Er.', 
+     * followed by one or more letters.
+     */
+    let re = new RegExp('^(Mr|Mrs|Ms|Dr|Er)(\\.)([a-zA-Z])*$');
+    return re;
+}
+function main() {
+    const re = regexVar();
+    const s = readLine();  // Mr.X, Mrs.Y, Dr#Joseph, Er.Abc
+    console.log(!!s.match(re));
+}
+output: true, true, false, false
+
+
+Day 7 c: Regular Expressions III
+function regexVar() {
+    /*
+     * Declare a RegExp object variable named 're'
+     * It must match ALL occurrences of numbers in a string.
+     */
+    // let re = RegExp('\\d+', 'g');  // is compiled every time it is called
+    // let re = /([0-9])+/g;
+    let re = /\d+/g;
+    return re;
+}
+function main() {
+    const re = regexVar();
+    const s = readLine();  // 102, 1948948 and 1.3 and 4.5
+    const r = s.match(re);
+    for (const e of r) {
+        console.log(e);
+    }
+}
+output:
+102
+1948948
+1
+3
+4
+5
+
+
+Day 8: Create a Button
+button.css
+#btn {
+    width: 96px;
+    height: 48px;
+    font-size: 24px;
+}
+
+button.js
+var btn = document.createElement("Button");
+
+btn.innerHTML = "0";
+btn.id = "btn";
+document.body.appendChild(btn);
+
+btn.onclick = function() {
+    btn.innerHTML++;
+}
+
+
+Day 8: Buttons Container
+buttonsGrid.css
+#btns {
+    width: 75%;
+}
+
+.btn {
+    width: 30%;
+    height: 48px;
+    font-size: 24px;
+}
+
+buttonsGrid.js
+/* Could adapt this to a general matrix rotation function */
+btn5.onclick = function() {
+    let temp = btn1.innerHTML;
+    btn1.innerHTML = btn4.innerHTML;
+    btn4.innerHTML = btn7.innerHTML;
+    btn7.innerHTML = btn8.innerHTML;
+    btn8.innerHTML = btn9.innerHTML;
+    btn9.innerHTML = btn6.innerHTML;
+    btn6.innerHTML = btn3.innerHTML;
+    btn3.innerHTML = btn2.innerHTML;
+    btn2.innerHTML = temp;
+}
+
+
+Day 9: Binary Calculator
+binaryCalculator.css
+body {
+  width: 33%;
+}
+
+#res {
+  background-color: lightgray;
+  border: solid;
+  height: 48px;
+  font-size: 20px;
+}
+
+#btns button {
+  width: 25%;
+  height: 36px;
+  font-size: 18px;
+  margin:0;
+  float: left;
+}
+
+#btn0, #btn1 {
+  background-color: lightgreen;
+  color: brown;
+}
+
+#btnClr, #btnEql {
+  background-color: darkgreen;
+  color: white;
+}
+
+#btnSum, #btnSub, #btnMul, #btnDiv {
+  background-color: black;
+  color: red;
+}
+
+binaryCalculator.js
+/* Adapted from code by @eloyekunle - thanks! */
+
+let btns = document.getElementsByTagName('button');
+for (let btn of btns) {
+    button.onclick = click;
+}
+
+function click(e) {
+    var btn = e.target || e.srcElement;
+    var action = document.getElementById(btn.id).innerHTML;
+    var res = document.getElementById('res');
+    
+    switch (action) {
+        case '0':
+        case '1':
+        case '+':
+        case '-':
+        case '*':
+        case '/':
+            res.innerHTML += action;
+            break;
+        case 'C':
+            res.innerHTML = '';
+            break;
+        case '=':
+            /* Parse binary numbers from res;
+             * replace with decimal equivalents */
+            var expr = res.innerHTML;
+            var nums = /(\d+)/g;
+            expr = expr.replace(nums, function(match) {
+                return parseInt(match, 2);
+            })
+
+            /* Evaluate res and convert back to binary */
+            res.innerHTML = eval(expr).toString(2);
+            break;
+    }
+}
