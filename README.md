@@ -1,4 +1,5 @@
 # hackerrank
-documentation of my Hackerrank solutions
+This is a documentation of my Hackerrank solutions.
 
-my solutions went missing when I log in to Hackerrank after some time, so I need to document them here
+My solutions went missing when I log in to Hackerrank after some time, so I record them here.
+
