@@ -18,3 +18,41 @@ W = list(map(int, input().strip().split(' ')))
 sum_X = sum([a*b for a,b in zip(X,W)])
 print(round((sum_X/sum(W)),1))
 
+
+Day 1: Quartiles
+from statistics import median
+n = int(input())
+x = sorted(list(map(int, input().split())))
+print(int(median(x[ :n//2])))
+print(int(median(x)))
+print(int(median(x[(n+1)//2: ])))
+
+
+Day 1: Interquartile Range
+n = input()
+x_list = input()
+x_list = [int(x) for x in x_list.split()]
+freq = input()
+freq = [int(x) for x in freq.split()]
+
+new_list = []
+for i in range(len(x_list)):
+    for j in range(freq[i]):
+        new_list.append(x_list[i])
+
+from statistics import median
+n = len(new_list)
+x = sorted(new_list)    
+Q1 = median(x[:n//2])
+Q3 = median(x[(n+1)//2:])
+print("{:.1f}".format(Q3-Q1))
+
+
+Day 1: Standard Deviation
+n = int(input())
+numbers = list(map(int, input().split()))
+mean = sum(numbers) / n
+variance = sum([((x - mean) ** 2) for x in numbers]) / n
+stddev = variance ** 0.5
+print("{:.1f}".format(stddev))
+
