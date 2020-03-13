@@ -1,0 +1,20 @@
+10 Days of Statistics
+
+Day 0: Mean, Median, and Mode
+n = int(input())
+number_list = list(map(int, input().split()))
+import numpy as np
+Mean = np.mean(number_list)
+Median = np.median(number_list)
+from scipy import stats
+Mode = int(stats.mode(number_list)[0])
+print(round(Mean,1), Median, Mode, sep = '\n')
+
+
+Day 0: Weighted Mean
+N = input()
+X = list(map(int, input().strip().split(' ')))
+W = list(map(int, input().strip().split(' ')))
+sum_X = sum([a*b for a,b in zip(X,W)])
+print(round((sum_X/sum(W)),1))
+
