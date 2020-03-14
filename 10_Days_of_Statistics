@@ -123,3 +123,40 @@ print("%.3f" %b)
 print(round(sum([binomial_prob(n, p, i) for i in range(2, 11)]), 3))  # x=2,3,4,...,10
 
 
+Day 4: Geometric Distribution I
+# X is a geometric random variable
+# x is the number of trials required until the first success occurs
+# p = probability of success in each trial = 1/3
+
+# probability that a specified number of trials will take place before the first success occurs
+# P(X = x) = (1-p)**(x–1) * p   # x = 1st, 2nd, 3rd, etc
+# Reference: https://www.dummies.com/education/math/business-statistics/how-to-calculate-geometric-probabilities/
+
+def geometric_prob(p, x):
+    g = (1-p)**(x-1) * p
+    return(g)
+
+numerator, denominator = map(float, input().split())
+x = int(input())
+p = numerator/denominator
+g = geometric_prob(p, x)  
+print("%.3f" %g)
+
+
+Day 4: Geometric Distribution II
+# probability that defect is found during the first 5 inspections, 
+# ie, 1st batch defect, 2nd batch defect,.., 5th batch defect
+
+def geometric_prob(p, x):
+    g = (1-p)**(x-1) * p
+    return(g)
+
+numerator, denominator = map(float, input().split())
+x = int(input())
+p = numerator/denominator
+g = 0
+for i in range(1,6): # i=1,2,3,4,5
+    g += geometric_prob(p, i)   
+print("%.3f" %g)
+
+
