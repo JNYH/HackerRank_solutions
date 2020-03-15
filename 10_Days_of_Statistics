@@ -309,3 +309,36 @@ print('%.2f' %(miu - z*s))
 print('%.2f' %(miu + z*s))
 
 
+Day 7: Pearson Correlation Coefficient I
+n = int(input())
+X = list(map(float,input().strip().split()))
+Y = list(map(float,input().strip().split()))
+
+miu_x = sum(X) / n
+miu_y = sum(Y) / n
+
+stdev_x = (sum([(i - miu_x)**2 for i in X]) / n)**0.5
+stdev_y = (sum([(i - miu_y)**2 for i in Y]) / n)**0.5
+
+covariance = sum([(X[i] - miu_x) * (Y[i] -miu_y) for i in range(n)])
+correlation_coefficient = covariance / (n * stdev_x * stdev_y)
+print(round(correlation_coefficient,3))
+
+
+Day 7: Spearman's Rank Correlation Coefficient
+def get_rank(X):
+    x_rank = dict((x, i+1) for i, x in enumerate(sorted(set(X))))
+    return [x_rank[x] for x in X]
+    
+n = int(input())
+X = list(map(float, input().split()))
+Y = list(map(float, input().split()))
+
+rx = get_rank(X)
+ry = get_rank(Y)
+
+d = [(rx[i] -ry[i])**2 for i in range(n)]
+r_s = 1 - (6 * sum(d)) / (n * (n*n - 1))
+print('%.3f' % r_s)
+
+
