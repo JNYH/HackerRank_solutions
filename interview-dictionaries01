@@ -12,7 +12,7 @@ def checkMagazine(magazine, note):
         else:
             magazine_dict[word] = 1
 
-    # unable to build the note if the word from note is not in the magazine_dict
+    # unable to build note if the word from note is not in magazine_dict
     # or if there are insufficient words in the magazine_dict
     for word in note:
         if word not in magazine_dict.keys() or magazine_dict[word] == 0 :
