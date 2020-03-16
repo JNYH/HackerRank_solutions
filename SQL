@@ -1,0 +1,415 @@
+MySQL
+
+## Basic Select
+
+Revising the Select Query I
+Query all columns for all American cities in CITY with populations larger than 100000. The CountryCode for America is USA.
+SELECT *
+FROM CITY
+WHERE
+    COUNTRYCODE = 'USA'
+    AND POPULATION > 100000;
+
+Revising the Select Query II
+Query the names of all American cities in CITY with populations larger than 120000. The CountryCode for America is USA.
+SELECT NAME
+FROM CITY
+WHERE
+    COUNTRYCODE = 'USA'
+    AND POPULATION > 120000;
+
+Select All
+Query all columns (attributes) for every row in the CITY table.
+SELECT *
+FROM CITY;
+
+Select By ID
+Query all columns for a city in CITY with the ID 1661.
+SELECT *
+FROM CITY
+WHERE ID = '1661';
+
+Japanese Cities' Attributes
+Query all attributes of every Japanese city in the CITY table. The COUNTRYCODE for Japan is JPN.
+SELECT *
+FROM CITY
+WHERE COUNTRYCODE = 'JPN';
+
+Japanese Cities' Names
+Query the names of all the Japanese cities in the CITY table. The COUNTRYCODE for Japan is JPN.
+SELECT NAME
+FROM CITY
+WHERE COUNTRYCODE = 'JPN';
+
+Weather Observation Station 1
+Query a list of CITY and STATE from the STATION table.
+SELECT CITY, STATE
+FROM STATION;
+
+Weather Observation Station 3
+Query a list of CITY names from STATION with even ID numbers only. You may print the results in any order, but must exclude duplicates from your answer.
+SELECT DISTINCT CITY
+FROM STATION
+WHERE MOD(ID,2)=0
+ORDER BY CITY;
+
+Weather Observation Station 4
+Let N be the number of CITY entries in STATION, and let N' be the number of distinct CITY names in STATION; query the value of N-N' from STATION. In other words, find the difference between the total number of CITY entries in the table and the number of distinct CITY entries in the table.
+SELECT COUNT(CITY) - COUNT(DISTINCT CITY) 
+FROM STATION;
+
+Weather Observation Station 5
+Query the two cities in STATION with the shortest and longest CITY names, as well as their respective lengths (i.e.: number of characters in the name). If there is more than one smallest or largest city, choose the one that comes first when ordered alphabetically.
+select city,length(city) from (select city,length(city) from station order by length(city) asc, city asc) where rownum<=1;
+select city,length(city) from (select city,length(city) from station order by length(city) desc, city desc) where rownum<=1;
+
+Weather Observation Station 6
+Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) from STATION. Your result cannot contain duplicates.
+SELECT DISTINCT CITY
+  FROM STATION
+ WHERE CITY REGEXP '^[a,e,i,o,u]';
+
+ WHERE CITY REGEXP '^[a,e,i,o,u].*';   # alternate
+
+Weather Observation Station 7
+Query the list of CITY names ending with vowels (a, e, i, o, u) from STATION. Your result cannot contain duplicates.
+SELECT DISTINCT CITY
+  FROM STATION
+ WHERE CITY REGEXP '[a,e,i,o,u]$';
+
+Weather Observation Station 8
+Query the list of CITY names from STATION which have vowels (i.e., a, e, i, o, and u) as both their first and last characters. Your result cannot contain duplicates.
+SELECT DISTINCT CITY
+  FROM STATION
+ WHERE CITY REGEXP '^[a,e,i,o,u].*[a,e,i,o,u]$';
+
+Weather Observation Station 9
+Query the list of CITY names from STATION that do not start with vowels. Your result cannot contain duplicates.
+SELECT DISTINCT CITY
+  FROM STATION
+ WHERE CITY REGEXP '^[^a,e,i,o,u]';
+
+Weather Observation Station 10
+Query the list of CITY names from STATION that do not end with vowels. Your result cannot contain duplicates.
+SELECT DISTINCT CITY
+  FROM STATION
+ WHERE CITY REGEXP '[^aeiou]$';
+
+Weather Observation Station 11
+Query the list of CITY names from STATION that either do not start with vowels or do not end with vowels. Your result cannot contain duplicates.
+SELECT DISTINCT CITY
+  FROM STATION
+ WHERE CITY REGEXP '^[^aeiou]|[^aeiou]$';
+
+Weather Observation Station 12
+Query the list of CITY names from STATION that do not start with vowels and do not end with vowels. Your result cannot contain duplicates.
+SELECT DISTINCT CITY
+  FROM STATION
+ WHERE CITY REGEXP '^[^aeiou].*[^aeiou]$';
+
+Higher Than 75 Marks
+Query the Name of any student in STUDENTS who scored higher than 75 Marks. Order your output by the last three characters of each name. If two or more students both have names ending in the same last three characters (i.e.: Bobby, Robby, etc.), secondary sort them by ascending ID.
+SELECT Name
+  FROM STUDENTS
+ WHERE Marks > 75
+ ORDER BY RIGHT(Name, 3), ID;
+
+Employee Names
+Write a query that prints a list of employee names (i.e.: the name attribute) from the Employee table in alphabetical order.
+SELECT Name
+  FROM Employee
+ ORDER BY Name;
+
+Employee Salaries
+Write a query that prints a list of employee names (i.e.: the name attribute) for employees in Employee having a salary greater than $2000 per month who have been employees for less than 10 months. Sort your result by ascending employee_id.
+SELECT name
+  FROM Employee
+ WHERE salary > 2000
+   AND months < 10
+ ORDER BY employee_id;
+
+
+
+## Advanced Select
+
+Type of Triangle
+Write a query identifying the type of each record in the TRIANGLES table using its three side lengths. Output one of the following statements for each record in the table:
+Equilateral: It's a triangle with 3 sides of equal length.
+Isosceles: It's a triangle with 2 sides of equal length.
+Scalene: It's a triangle with 3 sides of differing lengths.
+Not A Triangle: The given values of A, B, and C don't form a triangle.
+SELECT CASE WHEN A + B <= C
+              OR A + C <= B
+              OR B + C <= A
+                 THEN 'Not A Triangle'
+            WHEN A = B
+             AND A = C
+             AND B = C
+                 THEN 'Equilateral'
+            WHEN A = B
+              OR A = C
+              OR B = C
+                 THEN 'Isosceles'
+            ELSE 'Scalene'
+       END
+  FROM TRIANGLES;
+
+The PADS
+Query an alphabetically ordered list of all names in OCCUPATIONS, immediately followed by the first letter of each profession as a parenthetical (i.e.: enclosed in parentheses). For example: AnActorName(A), ADoctorName(D), AProfessorName(P), and ASingerName(S).
+Query the number of ocurrences of each occupation in OCCUPATIONS. Sort the occurrences in ascending order, and output them in the following format:
+There are a total of [occupation_count] [occupation]s.
+where [occupation_count] is the number of occurrences of an occupation in OCCUPATIONS and [occupation] is the lowercase occupation name. If more than one Occupation has the same [occupation_count], they should be ordered alphabetically.
+Note: There will be at least two entries in the table for each type of occupation.
+SELECT CONCAT(Name, '(', LEFT(Occupation, 1), ')') AS 'Name(Profession)'
+  FROM OCCUPATIONS
+ ORDER BY Name;
+
+SELECT CONCAT('There are a total of ', COUNT(*), ' ', LOWER(Occupation), 's.')
+  FROM OCCUPATIONS
+ GROUP BY Occupation
+ ORDER BY COUNT(*),
+          Occupation;
+
+Occupations
+Pivot the Occupation column in OCCUPATIONS so that each Name is sorted alphabetically and displayed underneath its corresponding Occupation. The output column headers should be Doctor, Professor, Singer, and Actor, respectively.
+Note: Print NULL when there are no more names corresponding to an occupation.
+set @r1=0, @r2=0, @r3=0, @r4=0;
+select min(Doctor), min(Professor), min(Singer), min(Actor)
+from(
+  select case when Occupation='Doctor' then (@r1:=@r1+1)
+            when Occupation='Professor' then (@r2:=@r2+1)
+            when Occupation='Singer' then (@r3:=@r3+1)
+            when Occupation='Actor' then (@r4:=@r4+1) end as RowNumber,
+    case when Occupation='Doctor' then Name end as Doctor,
+    case when Occupation='Professor' then Name end as Professor,
+    case when Occupation='Singer' then Name end as Singer,
+    case when Occupation='Actor' then Name end as Actor
+  from OCCUPATIONS
+  order by Name
+) Temp
+group by RowNumber
+
+Binary Tree Nodes
+You are given a table, BST, containing two columns: N and P, where N represents the value of a node in Binary Tree, and P is the parent of N.
+Write a query to find the node type of Binary Tree ordered by the value of the node. Output one of the following for each node:
+Root: If node is root node.
+Leaf: If node is leaf node.
+Inner: If node is neither root nor leaf node.
+SELECT N,
+       CASE
+            WHEN P IS NULL THEN 'Root'
+            WHEN N IN (SELECT P FROM BST) THEN 'Inner'
+            ELSE 'Leaf'
+       END
+  FROM BST
+ ORDER BY N;
+
+New Companies
+Amber's conglomerate corporation just acquired some new companies. Each of the companies follows this hierarchy:
+Founder -> Lead Manager -> Senior Manager -> Manager -> Employee
+Given the table schemas below, write a query to print the company_code, founder name, total number of lead managers, total number of senior managers, total number of managers, and total number of employees. Order your output by ascending company_code.
+Note:
+The tables may contain duplicate records.
+The company_code is string, so the sorting should not be numeric. For example, if the company_codes are C_1, C_2, and C_10, then the ascending company_codes will be C_1, C_10, and C_2.
+select c.company_code, c.founder, count(distinct lm.lead_manager_code), 
+count(distinct sm.senior_manager_code), count(distinct m.manager_code), 
+count(distinct e.employee_code)
+from Company c, Lead_Manager lm, Senior_Manager sm, Manager m, Employee e
+where c.company_code = lm.company_code
+    and lm.lead_manager_code = sm.lead_manager_code
+    and sm.senior_manager_code = m.senior_manager_code
+    and m.manager_code = e.manager_code
+group by c.company_code, c.founder
+order by c.company_code
+
+
+
+## Aggregation
+
+Revising Aggregations - The Count Function
+Query a count of the number of cities in CITY having a Population larger than 100,000.
+SELECT COUNT(*)
+  FROM CITY
+ WHERE POPULATION > 100000;
+
+Revising Aggregations - The Sum Function
+Query the total population of all cities in CITY where District is California.
+SELECT SUM(POPULATION)
+  FROM CITY
+ WHERE DISTRICT = 'California';
+
+Revising Aggregations - Averages
+Query the average population of all cities in CITY where District is California.
+SELECT AVG(POPULATION)
+  FROM CITY
+ WHERE DISTRICT = 'California';
+
+Average Population
+Query the average population for all cities in CITY, rounded down to the nearest integer.
+SELECT FLOOR(AVG(POPULATION))
+  FROM CITY;
+
+Japan Population
+Query the sum of the populations for all Japanese cities in CITY. The COUNTRYCODE for Japan is JPN.
+SELECT SUM(POPULATION)
+  FROM CITY
+ WHERE COUNTRYCODE = 'JPN';
+
+Population Density Difference
+Query the difference between the maximum and minimum populations in CITY.
+SELECT MAX(POPULATION) - MIN(POPULATION)
+  FROM CITY;
+
+The Blunder
+Samantha was tasked with calculating the average monthly salaries for all employees in the EMPLOYEES table, but did not realize her keyboard's 0 key was broken until after completing the calculation. She wants your help finding the difference between her miscalculation (using salaries with any zeroes removed), and the actual average salary.
+Write a query calculating the amount of error (i.e.: actual - miscalculated average monthly salaries), and round it up to the next integer.
+SELECT CEIL(AVG(Salary) - AVG(REPLACE(Salary, '0', '')))
+  FROM EMPLOYEES;
+
+Top Earners
+We define an employee's total earnings to be their monthly salary * months worked, and the maximum total earnings to be the maximum total earnings for any employee in the Employee table. Write a query to find the maximum total earnings for all employees as well as the total number of employees who have maximum total earnings. Then print these values as 2 space-separated integers.
+SELECT salary * months AS total_earnings,
+       COUNT(*)
+  FROM Employee
+ GROUP BY total_earnings
+ ORDER BY total_earnings DESC
+ LIMIT 1;
+
+output:
+108064 7
+
+Weather Observation Station 2
+Query the following two values from the STATION table:
+The sum of all values in LAT_N rounded to a scale of 2 decimal places.
+The sum of all values in LONG_W rounded to a scale of 2 decimal places.
+SELECT ROUND(SUM(LAT_N), 2),
+       ROUND(SUM(LONG_W), 2)
+  FROM STATION;
+
+Weather Observation Station 13
+Query the sum of Northern Latitudes (LAT_N) from STATION having values greater than 38.7880 and less than 137.2345. Truncate your answer to 4 decimal places.
+SELECT TRUNCATE(SUM(LAT_N), 4)
+  FROM STATION
+ WHERE LAT_N BETWEEN 38.7880 AND 137.2345;
+
+Weather Observation Station 14
+Query the greatest value of the Northern Latitudes (LAT_N) from STATION that is less than 137.2345. Truncate your answer to 4 decimal places.
+SELECT TRUNCATE(MAX(LAT_N), 4)
+  FROM STATION
+ WHERE LAT_N < 137.2345;
+
+Weather Observation Station 15
+Query the Western Longitude (LONG_W) for the largest Northern Latitude (LAT_N) in STATION that is less than 137.2345. Round your answer to 4 decimal places.
+SELECT ROUND(LONG_W, 4)
+  FROM STATION
+ WHERE LAT_N < 137.2345
+ ORDER BY LAT_N DESC
+ LIMIT 1;
+
+output:
+117.2465
+
+Weather Observation Station 16
+Query the smallest Northern Latitude (LAT_N) from STATION that is greater than 38.7780. Round your answer to 4 decimal places.
+SELECT ROUND(MIN(LAT_N), 4)
+  FROM STATION
+ WHERE LAT_N > 38.7780;
+
+output:
+38.8526
+
+Weather Observation Station 17
+Query the Western Longitude (LONG_W)where the smallest Northern Latitude (LAT_N) in STATION is greater than 38.7780. Round your answer to 4 decimal places.
+SELECT ROUND(LONG_W, 4)
+  FROM STATION
+ WHERE LAT_N > 38.7780
+ ORDER BY LAT_N
+ LIMIT 1;
+
+output:
+70.1378
+
+Weather Observation Station 18
+Consider P1(a,b) and P2(c,d) to be two points on a 2D plane.
+a happens to equal the minimum value in Northern Latitude (LAT_N in STATION).
+b happens to equal the minimum value in Western Longitude (LONG_W in STATION).
+c happens to equal the maximum value in Northern Latitude (LAT_N in STATION).
+d happens to equal the maximum value in Western Longitude (LONG_W in STATION).
+Query the Manhattan Distance between points P1 and P2 and round it to a scale of 4 decimal places.
+SELECT ROUND(ABS(MIN(LAT_N) - MAX(LAT_N)) + ABS(MIN(LONG_W) - MAX(LONG_W)), 4)
+  FROM STATION;
+
+output:
+259.6859
+
+Weather Observation Station 19
+Consider P1(a,c) and P2(b,d) to be two points on a 2D plane where (a,b) are the respective minimum and maximum values of Northern Latitude (LAT_N) and (c,d) are the respective minimum and maximum values of Western Longitude (LONG_W) in STATION.
+Query the Euclidean Distance between points P1 and P2 and format your answer to display 4 decimal digits.
+SELECT ROUND(SQRT(POW(MAX(LAT_N)  - MIN(LAT_N),  2) +
+                  POW(MAX(LONG_W) - MIN(LONG_W), 2)), 4)
+  FROM STATION;
+
+output:
+184.1616
+
+Weather Observation Station 20
+A median is defined as a number separating the higher half of a data set from the lower half. Query the median of the Northern Latitudes (LAT_N) from STATION and round your answer to 4 decimal places.
+SELECT ROUND(S.LAT_N, 4)
+  FROM STATION S
+ WHERE (SELECT COUNT(LAT_N) FROM STATION WHERE LAT_N < S.LAT_N)
+     = (SELECT COUNT(LAT_N) FROM STATION WHERE LAT_N > S.LAT_N);
+
+output:
+83.8913
+
+
+
+## Basic Join
+
+Asian Population
+Given the CITY and COUNTRY tables, query the sum of the populations of all cities where the CONTINENT is 'Asia'.
+Note: CITY.CountryCode and COUNTRY.Code are matching key columns.
+
+
+
+
+African Cities
+
+Average Population of Each Continent
+
+The Report
+
+Top Competitors
+
+Ollivander's Inventory
+
+Challenges
+
+Contest Leaderboard
+
+
+
+
+## Advanced Join
+
+SQL Project Planning
+
+Placements
+
+Symmetric Pairs
+
+Interviews
+
+15 Days of Learning SQL
+
+
+
+
+## Alternative Queries
+
+Draw The Triangle 1
+
+Draw The Triangle 2
+
+Print Prime Numbers
+
