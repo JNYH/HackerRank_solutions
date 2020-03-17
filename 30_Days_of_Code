@@ -104,3 +104,28 @@ class Person:
         age += 1
 
 
+Day 5: Loops
+import math
+import os
+import random
+import re
+import sys
+
+if __name__ == '__main__':
+    n = int(input())
+
+for i in range(1,11):
+    print(n, 'x', i, '=', n*i)
+
+
+Day 6: Let's Review
+n = int(input())  # number of strings
+for _ in range(n):
+    word = input()
+    print(word[::2], word[1::2])  # print even letters, odd letters
+
+
+
+
+
+
