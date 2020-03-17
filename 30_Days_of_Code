@@ -11,6 +11,48 @@ print('Hello, World.')
 print(input_string)
 
 
+Day 1: Data Types
+# Declare second integer, double, and String variables.
+int_2 = input()
+double_2 = input()
+string_2 = input()
 
+# Read and save an integer, double, and String to your variables.
+sum_int = i + int(int_2)
+sum_double = d + float(double_2)
+sum_string = s + str(string_2)
+
+# Print the sum of both integer variables on a new line.
+print(sum_int)
+
+# Print the sum of the double variables on a new line.
+print(sum_double)
+
+# Concatenate and print the String variables on a new line
+# The 's' variable above should be printed first.
+print(sum_string)
+
+
+Day 2: Operators
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the solve function below.
+def solve(meal_cost, tip_percent, tax_percent):
+    a = meal_cost
+    b = a*tip_percent/100
+    c = a*tax_percent/100
+    total = a+b+c
+    print('{:.0f}'.format(total))
+    return 
+
+if __name__ == '__main__':
+    meal_cost = float(input())
+    tip_percent = int(input())
+    tax_percent = int(input())
+    solve(meal_cost, tip_percent, tax_percent)
 
 
