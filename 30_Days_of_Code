@@ -141,6 +141,48 @@ if __name__ == '__main__':
     print(' '.join(new_arr))
 
 
+Day 8: Dictionaries and Maps
+# n = int(input())
+# phonebook = {}
+# for _ in range(n):
+#     input_list = input().split()
+#     phonebook[input_list[0]] = input_list[1]
+#
+# for _ in range(n):
+#     try:
+#         name = input()
+#     except: 
+#         break
+#
+#     if name in phonebook:
+#         print(name, '=', phonebook[name], sep='')
+#     else : print('Not found')   
+
+phonebook={}
+for _ in range(int(input())):
+    name, num = input().split()
+    # if type(name)==int:
+    #     print("Not found")
+    # else:
+    phonebook[name] = int(num)
+
+while 1:
+    try:
+        name = input()
+        print(f"{name}={phonebook[name]}")
+    except KeyError:
+        print(f"Not found")
+    except EOFError:
+        break
+
+
+
+
+
+
+
+
+
 
 
 
