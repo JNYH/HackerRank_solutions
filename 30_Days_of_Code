@@ -125,6 +125,27 @@ for _ in range(n):
     print(word[::2], word[1::2])  # print even letters, odd letters
 
 
+Day 7: Arrays
+import math
+import os
+import random
+import re
+import sys
+
+if __name__ == '__main__':
+    n = int(input())
+    arr = list(map(str, input().rstrip().split()))
+    new_arr = []
+    for element in arr:
+        new_arr.insert(0, element)
+    print(' '.join(new_arr))
+
+
+
+
+
+
+
 
 
 
