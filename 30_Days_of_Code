@@ -198,6 +198,21 @@ if __name__ == '__main__':
     fptr.close()
 
 
+Day 10: Binary Numbers
+import math
+import os
+import random
+import re
+import sys
+
+if __name__ == '__main__':
+    n = int(input())
+    b = bin(n)[2:]
+    #print(b)
+    b = b.split('0')
+    #print(b)
+    print(len(max(b)))
+
 
 
 
