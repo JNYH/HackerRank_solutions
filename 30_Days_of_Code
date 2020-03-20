@@ -323,7 +323,13 @@ d.computeDifference()
 print(d.maximumDifference)
 
 
-
+Day 16: Exceptions - String to Integer
+import sys
+S = input().strip()
+try:
+    print(int(S))
+except:
+    print("Bad String")
 
 
 
