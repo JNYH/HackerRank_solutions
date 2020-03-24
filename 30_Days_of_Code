@@ -421,6 +421,28 @@ print("I implemented: " + type(my_calculator).__bases__[0].__name__)
 print(s)
 
 
+Day 20: Sorting
+import sys
+
+n = int(input().strip())
+a = list(map(int, input().strip().split(' ')))
+# Write Your Code Here
+num_swap = 0
+
+while a != sorted(a):
+    for i in range(n - 1):
+        tmp = 0
+        if a[i] > a[i + 1]:
+            tmp = a[i]
+            a[i] = a[i + 1]
+            a[i + 1] = tmp
+            num_swap += 1
+
+print('Array is sorted in {} swaps.'.format(num_swap))
+print('First Element:', a[0])
+print('Last Element:', a[-1])
+
+
 
 
 
