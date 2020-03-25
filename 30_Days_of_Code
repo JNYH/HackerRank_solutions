@@ -720,6 +720,29 @@ TestiWithExactyTwoDifferentMinimums()
 print("OK")
 
 
+Day 28: RegEx, Patterns, and Intro to Databases
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+if __name__ == '__main__':
+    name_list = []
+    N = int(input())
+    for _ in range(N):
+        firstNameEmailID = input().split()
+        firstName = firstNameEmailID[0]
+        emailID = firstNameEmailID[1]
+        
+        if emailID[-10:] == '@gmail.com':
+            name_list.append(firstName)
+
+    for e in sorted(name_list):
+        print(e)
+
 
 
 
