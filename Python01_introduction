@@ -1,11 +1,11 @@
 ## Python
 ## Introduction
 
-# Say "Hello, World!" With Python
+## Say "Hello, World!" With Python
 print("Hello, World!")
 
 
-# Python If-Else
+## Python If-Else
 #!/bin/python3
 
 import math
@@ -28,7 +28,7 @@ else:
         print('Not Weird')
 
 
-# Arithmetic Operators
+## Arithmetic Operators
 if __name__ == '__main__':
     a = int(input())
     b = int(input())
@@ -38,7 +38,7 @@ print(a-b)
 print(a*b)
 
 
-# Python: Division
+## Python: Division
 if __name__ == '__main__':
     a = int(input())
     b = int(input())
@@ -47,7 +47,7 @@ print(a//b)
 print(a/b)
 
 
-# Loops
+## Loops
 if __name__ == '__main__':
     n = int(input())
 
@@ -55,7 +55,7 @@ for i in range(n):
     print(i**2)
 
 
-# Write a function
+## Write a function
 def is_leap(year):
     leap = False
     
