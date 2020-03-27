@@ -1,0 +1,183 @@
+## Interview Preparation Kit
+## Arrays
+
+
+## interview-arrays01
+# 2D Array - DS
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the hourglassSum function below.
+def hourglassSum(arr):
+    hourglass_sum = []
+    for i in range(0,4):
+        for j in range(0,4):
+            # (sum of 3x3 block) - (1 element on left) - (1 element on right)
+            total=sum([sum(x[i:i+3]) for x in arr[j:j+3]]) - arr[j+1][i] - arr[j+1][i+2]
+            hourglass_sum.append(total)
+    return (max(hourglass_sum))
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    arr = []
+    for _ in range(6):
+        arr.append(list(map(int, input().rstrip().split())))
+    result = hourglassSum(arr)
+    fptr.write(str(result) + '\n')
+    fptr.close()
+
+
+## interview-arrays02
+# Left Rotation
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the rotLeft function below.
+def rotLeft(a, d):
+    num_rots = d % len(a)
+    return a[num_rots:] + a[0:num_rots]
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    nd = input().split()
+    n = int(nd[0])
+    d = int(nd[1])
+    a = list(map(int, input().rstrip().split()))
+    result = rotLeft(a, d)
+    print(result)
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
+
+
+## interview-arrays03
+# New Year Chaos
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the minimumBribes function below.
+def minimumBribes(q):
+    q_dict = {}
+    q_sorted = sorted(q)
+    count = 0
+    while(q!=q_sorted):
+        for i, val in enumerate(q):
+            if(q_dict.get(q[i], 0)>2):
+                return print('Too chaotic')
+            if(i<len(q)-1 and q[i]>q[i+1]):
+                q_dict.update({q[i]: q_dict.get(q[i], 0) + 1})
+                temp = q[i+1]
+                q[i+1] = q[i]
+                q[i] = temp
+                count += 1
+    print(count)
+
+if __name__ == '__main__':
+    t = int(input())
+    for t_itr in range(t):
+        n = int(input())
+        q = list(map(int, input().rstrip().split()))
+
+        minimumBribes(q)
+
+
+## interview-arrays04
+# Minimum Swaps 2
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the minimumSwaps function below.
+def minimumSwaps(arr): 
+    # subtract 1 from each element in the array to match # Python's zero-indexing 
+    arr = [i-1 for i in arr]
+    # store the positions of each element in the array
+    # e.g. for arr = [1,2,0,3], positions = [2,0,1,3]
+    positions = [0] * len(arr)
+    for count,i in enumerate(arr):
+        positions[i] = count
+
+    swaps = 0
+    for count,i in enumerate(arr):
+        #if ordered, then i == count; if not, we have to swap
+        if i != count:
+            #find the position of the element that should be here
+            pos = positions[count] 
+            #swap the current element arr[count] with the correct element arr[pos]
+            arr[pos],arr[count] = arr[count],arr[pos] 
+            #update positions to match array after swapping
+            current_value = arr[count]
+            correct_value = arr[pos] 
+            positions[current_value],positions[correct_value] = positions[correct_value],positions[current_value]
+            swaps += 1 
+
+    return swaps
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    res = minimumSwaps(arr)
+
+    fptr.write(str(res) + '\n')
+
+    fptr.close()
+
+
+## interview-arrays05
+# Array Manipulation
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the arrayManipulation function below.
+def arrayManipulation(n, queries):
+    pass
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    nm = input().split()
+    n = int(nm[0])
+    m = int(nm[1])
+    queries = []
+    lis = [0]*(n+1)
+
+    for _ in range(m):
+        x, y, incr = [int(n) for n in input().split(' ')]
+        lis[x-1] += incr
+        if((y)<=len(lis)): 
+            lis[y] -= incr
+
+    max = x = 0
+    for i in lis:
+        x=x+i;
+        if(max<x): 
+            max=x;
+    result = max
+
+    fptr.write(str(result) + '\n')
+    fptr.close()
+
+
