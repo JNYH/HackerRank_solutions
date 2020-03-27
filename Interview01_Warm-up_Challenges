@@ -1,0 +1,121 @@
+## Interview Preparation Kit
+## Warm-up Challenges
+
+
+## interview-warmup01
+# Sock Merchant
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the sockMerchant function below.
+from collections import Counter
+def sockMerchant(n, ar):
+    total = 0
+    for value in Counter(ar).values():
+        total += value//2
+    return total
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    n = int(input())
+    ar = list(map(int, input().rstrip().split()))
+    result = sockMerchant(n, ar)
+    fptr.write(str(result) + '\n')
+    fptr.close()
+
+
+## interview-warmup02
+# Counting Valleys
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the countingValleys function below.
+def countingValleys(n, s): 
+    altitude = 0 
+    valleys = 0 
+    for letter in s: 
+        if letter == 'U': 
+            altitude += 1 
+        else: 
+            altitude -= 1 
+            if altitude == -1: 
+                valleys += 1 
+    return valleys
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    n = int(input())
+    s = input()
+    result = countingValleys(n, s)
+    fptr.write(str(result) + '\n')
+    fptr.close()
+
+
+## interview-warmup03
+# Jumping on the Clouds
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the jumpingOnClouds function below.
+def jumpingOnClouds(c):
+    jump = 0
+    i = 1
+    while i < len(c):
+        if i != len(c)-1 and c[i+1] == 0:
+            jump += 1
+            i += 2
+        elif c[i] == 0:
+            jump += 1
+            i += 1
+    return jump
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    n = int(input())
+    c = list(map(int, input().rstrip().split()))
+    result = jumpingOnClouds(c)
+    fptr.write(str(result) + '\n')
+    fptr.close()
+
+# 0 0 0 0 1 0
+# 0 0 0 1 0 0
+
+
+## interview-warmup04
+# Repeated String
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the repeatedString function below.
+def repeatedString(s, n):
+    count = s.count('a')
+    full_str = n//len(s)
+    remainder = n%len(s) 
+    total = count*full_str + s[:remainder].count('a')
+    return total
+    # return (s.count("a") * (n // len(s)) + s[:n % len(s)].count("a"))
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    s = input()
+    n = int(input())
+    result = repeatedString(s, n)
+    fptr.write(str(result) + '\n')
+    fptr.close()
+
