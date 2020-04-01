@@ -761,3 +761,5 @@ if __name__ == '__main__':
         k = int(nk[1])
         print(k-1 if ((k-1) | k) <= n else k-2)
 
+
+## end ##
