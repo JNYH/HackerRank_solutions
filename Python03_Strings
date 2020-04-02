@@ -13,6 +13,18 @@ if __name__ == '__main__':
     print(result)
 
 
+## String Split and Join
+def split_and_join(line):
+    # write your code here
+    line_list = line.split(" ")
+    return "-".join(line_list)
+
+if __name__ == '__main__':
+    line = input()
+    result = split_and_join(line)
+    print(result)
+
+
 
 
 
