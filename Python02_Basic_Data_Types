@@ -25,5 +25,25 @@ for i in range(n):
         break
 
 
+## Nested Lists
+if __name__ == '__main__':
+    name_list, score_list = [], []
+    n = int(input())
+    for _ in range(n):
+        name = input()
+        name_list.append(name)
+        score = float(input())
+        score_list.append(score)
+
+students = list(zip(name_list, score_list))
+students1 = sorted(students)
+second_score = sorted(set(b for a,b in students1))[1]
+for i in range(n):
+    if students1[i][1] == second_score:
+        print((students1[i][0]))
+
+
+
+
 
 
