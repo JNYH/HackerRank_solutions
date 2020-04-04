@@ -203,6 +203,23 @@ if __name__ == '__main__':
     minion_game(s)
 
 
+##  Merge the Tools!
+def merge_the_tools(string, k):
+    k = int(k)
+    for i in range(0, len(string), k):
+        sub_text = string[i:i+k]
+        unique = ''
+        for char in sub_text:
+            if char not in unique:
+                unique += char
+        print(unique)
+
+if __name__ == '__main__':
+    string, k = input(), int(input())
+    merge_the_tools(string, k)
+
+
+## end ##
 
 
 
