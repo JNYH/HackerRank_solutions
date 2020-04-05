@@ -29,6 +29,24 @@ for i in arr_list:
 print(happiness)
 
 
+##  Symmetric Difference
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+m = int(input())
+set_m = set(map(int, input().split()))
+
+n = int(input())
+set_n = set(map(int, input().split()))
+
+new_set = set_m.difference(set_n)
+temp = set_n.difference(set_m)
+
+new_set.update(temp)
+new_set = sorted(new_set)
+
+for e in new_set:
+    print(e)
+
+
 ## Set .add()
 # Enter your code here. Read input from STDIN. Print output to STDOUT
 n = int(input())
