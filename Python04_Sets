@@ -15,6 +15,20 @@ if __name__ == '__main__':
     print(result)
 
 
+## No Idea!
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+(n, m), arr_list, A, B = [input().split() for _ in range(4)]
+
+A, B = set(A), set(B)   # for time efficiency
+happiness = 0
+for i in arr_list:
+    if i in A:
+        happiness += 1
+    elif i in B:
+        happiness -= 1
+print(happiness)
+
+
 
 
 
