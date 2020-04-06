@@ -99,6 +99,17 @@ new_set = set_n.intersection(set_b)
 print(len(new_set))
 
 
+## Set .difference() Operation
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+n = int(input())
+set_n = set(map(int, input().split()))
+
+b = int(input())
+set_b = set(map(int, input().split()))
+
+new_set = set_n.difference(set_b)
+print(len(new_set))
+
 
 
 
