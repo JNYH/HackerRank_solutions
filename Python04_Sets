@@ -111,6 +111,20 @@ new_set = set_n.difference(set_b)
 print(len(new_set))
 
 
+## Set .symmetric_difference() Operation
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+n = int(input())
+set_n = set(map(int, input().split()))
+
+b = int(input())
+set_b = set(map(int, input().split()))
+
+new_set = set_n.difference(set_b)
+temp = set_b.difference(set_n)
+
+new_set.update(temp)
+print(len(new_set))
+
 
 
 
