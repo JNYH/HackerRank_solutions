@@ -126,6 +126,19 @@ new_set.update(temp)
 print(len(new_set))
 
 
+## Set Mutations
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+n = int(input())
+set_A = set(map(int,input().split()))
+N = int(input())
+
+for _ in range(N):
+    operation = input().split()
+    new_set = set(map(int,input().split()))
+    eval('set_A.{}({})'.format(operation[0], new_set))
+print(sum(set_A))
+
+
 
 
 
