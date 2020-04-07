@@ -165,5 +165,19 @@ for _ in range(N):
     print(set_a.intersection(set_b) == set_a)
 
 
+## Check Strict Superset
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+set_a = set(map(int, input().split()))
+N = int(input())
+
+for _ in range(N):
+    new_set = set(map(int, input().split()))
+    if (new_set < set_a):
+        continue
+    else:
+        break
+
+print(new_set < set_a)
 
 
+## end ##
