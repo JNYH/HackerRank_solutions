@@ -139,6 +139,19 @@ for _ in range(N):
 print(sum(set_A))
 
 
+## The Captain's Room
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from collections import Counter 
+n = int(input())
+room_list = list(map(int, input().split()))
+freq = Counter(room_list)
+
+for room in freq.keys():
+    if freq[room] == 1:
+        print(room)
+        break
+
+
 
 
 
