@@ -68,8 +68,16 @@ a,b,c,d = [int(input()) for _ in range(4)]
 print(pow(a,b) + pow(c,d))
 
 
+## Triangle Quest
+# using only arithmetic operations, a single for loop and print statement
+for i in range(1,int(input())): #More than 2 lines will result in 0 score. Do not leave a blank line also
+    print( ( (10**i)//9 )*i )      # (10**i)//9 gives required seq of 1's
+
+# alternative
+print(int(i*(10**i-1)/9))
+  
+# same output but failed (str is not allowed)
+print(''.join([str(i)]*i))
 
 
-
-
-
+## end ##
