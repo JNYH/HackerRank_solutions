@@ -1,0 +1,22 @@
+## Python
+## Sets
+
+
+##  Polar Coordinates
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+# option A
+# from cmath import polar
+# z = complex(input())
+# print(*polar(z), sep='\n')
+
+# option B
+from cmath import *
+z = complex(input())
+print(abs(z), phase(z), sep='\n')
+
+
+
+
+
+
