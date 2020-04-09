@@ -16,6 +16,16 @@ z = complex(input())
 print(abs(z), phase(z), sep='\n')
 
 
+## Find Angle MBC
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from math import degrees, atan2
+
+AB = int(input())
+BC = int(input())
+result = round(degrees(atan2(AB, BC)))
+print(str(result) + '°')
+
+
 
 
 
