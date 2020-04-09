@@ -46,6 +46,14 @@ for i in range(0, n):
     print(my_list[i])
 
 
+## Mod Divmod
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+numerator = int(input())
+denominator = int(input())
+print(numerator // denominator)
+print(numerator % denominator)
+print(divmod(numerator, denominator))
+
 
 
 
