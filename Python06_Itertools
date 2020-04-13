@@ -6,27 +6,38 @@
 # Enter your code here. Read input from STDIN. Print output to STDOUT
 from itertools import product
 
-A = list(map(int, input().split()))
-B = list(map(int, input().split()))
-
+A = list(map(int, input().split()))   # 1 2
+B = list(map(int, input().split()))   # 3 4
 print(*product(A, B))
+#  (1, 3) (1, 4) (2, 3) (2, 4)
 
 
 ##  itertools.permutations()
 # Enter your code here. Read input from STDIN. Print output to STDOUT
 from itertools import permutations
-s, k = input().split()    # default input type str
+s, k = input().split()    # default input type str, eg HACK 2 becomes 'HACK' '2'
 s = sorted(s)
 k = int(k)
-
 for p in list(permutations(s, k)):
     print(*p, sep='')
+# AC
+# AH
+# AK
+# CA
+# CH
+# CK
+# HA
+# HC
+# HK
+# KA
+# KC
+# KH
 
 
 ##  itertools.combinations()
 # Enter your code here. Read input from STDIN. Print output to STDOUT
 from itertools import combinations
-s , n  = input().split()
+s, n  = input().split()    # HACK 2
 
 # # Option A
 # for i in range(1, int(n)+1):
@@ -36,6 +47,38 @@ s , n  = input().split()
 # Option B
 for k in range(1, int(n)+1):
     print(*[''.join(item) for item in combinations(sorted(s), k)], sep='\n')
+
+# A
+# C
+# H
+# K
+# AC
+# AH
+# AK
+# CH
+# CK
+# HK
+
+
+## itertools.combinations_with_replacement()
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from itertools import combinations_with_replacement
+s, k = map(str, input().split())    # HACK 2 
+s = sorted(s)
+k = int(k)
+for e in list(combinations_with_replacement(s, k)):
+    print(*e, sep='')
+
+# AA
+# AC
+# AH
+# AK
+# CC
+# CH
+# CK
+# HH
+# HK
+# KK
 
 
 
