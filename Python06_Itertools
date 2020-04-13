@@ -81,6 +81,21 @@ for e in list(combinations_with_replacement(s, k)):
 # KK
 
 
+## Compress the String!
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from itertools import groupby
+
+# # Option A
+# print(*[(len(list(c)), int(k)) for k, c in groupby(input())])
+
+# Option B
+for k,v in groupby(input()):
+    print((len(list(v)),int(k)),end=' ')
+
+# input 1222311
+# output (1, 1) (3, 2) (1, 3) (2, 1)
+
+
 
 
 
