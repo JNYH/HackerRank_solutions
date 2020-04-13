@@ -23,6 +23,21 @@ for p in list(permutations(s, k)):
     print(*p, sep='')
 
 
+##  itertools.combinations()
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from itertools import combinations
+s , n  = input().split()
+
+# # Option A
+# for i in range(1, int(n)+1):
+#     for j in combinations(sorted(s), i):
+#         print(''.join(j))
+
+# Option B
+for k in range(1, int(n)+1):
+    print(*[''.join(item) for item in combinations(sorted(s), k)], sep='\n')
+
+
 
 
 
