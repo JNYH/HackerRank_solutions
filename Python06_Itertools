@@ -12,6 +12,17 @@ B = list(map(int, input().split()))
 print(*product(A, B))
 
 
+##  itertools.permutations()
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from itertools import permutations
+s, k = input().split()    # default input type str
+s = sorted(s)
+k = int(k)
+
+for p in list(permutations(s, k)):
+    print(*p, sep='')
+
+
 
 
 
