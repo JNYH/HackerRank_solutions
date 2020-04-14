@@ -96,6 +96,27 @@ for k,v in groupby(input()):
 # output (1, 1) (3, 2) (1, 3) (2, 1)
 
 
+## Iterables and Iterators
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from itertools import combinations
+N = int(input())
+letters = input().split()
+K = int(input())
+all_combi = list(combinations(letters, K))
+
+# # Option A
+# count_a = [i for i in all_combi if 'a' in i]
+# print('{0:.3}'.format( len(count_a)/len(all_combi) ))
+
+# Option B
+count_a = 0
+for combi in all_combi:
+    if 'a' in combi:
+        count_a += 1
+print('{0:.3}'.format( count_a/len(all_combi) ))
+
+
+
 
 
 
