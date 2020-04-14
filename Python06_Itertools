@@ -116,8 +116,30 @@ for combi in all_combi:
 print('{0:.3}'.format( count_a/len(all_combi) ))
 
 
+## Maximize It!
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from itertools import product
+K, M = map(int, input().split())
+
+# # Option A
+# Numbers = (list(map(int, input().split()))[1:] for _ in range(K))
+# result = map(lambda x: sum(i**2 for i in x)%M, product(*Numbers))
+# print(max(result))
+
+# # Option B
+# Numbers = []
+# for _ in range(K):
+#     Numbers.append(list(map(int, input().split()))[1:])
+# result = list(map(lambda x: sum(pow(i,2) for i in x)%M, product(*Numbers)))
+# print(max(result))
+
+# Option C
+Numbers = []
+for _ in range(K):
+    Numbers.append(list(map(int, input().split()))[1:])
+list_com = list(product(*Numbers))
+result = [sum(map(lambda x: x**2,x))%M for x in list_com]
+print(max(result))
 
 
-
-
-
+## end ##
