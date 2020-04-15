@@ -115,6 +115,34 @@ print(total/n)
 # print('%.2f' % statistics.mean(next((int(student(*row).MARKS) for row in (input().split() for i in range(size))) for size, student in [[int(input()), collections.namedtuple('Report', input())]])))
 
 
+## Collections.OrderedDict()
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+# # Option 1
+# from collections import OrderedDict
+# D = OrderedDict()
+# for _ in range(int(input())):
+#     item, space, price = input().rpartition(' ')
+#     D[item] = D.get(item, 0) + int(price)
+# for item, price in D.items():
+#     print(item, price)
+
+# # Option 2
+# from collections import OrderedDict
+# D = OrderedDict()
+# for _ in range(int(input())):
+#     item, space, price = input().rpartition(' ')
+#     D[item] = D.get(item, 0) + int(price)
+# print(*[' '.join([item, str(price)]) for item, price in D.items()], sep='\n')
+
+# Option 3 (latest python dictionary is default ordered)
+store_item = dict()
+for _ in range(int(input())):
+    key, _, value = input().rpartition(" ")
+    store_item[key] = store_item.get(key, 0) + int(value)
+for k, v in store_item.items():
+    print(k, v)
+
 
 
 
