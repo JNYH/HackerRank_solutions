@@ -53,9 +53,9 @@ print(sales)
 #     A[input()].append(i+1) 
 # for _ in range(m):
 #     B.append(input())    # or B += [input()]
-# for e in B:
-#     if e in A:
-#         print(' '.join( map(str, A[e]) ))
+# for word in B:
+#     if word in A:
+#         print(' '.join( map(str, A[word]) ))
 #     else:
 #         print(-1)
 
@@ -66,9 +66,9 @@ n, m = map(int, input().split())
 for i in range(n):
     A[input()].append(i+1) 
 for _ in range(m):
-    e = input()
-    if e in A: 
-        print(' '.join( map(str, A[e]) ))
+    word = input()
+    if word in A: 
+        print(' '.join( map(str, A[word]) ))
     else: 
         print(-1)
 
@@ -81,9 +81,6 @@ for _ in range(m):
 #     A[word] = A[word] + ' ' + str(i) if word in A else str(i)
 # for _ in range(m):
 #     print(A[input()])
-
-
-
 
 
 
