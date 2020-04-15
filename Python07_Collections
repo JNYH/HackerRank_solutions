@@ -101,9 +101,18 @@ for _ in range(m):
 # marks = [int(Report._make(input().split()).MARKS) for x in range(n)]
 # print('{: 0.2F}'.format( sum(marks)/len(marks) ))
 
-# Option 3 (1 line)
-import collections, statistics
-print('%.2f' % statistics.mean(next((int(student(*row).MARKS) for row in (input().split() for i in range(size))) for size, student in [[int(input()), collections.namedtuple('Report', input())]])))
+# Option 3
+from collections import namedtuple
+n = int(input())
+Report = namedtuple('Report', input().split())
+total = 0
+for _ in range(n):
+    total += int(Report(*input().split()).MARKS)
+print(total/n)
+
+# # Option 4 (1 line)
+# import collections, statistics
+# print('%.2f' % statistics.mean(next((int(student(*row).MARKS) for row in (input().split() for i in range(size))) for size, student in [[int(input()), collections.namedtuple('Report', input())]])))
 
 
 
