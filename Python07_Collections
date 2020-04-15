@@ -1,0 +1,41 @@
+## Python
+## Collections
+
+
+## collections.Counter()
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+# # Option with Counter
+# from collections import Counter
+# X = int(input())
+# input_list = list(map(int, input().split()))
+# sizes_counter = Counter(input_list)
+# N = int(input())
+# sales = 0
+# for _ in range(N):
+#     size, price = map(int, input().split())
+#     if sizes_counter[size] > 0:
+#         sales += price
+#         sizes_counter[size] -= 1
+# print(sales)
+
+# Option without Counter
+X = int(input())
+sizes_list = list(map(int, input().split()))
+N = int(input())
+sales = 0
+for _ in range(N):
+    size, price = map(int, input().split())
+    if size in sizes_list:
+        sales += price
+        sizes_list.remove(size)
+print(sales)
+
+
+
+
+
+
+
+
+
