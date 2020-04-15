@@ -83,6 +83,28 @@ for _ in range(m):
 #     print(A[input()])
 
 
+## Collections.namedtuple()
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+# # Option 1
+# from collections import namedtuple
+# n = int(input())
+# Report = namedtuple('Report', input())
+# reports = [Report(*input().split()) for _ in range(n)]
+# print(sum([int(e.MARKS) for e in reports])/n)
+
+# # Option 2
+# from collections import namedtuple
+# n = int(input())
+# categories = input().split()
+# Report = namedtuple('Report', categories)
+# marks = [int(Report._make(input().split()).MARKS) for x in range(n)]
+# print('{: 0.2F}'.format( sum(marks)/len(marks) ))
+
+# Option 3 (1 line)
+import collections, statistics
+print('%.2f' % statistics.mean(next((int(student(*row).MARKS) for row in (input().split() for i in range(size))) for size, student in [[int(input()), collections.namedtuple('Report', input())]])))
+
 
 
 
