@@ -32,6 +32,59 @@ for _ in range(N):
 print(sales)
 
 
+## DefaultDict Tutorial
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+# # Option 1
+# from collections import defaultdict
+# n, m = map(int, input().split())
+# A = defaultdict(list)
+# for i in range(n):
+#     A[input()].append(i+1)
+# B = [input() for _ in range(m)]
+# [print(*A.get(letter, [-1])) for letter in B]
+
+# # Option 2
+# from collections import defaultdict
+# A = defaultdict(list)
+# B = []
+# n, m = map(int, input().split())
+# for i in range(n):
+#     A[input()].append(i+1) 
+# for _ in range(m):
+#     B.append(input())    # or B += [input()]
+# for e in B:
+#     if e in A:
+#         print(' '.join( map(str, A[e]) ))
+#     else:
+#         print(-1)
+
+# Option 3
+from collections import defaultdict
+A = defaultdict(list)
+n, m = map(int, input().split())
+for i in range(n):
+    A[input()].append(i+1) 
+for _ in range(m):
+    e = input()
+    if e in A: 
+        print(' '.join( map(str, A[e]) ))
+    else: 
+        print(-1)
+
+# # Option 4
+# from collections import defaultdict
+# n, m = map(int, input().split())
+# A = defaultdict(lambda: -1)
+# for i in range(1, n+1): 
+#     word = input()
+#     A[word] = A[word] + ' ' + str(i) if word in A else str(i)
+# for _ in range(m):
+#     print(A[input()])
+
+
+
+
 
 
 
