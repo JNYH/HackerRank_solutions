@@ -197,6 +197,35 @@ print(len(words))
 print(*(word for word in words.values()))
 
 
+## Collections.deque()
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+# # Option 1
+# from collections import deque
+# d = deque()
+# for _ in range(int(input())):
+#     inp = input().split()
+#     getattr(d, inp[0])(*[inp[1]] if len(inp) > 1 else '')
+# print(*[item for item in d])
+
+# # Option 2
+# from collections import deque
+# d = deque()
+# for _ in range(int(input())):
+#     com = input().split() + ['']
+#     eval( f'd.{com[0]} ({com[1]})' )
+# print(*d)
+
+# Option 3
+from collections import deque
+d = deque()
+for _ in range(int(input())):
+    oper, val, *args = input().split() + ['']
+    eval( f'd.{oper} ({val})' )
+print(*d)
+
+
+
 
 
 
