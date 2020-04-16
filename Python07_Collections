@@ -225,6 +225,33 @@ for _ in range(int(input())):
 print(*d)
 
 
+## Company Logo
+import math
+import os
+import random
+import re
+import sys
+
+if __name__ == '__main__':
+    s = input()
+    
+    # # Option 1
+    # from collections import Counter
+    # [print(*c) for c in Counter(sorted(s)).most_common(3)]
+    
+    # # Option 2
+    # from collections import Counter
+    # for c in Counter(sorted(s)).most_common(3): 
+    #     print(*c)
+
+    # Option 3
+    from collections import Counter
+    s = sorted(s)
+    freq = Counter(list(s))
+    for k,v in freq.most_common(3):
+        print(k,v)
+
+
 
 
 
