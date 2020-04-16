@@ -144,6 +144,59 @@ for k, v in store_item.items():
     print(k, v)
 
 
+## Word Order
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+# # Option 1
+# from collections import defaultdict
+# n = int(input())
+# words_dict = defaultdict(int)
+# for _ in range(n):
+#     key = input()
+#     words_dict[key] += 1
+# print(len(words_dict.keys())) 
+# print(*words_dict.values())
+
+# # Option 2
+# from collections import OrderedDict
+# words_dict = OrderedDict()
+# for i in range(int(input())):
+#     key = input()
+#     if not key in words_dict.keys():
+#         words_dict.update({key: 1})
+#     else:
+#         words_dict[key] += 1
+# print(len(words_dict.keys()))
+# print(*words_dict.values())
+
+# # Option 3
+# from collections import Counter
+# input_list = []
+# for _ in range(int(input())):
+#     input_list.extend((input().split('\n')))
+# freq = Counter(input_list)
+# print(len(freq))
+# for key in freq:
+#     print(freq.get(key), end=' ')
+
+# # Option 4
+# from collections import Counter
+# input_list = []
+# for _ in range(int(input())):
+#     input_list.append(input())
+# print(len(set(input_list)))
+# # print(*list(Counter(input_list).values()), sep=' ')    #same
+# print(' '.join([str(v) for k, v in Counter(input_list).items()]))
+
+# Option 5 (without library)
+words = dict()
+for _ in range(int(input())):
+    word = input()
+    words[word] = words.get(word, 0) + 1 
+print(len(words))
+print(*(word for word in words.values()))
+
+
 
 
 
