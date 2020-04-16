@@ -252,8 +252,44 @@ if __name__ == '__main__':
         print(k,v)
 
 
+## Piling Up!
+# Enter your code here. Read input from STDIN. Print output to STDOUT
 
+# # Option 1
+# from collections import deque
+# for _ in range(int(input())):
+#     result = 'Yes'
+#     D = deque()
+#     N = int(input())
+#     l = list(map(int, input().split()))
+#     D.extend(l)
+#     l.sort(reverse=True)
+#     for i in range(N):
+#         right = D.pop()
+#         if i<N-1:
+#             left = D.popleft()
+#         if l[i] == left:
+#             D.append(right)
+#             continue
+#         elif l[i] == right:
+#             D.appendleft(left)
+#             continue
+#         else:
+#             result = 'No'
+#             break
+#     print(result)
 
+# Option 2
+for t in range(int(input())):
+    input()
+    lst = list(map(int, input().split()))
+    l = len(lst)
+    i = 0
+    while i < l - 1 and lst[i] >= lst[i+1]:
+        i += 1
+    while i < l - 1 and lst[i] <= lst[i+1]:
+        i += 1
+    print('Yes' if i == l - 1 else 'No')
+    
 
-
-
+## end ##
