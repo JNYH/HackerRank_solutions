@@ -3,8 +3,24 @@
 
 
 ## Calendar Module
+# Enter your code here. Read input from STDIN. Print output to STDOUT
 
+# # Option 1
+# import calendar
+# month, day, year = map(int, input().split())
+# print(list(calendar.day_name)[calendar.weekday(year, month, day)].upper())
 
+# Option 2
+import datetime
+month, day, year = map(int, input().split())
+print( datetime.datetime(year, month, day).strftime('%A').upper() )
+
+# # Option 3
+# import calendar
+# week_list = list(calendar.day_name)
+# month, day, year = map(int, input().split())
+# result = calendar.weekday(year, month, day)
+# print((week_list[result]).upper())
 
 
 ## Time Delta
