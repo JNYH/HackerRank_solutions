@@ -15,6 +15,11 @@ import datetime
 month, day, year = map(int, input().split())
 print( datetime.datetime(year, month, day).strftime('%A').upper() )
 
+# Option 2a
+from datetime import datetime
+month, day, year = map(int, input().split())
+print( datetime(year, month, day).strftime('%A').upper() )
+
 # # Option 3
 # import calendar
 # week_list = list(calendar.day_name)
