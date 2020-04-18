@@ -14,8 +14,25 @@ for _ in range(n):
 
 
 ## Incorrect Regex
+# Enter your code here. Read input from STDIN. Print output to STDOUT
 
+# # Option 1
+# import re
+# for _ in range(int(input())):
+#     result = True
+#     try:
+#         reg = re.compile(input())
+#     except Exception:    # raises "re.error"
+#         result = False
+#     print(result)
 
+# Option 2
+import re
+for _ in range(int(input())):  
+    try:
+        print(bool(re.compile(input())))
+    except:
+        print('False')
 
 
 ## end ##
