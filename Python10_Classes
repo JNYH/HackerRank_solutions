@@ -11,19 +11,19 @@ class Complex(object):
         self.imaginary = imaginary
 
     def __add__(self, no):
-        x = self.real + no.real
-        y = self.imaginary + no.imaginary
-        return Complex(x,y)
+        a = self.real + no.real
+        b = self.imaginary + no.imaginary
+        return Complex(a,b)
 
     def __sub__(self, no):
-        x = self.real - no.real
-        y = self.imaginary - no.imaginary
-        return Complex(x,y)
+        a = self.real - no.real
+        b = self.imaginary - no.imaginary
+        return Complex(a,b)
     
     def __mul__(self, no):
-        x = self.real*no.real - self.imaginary*no.imaginary
-        y = self.imaginary*no.real + self.real*no.imaginary
-        return Complex(x,y)
+        a = self.real*no.real - self.imaginary*no.imaginary
+        b = self.imaginary*no.real + self.real*no.imaginary
+        return Complex(a,b)
 
     def __truediv__(self, no):
         conjugate = Complex(no.real,(-no.imaginary))
