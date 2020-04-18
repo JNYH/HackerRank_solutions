@@ -2,6 +2,27 @@
 ## Built-Ins
 
 
+## Zipped!
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+# # Option 1
+# n, x = map(int, input().split())
+# input_list = []
+# for _ in range(x):
+#     input_list.append([float(i) for i in input().split()])
+# zipped = list(zip(*input_list))
+# for i in range(n):
+#     print('{:.1f}'.format(sum(zipped[i])/len(zipped[i])))
+
+# Option 2
+n, x = map(int, input().split()) 
+input_list = []
+for _ in range(x):
+    input_list.append( map(float, input().split()) ) 
+for marks in zip(*input_list): 
+    print( sum(marks)/len(marks) )
+
+
 ## input()
 # Enter your code here. Read input from STDIN. Print output to STDOUT
 
@@ -12,6 +33,10 @@
 # Option 2
 x,k = [int(_) for _ in input().split()]
 print('True' if eval(input())==k else 'False')
+
+
+## Python Evaluation
+
 
 
 
