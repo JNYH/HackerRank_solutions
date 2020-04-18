@@ -3,6 +3,15 @@
 
 
 ## input()
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+# # Option 1
+# x,k = map(int, input().split())
+# print(eval(input()) == k)
+
+# Option 2
+x,k = [int(_) for _ in input().split()]
+print('True' if eval(input())==k else 'False')
 
 
 
