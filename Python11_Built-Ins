@@ -91,8 +91,22 @@ arr = input().split()
 print(all(int(i)>0 for i in arr) and any(j == j[::-1]for j in arr))
 
 
+## ginortS (ie, Sorting)
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+# # Option 1
+# print(*sorted(input(), key=lambda c: (-ord(c) >> 5, c in '02468', c)), sep='')
+
+# # Option 2
+# print(*sorted(input(), key=lambda c: (c.isdigit() - c.islower(), c in '02468', c)), sep='')
+
+# # Option 3
+# order = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1357902468'
+# print(*sorted(input(), key=order.index), sep='')
+
+# Option 4
+import string
+print(*sorted(input(), key=(string.ascii_letters + '1357902468').index), sep='')
 
 
-
-
-## end ## 
+## end ##
