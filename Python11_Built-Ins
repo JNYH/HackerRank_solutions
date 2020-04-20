@@ -41,6 +41,33 @@ input_str = input()
 eval(input_str)
 
 
+## Athlete Sort
+import math
+import os
+import random
+import re
+import sys
+
+if __name__ == '__main__':
+    nm = input().split()
+    n = int(nm[0])
+    m = int(nm[1])
+    
+    # # Option 1
+    # arr = []
+    # for _ in range(n):
+    #     arr.append(list(map(int, input().rstrip().split())))
+    # k = int(input())
+    # for row in sorted(arr, key=lambda row: int(row[k])):
+    #     print(*row)
+
+    # Option 2
+    from operator import itemgetter
+    arr = [[int(i) for i in input().split()] for _ in range(n)]
+    k = int(input())
+    for row in sorted(arr, key=itemgetter(k)):
+        print(*row)
+        
 
 
 
