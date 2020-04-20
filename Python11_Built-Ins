@@ -75,9 +75,9 @@ if __name__ == '__main__':
     # k = int(input())
     # for row in sorted(arr, key=itemgetter(k)):
     #     print(*row)
-    
-    
-    
+
+
+
 
 
 
