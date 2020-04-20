@@ -77,6 +77,19 @@ if __name__ == '__main__':
     #     print(*row)
 
 
+## Any or All
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+# # Option 1
+# n = int(input())
+# arr = input().split()
+# print(all([int(i)>0 for i in arr]) and any([j == j[::-1] for j in arr]))
+
+# Option 2 uses generators (iso list) so execution time is less
+n = int(input())
+arr = input().split()
+print(all(int(i)>0 for i in arr) and any(j == j[::-1]for j in arr))
+
 
 
 
