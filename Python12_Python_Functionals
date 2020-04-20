@@ -3,6 +3,33 @@
 
 
 ## Map and Lambda Function
+cube = lambda x:x*x*x   # complete the lambda function 
+
+# # Option 1
+# def fibonacci(n):
+#     # return a list of fibonacci numbers
+#     arr = []
+#     a = 0
+#     b = 1
+#     for i in range(n):       
+#         arr.append(a)
+#         a,b = b,a+b
+#     return arr
+
+# Option 2
+def fibonacci(n):
+    arr = []
+    for i in range(n):
+        if i<=1:
+            arr.append(i)
+        else:
+            arr.append(arr[-1] + arr[-2])
+    return arr
+
+if __name__ == '__main__':
+    n = int(input())
+    print(list(map(cube, fibonacci(n))))
+
 
 
 
