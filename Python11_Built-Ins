@@ -36,6 +36,11 @@ print('True' if eval(input())==k else 'False')
 
 
 ## Python Evaluation
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+input_str = input()
+eval(input_str)
+
+
 
 
 
