@@ -62,15 +62,22 @@ if __name__ == '__main__':
     #     print(*row)
 
     # Option 2
-    from operator import itemgetter
-    arr = [[int(i) for i in input().split()] for _ in range(n)]
+    arr = []
+    for _ in range(n):
+        arr.append(list(map(int, input().rstrip().split())))
     k = int(input())
-    for row in sorted(arr, key=itemgetter(k)):
+    for row in sorted(arr, key=lambda arr: arr[k]):
         print(*row)
-        
 
-
-
+    # # Option 3 (a little slower)
+    # from operator import itemgetter
+    # arr = [[int(i) for i in input().split()] for _ in range(n)]
+    # k = int(input())
+    # for row in sorted(arr, key=itemgetter(k)):
+    #     print(*row)
+    
+    
+    
 
 
 
