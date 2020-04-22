@@ -22,6 +22,24 @@ for _ in range(int(input())):
 #         print(False)
 
 
+## Re.split()
+regex_pattern = r'[.,]+'	# Do not delete 'r'.
+
+# # Option 1
+# import re
+# print(*filter(None, re.split(r'[.,]+', input())), sep='\n')
+
+# # Option 2
+# import re
+# print(*re.split(r'[.,]+', input().strip('., ')), sep='\n')
+
+# # Option 3
+# import re
+# print(*re.split('[,.]+', input()), sep='\n')
+
+import re
+print("\n".join(re.split(regex_pattern, input())))
+
 
 
 
