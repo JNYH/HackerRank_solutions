@@ -3,6 +3,21 @@
 
 
 ## Detect Floating Point Number
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+# # Condensed version:
+# import re
+# for _ in range(int(input())):
+#     print(bool(re.match(r'^[-+]?[0-9]*\.[0-9]+$', input())))
+
+# Simple readable version:
+import re
+n = int(input())
+for _ in range(n):
+    str = input()
+    if (re.match(r'^[-+]?[0-9]*\.[0-9]+$', str)):
+        print(True)
+    else:
+        print(False)
 
 
 
