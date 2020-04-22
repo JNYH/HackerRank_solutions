@@ -609,6 +609,9 @@ mylist.display(head);
 
 
 Day 25: Running Time and Complexity
+"""
+If a number x is divisable by another number less or equal to the square root of x... it is NOT prime. That is the reason for O(sqrt(n)) run time.
+"""
 # Enter your code here. Read input from STDIN. Print output to STDOUT
 def is_prime(n):
     if n==2:
@@ -616,7 +619,7 @@ def is_prime(n):
     elif n==1 or n%2==0:   # 1 or any even number
         return 'Not prime'
     # iterate through for all odd numbers from 3 to int(square root of n)
-    for i in range(3, int(n**0.5) + 1, 2):
+    for i in range(3, int(n**0.5) + 1, 2):    # 2 step increment, even numbers are not prime
         if n%i==0:
             return 'Not prime'
     return 'Prime'
