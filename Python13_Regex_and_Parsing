@@ -157,6 +157,53 @@ else:
     print(-1)
 
 
+## Re.start() & Re.end()
+"""
+These expressions return the indices of the start and end of the substring matched by the group.
+>>> import re
+>>> m = re.search(r'\d+','1234')
+>>> m.end()
+4
+>>> m.start()
+0
+
+You are given a string S.
+Your task is to find the indices of the start and end of string k in S.
+eg. 
+aaadaa
+aa
+Output:
+(0, 1)  
+(1, 2)
+(4, 5)
+"""
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+# # Option 1
+# S = input()
+# k = input()
+# import re
+# pattern = re.compile(k)
+# r = pattern.search(S)
+# if not r: 
+#     print('(-1, -1)')
+# while r:
+#     print('({0}, {1})'.format(r.start(), r.end() - 1))
+#     r = pattern.search(S, r.start() + 1)
+
+# Option 2
+import re 
+S = input()
+k = input()
+if re.search(k, S)==None:    # none matches
+    print( (-1, -1) )
+else:      # >=1 matches
+    for i in range(len(S)-len(k)+1):
+        if S[i:i+len(k)]==k:
+            print((i, i+len(k)-1))
+
+
+
 
 
 ## end ##
