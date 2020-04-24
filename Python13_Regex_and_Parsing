@@ -54,6 +54,54 @@ print("\n".join(re.split(regex_pattern, input())))
 # print(*re.split('[,.]+', input()), sep='\n')
 
 
+## Group(), Groups() & Groupdict()
+"""
+>>> import re
+>>> m = re.match(r'(\w+)@(\w+)\.(\w+)','username@hackerrank.com')
+>>> m.group(0)       # The entire match 
+'username@hackerrank.com'
+>>> m.group(1)       # The first parenthesized subgroup.
+'username'
+>>> m.group(2)       # The second parenthesized subgroup.
+'hackerrank'
+>>> m.group(3)       # The third parenthesized subgroup.
+'com'
+>>> m.group(1,2,3)   # Multiple arguments give us a tuple.
+('username', 'hackerrank', 'com')
+>>> m.groups()
+('username', 'hackerrank', 'com')
+
+>>> m = re.match(r'(?P<user>\w+)@(?P<website>\w+)\.(?P<extension>\w+)','myname@hackerrank.com')
+>>> m.groupdict()
+{'website': 'hackerrank', 'user': 'myname', 'extension': 'com'}
+"""
+# Given string S, find the first occurrence of an alphanumeric character in S.
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+# # Option 1
+# import re
+# m = re.search(r'([a-zA-Z0-9])\1+', input().strip())
+# print(m.group(1) if m else -1)
+
+# # Option 2
+# s=list(input())
+# for i in range(len(s)):
+#     try:
+#         if s[i]==s[i+1]:
+#             if  s[i].isalnum():
+#                 print(s[i])
+#                 break
+#     except:
+#         print("-1")
+
+# Option 3
+import re
+reg = re.match(r".*?([a-zA-Z0-9]+)\1", input())
+if reg:
+    print(reg.group(1))
+else:
+    print(-1)
+
 
 
 
