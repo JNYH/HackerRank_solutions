@@ -3,6 +3,13 @@
 
 
 ## Detect Floating Point Number
+"""
+eg, 
+4.0O0 = False (there is a letter 'O', not zero)
+-1.00 = True
++4.54 = True
+SomeRandomStuff = False
+"""
 # Enter your code here. Read input from STDIN. Print output to STDOUT
 # Condensed version:
 import re
@@ -23,22 +30,29 @@ for _ in range(int(input())):
 
 
 ## Re.split()
+"""
+Spliting 100,000,000.000 to 
+100
+000
+000
+000
+"""
 regex_pattern = r'[.,]+'	# Do not delete 'r'.
-
-# # Option 1
-# import re
-# print(*filter(None, re.split(r'[.,]+', input())), sep='\n')
+import re
+print("\n".join(re.split(regex_pattern, input())))
 
 # # Option 2
 # import re
-# print(*re.split(r'[.,]+', input().strip('., ')), sep='\n')
+# print(*filter(None, re.split(r'[.,]+', input())), sep='\n')
 
 # # Option 3
 # import re
+# print(*re.split(r'[.,]+', input().strip('., ')), sep='\n')
+
+# # Option 4
+# import re
 # print(*re.split('[,.]+', input()), sep='\n')
 
-import re
-print("\n".join(re.split(regex_pattern, input())))
 
 
 
