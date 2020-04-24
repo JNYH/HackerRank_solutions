@@ -103,6 +103,59 @@ else:
     print(-1)
 
 
+## Re.findall() & Re.finditer()
+"""
+The expression re.findall() returns all the non-overlapping matches of patterns in a string as a list of strings.
+>>> import re
+>>> re.findall(r'\w','http://www.hackerrank.com/')
+['h', 't', 't', 'p', 'w', 'w', 'w', 'h', 'a', 'c', 'k', 'e', 'r', 'r', 'a', 'n', 'k', 'c', 'o', 'm']
+
+The expression re.finditer() returns an iterator yielding MatchObject instances over all non-overlapping matches for the re pattern in the string.
+>>> import re
+>>> re.finditer(r'\w','http://www.hackerrank.com/')
+<callable-iterator object at 0x0266C790>
+>>> map(lambda x: x.group(),re.finditer(r'\w','http://www.hackerrank.com/'))
+['h', 't', 't', 'p', 'w', 'w', 'w', 'h', 'a', 'c', 'k', 'e', 'r', 'r', 'a', 'n', 'k', 'c', 'o', 'm']
+
+given a string S consisting of alphanumeric characters, spaces and symbols(+,-).
+Your task is to find all the substrings of S that contains 2 or more vowels, located in between 2 consonants
+eg. S = 'rabcdeefgyYhFjkIoomnpOeorteeeeet'
+Output:
+ee
+Ioo
+Oeo
+eeeee
+"""
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+# # Option 1
+# import re
+# v = 'aeiou'
+# c = 'qwrtypsdfghjklzxcvbnm'
+# m = re.findall(r'(?<=[%s])([%s]{2,})[%s]' % (c, v, c), input(), flags = re.I)
+# print('\n'.join(m or ['-1']))
+
+# # Option 2
+# import re
+# c = '[qwrtypsdfghjklzxcvbnm]'
+# m = re.findall('(?<=' + c +')([aeiou]{2,})' + c, input(), re.I)
+# print('\n'.join(m or ['-1']))
+
+# # Option 3
+# import re
+# regex = re.findall('(?<=[^AEIOUaeiou])([AEIOUaeiou]{2,})[^AEIOUaeiou]', input().strip())
+# print('\n'.join(regex) if regex else -1)
+
+# Option 4
+import re
+x = input() 
+v = re.findall(r'(?<=[^AEIOUaeiou])([AEIOUaeiou]{2,})[^AEIOUaeiou]', x)
+y = ('\n'.join(v))
+if v: 
+    print(y) 
+else: 
+    print(-1)
+
 
 
 
