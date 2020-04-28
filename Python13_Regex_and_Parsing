@@ -324,6 +324,40 @@ import re
 print(str(bool(re.match(regex_pattern, input()))))
 
 
+## Validating phone numbers
+# A valid mobile number is a ten digit number starting with a 7, 8 or 9.
+
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+# # Option 1
+# # [789]\d{9}$ checks 1st digit is 7,8,9, plus next 9 are digits (total 10 digits)
+# import re
+# [print('YES' if re.match(r'[789]\d{9}$',input()) else 'NO') for _ in range(int(input()))]
+
+# # Option 2
+# import re
+# for i in range(int(input())):
+#     if re.match(r'[789]\d{9}$', input()):   
+#         print('YES') 
+#     else:  
+#         print('NO')
+
+# # Option 3
+# import re
+# for _ in range(int(input())):
+#     s = input().strip()
+#     print('YES' if (bool(re.search(r'^[789]', s)) and bool(re.search(r'^(\d){10}$',s))) else 'NO')
+
+# Option 4 (without regex)
+check_list = '789'
+for i in range(int(input())):
+    num = input()
+    if num.isdigit() and num[0] in check_list and len(num)==10:
+        print('YES') 
+    else:
+        print('NO')
+
+
 
 
 
