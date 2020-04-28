@@ -408,6 +408,47 @@ for _ in range(n):
         print(email.formataddr(p))
 
 
+## Hex Color Code
+"""
+You are given N lines of CSS code. Your task is to print all valid Hex Color Codes, in order of their occurrence from top to bottom.
+
+Sample Input:
+11
+#BED
+{
+    color: #FfFdF8; background-color:#aef;
+    font-size: 123px;
+    background: -webkit-linear-gradient(top, #f9f9f9, #fff);
+}
+#Cab
+{
+    background-color: #ABC;
+    border: 2px dashed #fff;
+}   
+
+Sample Output:
+#FfFdF8
+#aef
+#f9f9f9
+#fff
+#ABC
+#fff
+"""
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+# Option 1
+import re
+N = int(input())
+for i in range(N):
+    s = input()
+    x = s.split()
+    if len(x)>1  and  '{' not in x:
+        x = re.findall(r'#[a-fA-F0-9]{3,6}',s)
+        [print(i) for i in x]
+
+# # Option 2
+# import re, sys
+# [print(j) for i in sys.stdin for j in re.findall('[\s:](#[a-f0-9]{6}|#[a-f0-9]{3})', i, re.I)]
 
 
 
