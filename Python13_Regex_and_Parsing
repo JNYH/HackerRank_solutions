@@ -203,6 +203,105 @@ else:      # >=1 matches
             print((i, i+len(k)-1))
 
 
+## Regex Substitution
+"""
+The re.sub() method returns the modified string as an output.
+re.sub( a, becomes b, input)
+#Squaring numbers
+import re
+def square(match):
+    number = int(match.group(0))
+    return str(number**2)
+print re.sub(r"\d+", square, "1 2 3 4 5 6 7 8 9")
+
+Output:
+1 4 9 16 25 36 49 64 81
+
+#remove comment
+import re
+html = """
+<head>
+<title>HTML</title>
+</head>
+<object type="application/x-flash" 
+  data="your-file.swf" 
+  width="0" height="0">
+  <!-- <param name="movie"  value="your-file.swf" /> -->
+  <param name="quality" value="high"/>
+</object>  """
+print re.sub("(<!--.*?-->)", "", html) 
+
+Output
+<head>
+<title>HTML</title>
+</head>
+<object type="application/x-flash" 
+  data="your-file.swf" 
+  width="0" height="0">
+
+  <param name="quality" value="high"/>
+</object>
+
+You are given a text of N lines. The text contains && and || symbols.
+Your task is to modify those symbols to the following:
+&& →  and
+|| →  or
+Both && and || should have a space " " on both sides
+
+Example:
+11
+a = 1;
+b = input();
+
+if a + b > 0 && a - b < 0:
+    start()
+elif a*b > 10 || a/b < 1:
+    stop()
+print set(list(a)) | set(list(b)) 
+#Note do not change &&& or ||| or & or |
+#Only change those '&&' which have space on both sides.
+#Only change those '|| which have space on both sides (this has space on 1 side).
+
+Output:
+a = 1;
+b = input();
+
+if a + b > 0 and a - b < 0:
+    start()
+elif a*b > 10 or a/b < 1:
+    stop()
+print set(list(a)) | set(list(b)) 
+#Note do not change &&& or ||| or & or |
+#Only change those '&&' which have space on both sides.
+#Only change those '|| which have space on both sides.  
+
+"""
+# # Option 1
+# import re
+# N = int(input())
+# for i in range(N):
+#     print(re.sub(r'(?<= )(&&|\|\|)(?= )', lambda x: 'and' if x.group() == '&&' else 'or', input()))
+# # (&&|\|\|) means (&& or ||)
+# # since | is a special character in re, escape each of them \|\| to get ||
+
+# # Option 2
+# import re
+# for _ in range(int(input())):
+#     s = input()
+#     s = re.sub(r' &&(?= )', ' and', s)
+#     s = re.sub(r' \|\|(?= )', ' or', s)
+#     print(s)
+
+# Option 3
+import re
+def f(x): 
+    return 'and' if x.group(0) == '&&' else 'or'
+for _ in range(int(input())):
+    s = input()
+    print(re.sub(r'(?<= )([&|])\1(?= )', f, s))
+
+
+
 
 
 
