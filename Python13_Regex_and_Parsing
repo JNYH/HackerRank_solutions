@@ -515,6 +515,81 @@ for _ in range(int(input())):
     parser.feed(input())
 
 
+## HTML Parser - Part 2
+"""
+You are given an HTML code snippet of N lines.
+Your task is to print the single-line comments, multi-line comments and the data.
+Print the result in the following format:
+>>> Single-line Comment  
+Comment
+>>> Data                 
+My Data
+>>> Multi-line Comment  
+Comment_multiline[0]
+Comment_multiline[1]
+>>> Data
+My Data
+>>> Single-line Comment:  
+
+Sample Input:
+4
+<!--[if IE 9]>IE9-specific content
+<![endif]-->
+<div> Welcome to HackerRank</div>
+<!--[if IE 9]>IE9-specific content<![endif]-->
+
+Sample Output:
+>>> Multi-line Comment
+[if IE 9]>IE9-specific content
+<![endif]
+>>> Data
+ Welcome to HackerRank
+>>> Single-line Comment
+[if IE 9]>IE9-specific content<![endif]
+"""
+# # Option 1
+# from html.parser import HTMLParser
+# class MyHTMLParser(HTMLParser):
+#     def handle_comment(self, comment):
+#         number_of_line = len(comment.split('\n'))
+#         if number_of_line > 1:
+#             print('>>> Multi-line Comment')
+#         else:
+#             print('>>> Single-line Comment')
+#         print(comment)
+#     def handle_data(self, data):
+#         if data.strip():
+#             print(">>> Data")
+#             print(data)
+# parser = MyHTMLParser()
+# html_string = ''
+# for i in range(int(input())):
+#     html_string += input().rstrip() + '\n'
+# parser.feed(html_string)
+# parser.close()
+
+# Option 2
+from html.parser import HTMLParser
+class MyHTMLParser(HTMLParser):
+    def handle_comment(self, comment):
+        if '\n' in comment:
+            print('>>> Multi-line Comment')
+        else:
+            print('>>> Single-line Comment')
+        print(comment)
+    def handle_data(self, data):
+        if len(data) > 1: 
+            print('>>> Data', data, sep='\n')
+parser = MyHTMLParser()
+html_string = ''
+for i in range(int(input())):
+    html_string += input().rstrip() + '\n'
+parser.feed(html_string)
+parser.close()
+
+
+
+
 
 
 
