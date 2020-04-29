@@ -451,6 +451,70 @@ for i in range(N):
 # [print(j) for i in sys.stdin for j in re.findall('[\s:](#[a-f0-9]{6}|#[a-f0-9]{3})', i, re.I)]
 
 
+## HTML Parser - Part 1
+"""
+An HTMLParser instance is fed HTML data and calls handler methods when start tags, end tags, text, comments, and other markup elements are encountered.
+You are given an HTML code snippet of  lines.
+Your task is to print start tags, end tags and empty tags separately.
+
+Sample Input:
+2
+<html><head><title>HTML Parser - I</title></head>
+<body data-modal-target class='1'><h1>HackerRank</h1><br /></body></html>
+
+Sample Output:
+Start : html
+Start : head
+Start : title
+End   : title
+End   : head
+Start : body
+-> data-modal-target > None
+-> class > 1
+Start : h1
+End   : h1
+Empty : br
+End   : body
+End   : html
+"""
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+# # Option 1
+# from html.parser import HTMLParser
+# class MyHTMLParser(HTMLParser):
+#     def handle_starttag(self, tag, attrs):        
+#         print('Start :', tag)
+#         for ele in attrs:
+#             print('->',ele[0],'>',ele[1])
+#     def handle_endtag(self, tag):
+#         print('End   :', tag)
+#     def handle_startendtag(self, tag, attrs):
+#         print('Empty :', tag)
+#         for ele in attrs:
+#             print('->',ele[0],'>',ele[1])
+# parser = MyHTMLParser()
+# for _ in range(int(input())):
+#     parser.feed(input())
+
+# Option 2
+from html.parser import HTMLParser
+class MyHTMLParser(HTMLParser):
+    def handle_starttag(self, tag, attrs):
+        print ('Start :', tag)
+        self.value(attrs)
+    def handle_endtag(self, tag):
+        print ('End   :', tag)
+    def handle_startendtag(self, tag, attrs):
+        print ('Empty :', tag)
+        self.value(attrs)
+    def value(self, attrs = None):
+        if attrs:
+            [print('->', attr, '>', val) for attr, val, in attrs]
+parser = MyHTMLParser()
+for _ in range(int(input())):
+    parser.feed(input())
+
+
 
 
 
