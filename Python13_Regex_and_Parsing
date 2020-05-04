@@ -588,6 +588,76 @@ parser.feed(html_string)
 parser.close()
 
 
+## Detect HTML Tags, Attributes and Attribute Values
+"""
+The first line contains an integer , the number of lines in the HTML code snippet.
+The next  lines contain HTML code.
+Print the HTML tags, attributes and attribute values in order of their occurrence from top to bottom in the snippet.
+Format your answers as explained in the problem statement.
+
+Sample Input:
+9
+<head>
+<title>HTML</title>
+</head>
+<object type="application/x-flash" 
+  data="your-file.swf" 
+  width="0" height="0">
+  <!-- <param name="movie" value="your-file.swf" /> -->
+  <param name="quality" value="high"/>
+</object>
+
+Sample Output:
+head
+title
+object
+-> type > application/x-flash
+-> data > your-file.swf
+-> width > 0
+-> height > 0
+param
+-> name > quality
+-> value > high
+"""
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+# # Option 1
+# from html.parser import HTMLParser
+# class MyHTMLParser(HTMLParser):
+#     def handle_starttag(self, tag, attrs):
+#         print(tag)
+#         if len(attrs) > 0:
+#             for e in attrs:
+#                 print(f"-> {e[0]} > {e[1]}")
+# html = ''
+# for line in range(int(input())):
+#     html += input().rstrip()
+#     html += '\n'
+# parser = MyHTMLParser()
+# parser.feed(html)
+
+# # Option 2
+# from html.parser import HTMLParser
+# class MyHTMLParser(HTMLParser):
+#     def handle_starttag(self, tag, attrs):        
+#         print(tag)
+#         for e in attrs:
+#             print ('->', e[0], '>', e[1])
+# parser = MyHTMLParser()
+# for _ in range(int(input())):
+#     parser.feed(input()) 
+
+# Option 3
+from html.parser import HTMLParser
+class MyHTMLParser(HTMLParser):
+    def handle_starttag(self, tag, attrs):
+      print(tag)
+      for e in attrs:
+        print("-> {} > {}".format(e[0],e[1]))
+MyParser = MyHTMLParser()
+for i in range(int(input())):
+    MyParser.feed(input())
+
 
 
 
