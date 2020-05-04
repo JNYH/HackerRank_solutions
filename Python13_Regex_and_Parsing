@@ -807,11 +807,41 @@ print (bool(re.match(regex_integer_in_range, P))
 and len(re.findall(regex_alternating_repetitive_digit_pair, P)) < 2)
 
 
+## Matrix Script
+#!/bin/python3
 
+import math
+import os
+import random
+import re
+import sys
 
+first_multiple_input = input().rstrip().split()
+n = int(first_multiple_input[0])
+m = int(first_multiple_input[1])
+matrix = []
+for _ in range(n):
+    matrix_item = input()
+    matrix.append(matrix_item)
 
+# # Option 1
+# new = []
+# for i in range(m):
+#     new.append(''.join(list(map(lambda x:x[i],matrix))))
+# print(re.sub(r'(?<=\w)[\s!@#$%&]+(?=\w)',' ',''.join(new)))
 
+# # Option 2
+# new = ''.join(list(map(lambda t : ''.join(t), zip(*matrix))))
+# print(re.sub(r'(?<=[a-zA-Z0-9])[^a-zA-Z0-9]+(?=[a-zA-Z0-9])', ' ', new))
 
+# Option 3
+new = list()
+for i in range(m):
+    for j in range(n):
+        new.append(matrix[j][i])
+regex = re.compile('(?<=[a-z])[!@#\$%& ]+(?=[a-z])', flags = re.I)
+print(regex.sub(' ', ''.join(new)))
 
 
 ## end ##
+
