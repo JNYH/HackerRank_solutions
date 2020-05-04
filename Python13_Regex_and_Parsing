@@ -659,6 +659,54 @@ for _ in range(int(input())):
 #     MyParser.feed(input())
 
 
+## Validating UID (unique identification number)
+"""
+The company has assigned you the task of validating all the randomly generated UIDs.
+A valid UID must follow the rules below:
+It must contain at least 2 uppercase English alphabet characters.
+It must contain at least 3 digits (0 - 9).
+It should only contain alphanumeric characters (a - z, A - Z & 0 - 9).
+No character should repeat.
+There must be exactly 10 characters in a valid UID.
+
+Sample Input:
+2
+B1CD102354
+B1CDEF2354
+
+Sample Output:
+Invalid
+Valid
+"""
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+
+# # Option 1
+# import re
+# p = re.compile(r'[^a-zA-Z0-9]|([a-zA-Z0-9]).*?(?=\1)|^[a-zA-Z0-9]{,9}$|' + \
+#                 '^[a-zA-Z0-9]{11,}|(?:^[^A-Z]*?[A-Z]?[^A-Z]*$)|' + \
+#                 '(?:^[^0-9]*?[0-9]?[^0-9]*?[0-9]?[^0-9]*$)')
+# n = int(input())
+# for _ in range(n):
+#     in_ = input()
+#     print('Invalid' if p.search(in_) else 'Valid')
+
+# Option 2
+def check(message):
+    if sum(1 for c in message if c.isupper()) <2:
+        return 'Invalid'
+    elif sum(1 for c in message if c.isdigit()) <3:
+        return 'Invalid'
+    elif sum(1 for c in message if not c.isalnum()) >0:
+        return 'Invalid'
+    elif len(set(message)) != 10:   # no repeat character
+        return 'Invalid'
+    else:
+        return 'Valid'
+n = int(input()) 
+for i in range(n): 
+    s = input() 
+    print(check(s))
+
 
 
 
