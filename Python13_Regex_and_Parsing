@@ -155,6 +155,14 @@ if v:
     print(y) 
 else: 
     print(-1)
+"""
+v =    # assign to v, which is a list
+re.findall(r'   # to find all relevant format
+(?<=[^AEIOUaeiou])    # any char in front that is not vowel
+([AEIOUaeiou]{2,})    # capture {2,} ie, 2 or more vowels
+[^AEIOUaeiou]    # not vowel
+', x)     # find all relevant format in input str x
+"""
 
 
 ## Re.start() & Re.end()
