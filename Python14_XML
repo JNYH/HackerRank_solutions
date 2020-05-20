@@ -30,7 +30,6 @@ def get_attr_number(node):
 #         score += get_attr_number(i)
 #   return score
 
-
 if __name__ == '__main__':
     sys.stdin.readline()
     xml = sys.stdin.read()
@@ -39,11 +38,47 @@ if __name__ == '__main__':
     print(get_attr_number(root))
 
 
+## XML2 - Find the Maximum Depth
+import xml.etree.ElementTree as etree
 
+# # Option 1
+# maxdepth = 0
+# def depth(elem, level):
+#     global maxdepth
+#     level += 1
+#     maxdepth = max(maxdepth, level)
+#     for child in elem:
+#         depth(child, level)
 
+# # Option 2
+# maxdepth = 0
+# arr = []
+# def depth(elem, level):
+#     global maxdepth
+#     arr.append(level)   
+#     for i in elem.getchildren():
+#         depth(i, level+1)
+#     maxdepth = max(arr)+1
 
+# Option 3
+maxdepth = 0
+def depth(elem, level):
+    global maxdepth
+    i = 0
+    while i >= 0:
+        if elem.find("." + "/*" * i) is None:
+            maxdepth = i-1
+            break
+        i += 1
 
-
+if __name__ == '__main__':
+    n = int(input())
+    xml = ""
+    for i in range(n):
+        xml =  xml + input() + "\n"
+    tree = etree.ElementTree(etree.fromstring(xml))
+    depth(tree.getroot(), -1)
+    print(maxdepth)
 
 
 ## end ##
