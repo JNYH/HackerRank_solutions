@@ -3,6 +3,31 @@
 
 
 ## Standardize Mobile Number Using Decorators
+"""
+Understanding Python Decorators in 12 Easy Steps!
+http://simeonfranklin.com/blog/2012/jul/1/python-decorators-in-12-steps/
+"""
+# # Option 1
+# def wrapper(f):
+#     def fun(l):
+#         f(['+91 '+c[-10:-5]+' '+c[-5:] for c in l])
+#     return fun
+
+# Option 2
+def wrapper(f):
+    def fun(l):
+        f(['+91 '+i[::-1][:10][::-1][:5]+' '+i[::-1][:10][::-1][5:11] for i in l])
+    return fun
+
+@wrapper
+def sort_phone(l):
+    print(*sorted(l), sep='\n')
+
+if __name__ == '__main__':
+    l = [input() for _ in range(int(input()))]
+    sort_phone(l) 
+
+
 
 
 
