@@ -3,6 +3,21 @@
 
 
 ## Arrays
+import numpy
+
+# # Option 1:
+# def arrays(arr):
+#     return(numpy.array(arr[::-1], float))
+
+# Option 2:
+def arrays(arr):
+    arr.reverse()
+    arr_new = numpy.array(arr, float)
+    return arr_new
+
+arr = input().strip().split(' ')
+result = arrays(arr)
+print(result)
 
 
 
