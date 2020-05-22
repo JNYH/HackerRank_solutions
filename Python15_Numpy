@@ -20,6 +20,23 @@ result = arrays(arr)
 print(result)
 
 
+## Shape and Reshape
+# # Option 1
+# import numpy as np
+# print(np.array(input().split(),int).reshape(3,3))
+
+# # Option 2
+# import numpy as np
+# arr = np.array(list(map(int, input().split())))
+# arr.shape = (3,3)
+# print(arr)
+
+# Option 3
+import numpy as np
+arr = np.array(list(map(int, input().split())))
+arr = np.array(arr).reshape(3,3)
+print(arr)
+
 
 
 
