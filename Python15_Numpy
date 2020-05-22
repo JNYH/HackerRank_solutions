@@ -38,6 +38,27 @@ arr = np.array(arr).reshape(3,3)
 print(arr)
 
 
+## Transpose and Flatten
+# # Option 1
+# import numpy as np
+# row, col = map(int, input().split())
+# arr = np.array([input().split() for _ in range(row)], int)
+# print (arr.transpose())
+# print (arr.flatten())
+
+# Option 2
+import numpy as np
+row, col = map(int, input().split())
+arr = []
+for _ in range(row):
+    inp = [input().split()]
+    arr.extend(inp)
+arr = np.array(arr, int)
+print (arr.transpose())
+print (arr.flatten())
+
+
+
 
 
 
