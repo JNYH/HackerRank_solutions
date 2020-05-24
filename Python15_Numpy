@@ -58,6 +58,20 @@ print (arr.transpose())
 print (arr.flatten())
 
 
+## Concatenate
+# Option 1
+import numpy as np
+n, m, p = map(int,input().split())
+arr1 = np.array([input().split() for _ in range(n)], int)
+arr2 = np.array([input().split() for _ in range(m)], int)
+print(np.concatenate( (arr1, arr2), axis=0) )
+
+# # Option 2
+# import numpy as np
+# n, m, p = map(int, input().split())
+# arr = np.array([input().split() for _ in range(n+m)], int)
+# print(arr)
+
 
 
 
