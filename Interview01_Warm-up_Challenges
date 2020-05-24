@@ -3,8 +3,9 @@
 
 
 ## interview-warmup01
-# Sock Merchant
+## Sock Merchant
 
+#!/bin/python3
 import math
 import os
 import random
@@ -29,7 +30,7 @@ if __name__ == '__main__':
 
 
 ## interview-warmup02
-# Counting Valleys
+## Counting Valleys
 
 import math
 import os
@@ -60,7 +61,7 @@ if __name__ == '__main__':
 
 
 ## interview-warmup03
-# Jumping on the Clouds
+## Jumping on the Clouds
 
 import math
 import os
@@ -94,7 +95,7 @@ if __name__ == '__main__':
 
 
 ## interview-warmup04
-# Repeated String
+## Repeated String
 
 import math
 import os
