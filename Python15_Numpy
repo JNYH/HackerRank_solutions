@@ -73,6 +73,14 @@ print(np.concatenate( (arr1, arr2), axis=0) )
 # print(arr)
 
 
+## Zeros and Ones
+import numpy as np
+nums = tuple(map(int, input().split()))
+print (np.zeros(nums, dtype = np.int))
+print (np.ones(nums, dtype = np.int))
+
+
+
 
 
 
