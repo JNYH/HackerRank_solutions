@@ -3,7 +3,7 @@
 
 
 ## interview-arrays01
-# 2D Array - DS
+## 2D Array - DS
 
 import math
 import os
@@ -32,7 +32,7 @@ if __name__ == '__main__':
 
 
 ## interview-arrays02
-# Left Rotation
+## Left Rotation
 
 import math
 import os
@@ -60,7 +60,7 @@ if __name__ == '__main__':
 
 
 ## interview-arrays03
-# New Year Chaos
+## New Year Chaos
 
 import math
 import os
@@ -95,7 +95,7 @@ if __name__ == '__main__':
 
 
 ## interview-arrays04
-# Minimum Swaps 2
+## Minimum Swaps 2
 
 import math
 import os
@@ -131,20 +131,15 @@ def minimumSwaps(arr):
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
-
     n = int(input())
-
     arr = list(map(int, input().rstrip().split()))
-
     res = minimumSwaps(arr)
-
     fptr.write(str(res) + '\n')
-
     fptr.close()
 
 
 ## interview-arrays05
-# Array Manipulation
+## Array Manipulation
 
 import math
 import os
