@@ -3,7 +3,7 @@
 
 
 ## interview-dictionaries01
-#  Hash Tables: Ransom Note
+##  Hash Tables: Ransom Note
 
 def checkMagazine(magazine, note):
     if len(magazine) < len(note):
@@ -38,3 +38,7 @@ if __name__ == '__main__':
 
 
 
+
+
+
+## end ##
