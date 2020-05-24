@@ -80,6 +80,26 @@ print (np.zeros(nums, dtype = np.int))
 print (np.ones(nums, dtype = np.int))
 
 
+## Eye and Identity
+# # Option 1
+# import numpy as np
+# print(str(np.eye(*map(int,input().split()))).replace('1',' 1').replace('0',' 0'))
+"""
+use replace() function because there's a bug with the test cases, e.g. an error on the part of the problem creator, where there's too much whitespace in the expected output; in expected output every element is shifted one unit right
+"""
+
+# # Option 2
+# import numpy as np
+# np.set_printoptions(legacy='1.13')
+# print(np.eye(*map(int,input().split())))
+
+# Option 3
+import numpy as np
+np.set_printoptions(legacy='1.13')
+n, m = map(int,input().split())
+print(np.eye(n,m))
+
+
 
 
 
