@@ -100,6 +100,44 @@ n, m = map(int,input().split())
 print(np.eye(n,m))
 
 
+## Array Mathematics
+# # Option 1
+# import numpy as np
+# n,m = map(int, input().split())
+# a,b = (np.array([input().split() for _ in range(n)], dtype=int) for _ in range(2))
+# print(a+b, a-b, a*b, a//b, a%b, a**b, sep='\n')
+
+# Option 2
+import numpy as np
+n,m = map(int,input().split())
+a = np.array([input().split() for _ in range(n)], dtype=int)
+b = np.array([input().split() for _ in range(n)], dtype=int)
+print(a+b)
+print(a-b)
+print(a*b)
+print(a//b)
+print(a%b)
+print(a**b)
+
+# # Option 3
+# import numpy as np
+# n,m = map(int,input().split())
+# lst1=[]
+# lst2=[]
+# for _ in range(n):
+#     lst=list(map(int, input().split()))
+#     lst1.append(lst)
+# a = np.array(lst1)
+# for _ in range(n):
+#     lst=list(map(int, input().split()))
+#     lst2.append(lst)
+# b = np.array(lst2)
+# print(np.add(a,b))
+# print(np.subtract(a, b))
+# print(np.multiply(a, b))
+# print(np.floor_divide(a, b))
+# print(np.mod(a, b))
+# print(np.power(a, b))
 
 
 
