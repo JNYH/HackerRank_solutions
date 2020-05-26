@@ -149,6 +149,33 @@ print(np.ceil(arr))
 print(np.rint(arr))
 
 
+## Sum and Prod
+# Option 1
+import numpy as np
+N, M = map(int, input().split())
+arr = np.array([input().split() for _ in range(N)], int)
+total = np.sum(arr, axis=0)
+print(np.prod(total, axis=0))
+
+# # Option 2
+# import numpy as np
+# N, M = map(int, input().split())
+# lis = [np.array(input().split(), int) for _ in range(N)]
+# print(np.prod(np.sum(lis, axis = 0)))
+
+"""
+range(N): [0, 1, 2, .... N-1]
+for x in range(N): loop x = 0, x = 1, ..., x = N-1
+for _ in range(N): loop N times
+input().split(): Split input by spaces and prepare list (fr ex 1 2 3 becomes ['1', '2', '3'])
+input().split() for _ in range(N): Read n lines and prepare n lists
+[input().split() for _ in range(N)]: Prepare a list from n lines input containing N times where each item itself is list of strings
+numpy.array([input().split() for _ in range(N)],int): Prepare 2d array from n lines of input with each item of type int
+A = numpy.array([input().split() for _ in range(N)],int): Assign the result to A
+"""
+
+
+
 
 
 
