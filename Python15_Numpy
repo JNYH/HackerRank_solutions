@@ -175,6 +175,20 @@ A = numpy.array([input().split() for _ in range(N)],int): Assign the result to A
 """
 
 
+## Min and Max
+# # Option 1
+# import numpy as np
+# print(np.max(np.min(np.array([input().split() for _ in range(int(input().split()[0]))],int),axis=1)))
+
+# Option 2
+import numpy as np
+# n, m = map(int, input().split())
+n = int(input().split()[0])
+arr = np.array([input().split() for _ in range(n)], int)
+print(np.max(np.min(arr, axis=1)))
+
+
+
 
 
 
