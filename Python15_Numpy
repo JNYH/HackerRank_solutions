@@ -199,6 +199,22 @@ print(np.var(arr, axis=0))
 print(np.std(arr, axis=None))
 
 
+## Dot and Cross
+# Option 1
+import numpy as np
+n = int(input())
+arr1 = np.array([list(map(int,input().split())) for _ in range(n)])
+arr2 = np.array([list(map(int,input().split())) for _ in range(n)])
+print( np.dot(arr1,arr2) )
+
+# # Option 2
+# import numpy as np
+# n = int(input())
+# arr1,arr2 = [np.array([input().split() for _ in range(n)], int) for _ in range(2)]
+# print(np.dot(arr1,arr2))
+
+
+
 
 
 
