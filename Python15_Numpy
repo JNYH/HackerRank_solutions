@@ -214,6 +214,23 @@ print( np.dot(A,B) )
 # print(np.dot(A,B))
 
 
+## Inner and Outer
+# # Option 1
+# import numpy as np
+# A,B = [np.array([input().split()],int) for _ in range(2)]
+# print(np.inner(A,B)[0][0], np.outer(A,B), sep='\n')
+
+# # Option 2
+# import numpy as np
+# A,B = [np.array(input().split(), int) for _ in range(2)]
+# print(np.inner(A,B), np.outer(A,B), sep='\n')
+
+# Option 3
+import numpy as np
+A=np.array(input().split(),int)
+B=np.array(input().split(),int)
+print(np.inner(A,B))
+print(np.outer(A,B))
 
 
 
