@@ -203,15 +203,16 @@ print(np.std(arr, axis=None))
 # Option 1
 import numpy as np
 n = int(input())
-arr1 = np.array([list(map(int,input().split())) for _ in range(n)])
-arr2 = np.array([list(map(int,input().split())) for _ in range(n)])
-print( np.dot(arr1,arr2) )
+A=np.array([list(map(int,input().split())) for _ in range(n)])
+B=np.array([list(map(int,input().split())) for _ in range(n)])
+print( np.dot(A,B) )
 
 # # Option 2
 # import numpy as np
 # n = int(input())
-# arr1,arr2 = [np.array([input().split() for _ in range(n)], int) for _ in range(2)]
-# print(np.dot(arr1,arr2))
+# A,B = [np.array([input().split() for _ in range(n)], int) for _ in range(2)]
+# print(np.dot(A,B))
+
 
 
 
