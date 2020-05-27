@@ -2,6 +2,39 @@
 ## Numpy
 
 
+## Words Score
+# # Option 1
+# def score_words(words):
+#     return sum(sum(char in 'aeiouy' for char in word) % 2 or 2 for word in words)
+
+# Option 2
+import re
+from functools import reduce
+def score_words(words): 
+    return reduce(lambda x, y: x+y, [2 if (len(re.findall('[aeiouy]',a))%2 == 0) else 1 for a in words], 0)
+
+# # Option 3
+# def is_vowel(letter):
+#     return letter in ['a', 'e', 'i', 'o', 'u', 'y']
+
+# def score_words(words):
+#     score = 0
+#     for word in words:
+#         num_vowels = 0
+#         for letter in word:
+#             if is_vowel(letter):
+#                 num_vowels += 1
+#         if num_vowels % 2 == 0:
+#             score += 2
+#         else:
+#             score+=1   # change this
+#     return score
+
+n = int(input())
+words = input().split()
+print(score_words(words))
+
+
 ## Arrays
 import numpy
 
@@ -36,6 +69,43 @@ import numpy as np
 arr = np.array(list(map(int, input().split())))
 arr = np.array(arr).reshape(3,3)
 print(arr)
+
+
+## Default Arguments
+class EvenStream(object):
+    def __init__(self):
+        self.current = 0
+
+    def get_next(self):
+        to_return = self.current
+        self.current += 2
+        return to_return
+
+class OddStream(object):
+    def __init__(self):
+        self.current = 1
+
+    def get_next(self):
+        to_return = self.current
+        self.current += 2
+        return to_return
+
+
+def print_from_stream(n, stream=EvenStream()):
+    # to reset self.current by calling constructor
+    stream.__init__()    # add this line only
+    for _ in range(n):
+        print(stream.get_next())
+
+
+queries = int(input())
+for _ in range(queries):
+    stream_name, n = input().split()
+    n = int(n)
+    if stream_name == "even":
+        print_from_stream(n)
+    else:
+        print_from_stream(n, OddStream())
 
 
 ## Transpose and Flatten
@@ -142,7 +212,7 @@ print(a**b)
 
 ## Floor, Ceil and Rint
 import numpy as np
-np.set_printoptions(sign=' ')
+np.set_printoptions(sign=' ')    # output offset with a space
 arr = np.array(input().split(), float)
 print(np.floor(arr))
 print(np.ceil(arr))
@@ -233,73 +303,49 @@ print(np.inner(A,B))
 print(np.outer(A,B))
 
 
-## Words Score
+## Polynomials
+"""
+You are given the coefficients of a polynomial Y = a x^n + b x^(n-1) + … + k.
+Your task is to find the value of Y at point x.
+"""
 # # Option 1
-# def score_words(words):
-#     return sum(sum(char in 'aeiouy' for char in word) % 2 or 2 for word in words)
+# print(__import__('numpy').polyval(list(map(float,input().split())),float(input())))
 
 # Option 2
-import re
-from functools import reduce
-def score_words(words): 
-    return reduce(lambda x, y: x+y, [2 if (len(re.findall('[aeiouy]',a))%2 == 0) else 1 for a in words], 0)
+import numpy as np
+coeff = list(map(float,input().split()))
+x = int(input())
+print( np.polyval(coeff,x) )
 
 # # Option 3
-# def is_vowel(letter):
-#     return letter in ['a', 'e', 'i', 'o', 'u', 'y']
-
-# def score_words(words):
-#     score = 0
-#     for word in words:
-#         num_vowels = 0
-#         for letter in word:
-#             if is_vowel(letter):
-#                 num_vowels += 1
-#         if num_vowels % 2 == 0:
-#             score += 2
-#         else:
-#             score+=1   # change this
-#     return score
-
-n = int(input())
-words = input().split()
-print(score_words(words))
+# import numpy as np
+# if __name__ == '__main__':
+#     coefficients = np.array(list(map(float, input().split())))
+#     poly = np.poly1d(coefficients)
+#     print(poly(int(input())))
 
 
-## Default Arguments
-class EvenStream(object):
-    def __init__(self):
-        self.current = 0
+## Linear Algebra
+## output needs to be rounded to 2 decimal points
+# # Option 1
+# import numpy as np
+# print(round(np.linalg.det(np.array([input().split() for _ in range(int(input()))],float)),2))
 
-    def get_next(self):
-        to_return = self.current
-        self.current += 2
-        return to_return
+# Option 2
+import numpy as np
+n=int(input())
+a=np.array([input().split() for _ in range(n)],float)
+np.set_printoptions(legacy='1.13') #version issues in this exercise
+print(np.linalg.det(a))
 
-class OddStream(object):
-    def __init__(self):
-        self.current = 1
-
-    def get_next(self):
-        to_return = self.current
-        self.current += 2
-        return to_return
-
-
-def print_from_stream(n, stream=EvenStream()):
-    stream.__init__()    # add this line only
-    for _ in range(n):
-        print(stream.get_next())
-
-
-queries = int(input())
-for _ in range(queries):
-    stream_name, n = input().split()
-    n = int(n)
-    if stream_name == "even":
-        print_from_stream(n)
-    else:
-        print_from_stream(n, OddStream())
+# # Option 3
+# import numpy as np   # importing numpy package
+# n = int(input())   # nxn array.
+# a = []   # init array
+# for i in range(n):
+#     c = list(map(float, input().split()))
+#     a.append(c)
+# print(round(np.linalg.det(a),2))  # determinant round to 2 places
 
 
 ## end ##
