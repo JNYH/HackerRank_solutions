@@ -142,6 +142,65 @@ if __name__ == '__main__':
 
 
 
+## Count Triplets
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the countTriplets function below.
+# # Option 1
+# from collections import defaultdict
+# def countTriplets(arr, r):    #(array, ratio)
+#     c = 0   #count
+#     triplets = defaultdict(lambda: defaultdict(lambda: 0))
+#     for num in arr:
+#         if num in triplets:
+#             c += triplets[num][2]
+#             triplets[num*r][2] += triplets[num][1]
+#         triplets[num*r][1] += 1
+#     return c
+
+# # Option 2
+# from collections import Counter
+# def countTriplets(arr, r):
+#     second = Counter()
+#     third = Counter()
+#     c = 0   #count
+#     for num in arr:
+#         if num in third:
+#             c += third[num]
+#         if num in second:
+#             third[num*r] += second[num]
+#         second[num*r] += 1
+#     return c
+
+# Option 3
+from collections import defaultdict
+def countTriplets(arr, r):
+    second = defaultdict(int)
+    third = defaultdict(int)
+    c = 0   #count
+    for num in arr:
+        c += third[num]
+        third[num*r] += second[num]
+        second[num*r] += 1
+    return c
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    nr = input().rstrip().split()
+    n = int(nr[0])
+    r = int(nr[1])
+    arr = list(map(int, input().rstrip().split()))
+    ans = countTriplets(arr, r)
+    fptr.write(str(ans) + '\n')
+    fptr.close()
+
+
+
 
 
 
