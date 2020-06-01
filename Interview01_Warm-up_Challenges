@@ -2,7 +2,6 @@
 ## Warm-up Challenges
 
 
-## interview-warmup01
 ## Sock Merchant
 
 #!/bin/python3
@@ -29,7 +28,7 @@ if __name__ == '__main__':
     fptr.close()
 
 
-## interview-warmup02
+
 ## Counting Valleys
 
 import math
@@ -60,7 +59,7 @@ if __name__ == '__main__':
     fptr.close()
 
 
-## interview-warmup03
+
 ## Jumping on the Clouds
 
 import math
@@ -94,7 +93,7 @@ if __name__ == '__main__':
 # 0 0 0 1 0 0
 
 
-## interview-warmup04
+
 ## Repeated String
 
 import math
