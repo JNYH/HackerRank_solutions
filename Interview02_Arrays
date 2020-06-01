@@ -2,7 +2,6 @@
 ## Arrays
 
 
-## interview-arrays01
 ## 2D Array - DS
 
 import math
@@ -31,7 +30,7 @@ if __name__ == '__main__':
     fptr.close()
 
 
-## interview-arrays02
+
 ## Left Rotation
 
 import math
@@ -59,7 +58,7 @@ if __name__ == '__main__':
     fptr.close()
 
 
-## interview-arrays03
+
 ## New Year Chaos
 
 import math
@@ -94,7 +93,7 @@ if __name__ == '__main__':
         minimumBribes(q)
 
 
-## interview-arrays04
+
 ## Minimum Swaps 2
 
 import math
@@ -138,7 +137,7 @@ if __name__ == '__main__':
     fptr.close()
 
 
-## interview-arrays05
+
 ## Array Manipulation
 
 import math
