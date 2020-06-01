@@ -80,6 +80,68 @@ if __name__ == '__main__':
 
 
 
+## Sherlock and Anagrams
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the sherlockAndAnagrams function below.
+# # Option 1
+# from collections import Counter
+# def sherlockAndAnagrams(s):
+#     anagrams = 0 
+#     for i in range(1, len(s)): 
+#         substrings = [] 
+#         for l in range(len(s)+1-i): 
+#             substrings.append(s[l:l+i]) 
+#         letters_in_sub = list(map(lambda x: Counter(x), substrings)) 
+#         for ele in letters_in_sub: 
+#             if letters_in_sub.count(ele)>1: 
+#                 anagrams += (letters_in_sub.count(ele)-1)/2 
+#     return int(anagrams)
+
+# # Option 2
+# def sherlockAndAnagrams(s):
+#     dic = {}
+#     anagrams = 0
+#     for k in range(1, len(s)):
+#         for i in range(len(s)-k+1):
+#             j = i+k
+#             strr = ''.join(sorted(s[i:j]))
+#             dic[strr] = dic.get(strr,0)+1
+#     for v in dic.values():
+#         if v>1:
+#             anagrams += (v*(v-1))//2
+#     return anagrams
+
+# Option 3
+def sherlockAndAnagrams(s):
+    anagrams = 0
+    sub_str_dict = {}
+    for pos, char in enumerate(s):
+        for idx in range(pos + 1, len(s) + 1):
+            ordered_sub_str = ''.join(sorted(s[pos:idx]))
+            if ordered_sub_str in sub_str_dict:
+                anagrams += sub_str_dict[ordered_sub_str]
+                sub_str_dict[ordered_sub_str] += 1
+            else:
+                sub_str_dict[ordered_sub_str] = 1
+    return anagrams
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    q = int(input())
+    for q_itr in range(q):
+        s = input()
+        result = sherlockAndAnagrams(s)
+        fptr.write(str(result) + '\n')
+    fptr.close()
+
+
+
 
 
 
