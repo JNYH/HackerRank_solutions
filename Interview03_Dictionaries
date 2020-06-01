@@ -2,9 +2,8 @@
 ## Dictionaries and Hashmaps
 
 
-## interview-dictionaries01
-##  Hash Tables: Ransom Note
 
+##  Hash Tables: Ransom Note
 def checkMagazine(magazine, note):
     if len(magazine) < len(note):
         return print('No')
@@ -35,6 +34,49 @@ if __name__ == '__main__':
 
     checkMagazine(magazine, note)
 
+
+
+## Two Strings
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the twoStrings function below.
+# # Option 1
+# def twoStrings(s1, s2):
+#     return 'YES' if any([i in s2 for i in s1]) else 'NO'
+
+# # Option 2
+# def twoStrings(s1, s2): 
+#     result = 'NO'
+#     a = set(list(s1)) 
+#     b = set(list(s2)) 
+#     c = a.intersection(b) 
+#     if (len(c) != 0): 
+#         result = 'YES' 
+#     return result
+
+# Option 3
+def twoStrings(s1, s2):
+    s1 = set(s1)
+    s2 = set(s2)
+    for ele in s1:
+        if ele in s2:
+            return 'YES'
+    return 'NO'
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    q = int(input())
+    for q_itr in range(q):
+        s1 = input()
+        s2 = input()
+        result = twoStrings(s1, s2)
+        fptr.write(result + '\n')
+    fptr.close()
 
 
 
