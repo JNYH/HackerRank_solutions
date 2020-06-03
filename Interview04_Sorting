@@ -47,6 +47,50 @@ if __name__ == '__main__':
 
 
 
+## Mark and Toys
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the maximumToys function below.
+# # Option 1
+# def maximumToys(prices, k):
+#     c = 0   # count
+#     total = 0   # cumulative prices
+#     prices.sort()
+#     while total <= k:
+#         total += prices[c]
+#         c += 1
+#     return c-1   # remove the last item that burst the budget
+
+# Option 2
+def maximumToys(prices, k):
+    c = 0   # count
+    prices = sorted(prices)
+    for price in prices:
+        k -= price
+        if k <= 0:
+            break
+        c += 1
+    return c
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    nk = input().split()
+    n = int(nk[0])
+    k = int(nk[1])
+    prices = list(map(int, input().rstrip().split()))
+    result = maximumToys(prices, k)
+    fptr.write(str(result) + '\n')
+    fptr.close()
+
+
+
+## Sorting: Comparator
+
 
 
 
