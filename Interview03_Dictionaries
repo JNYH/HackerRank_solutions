@@ -201,6 +201,82 @@ if __name__ == '__main__':
 
 
 
+## Frequency Queries
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the freqQuery function below.
+# Option 1
+from collections import Counter
+def freqQuery(queries):
+    result=[]
+    n = len(queries)
+    f = Counter()
+    ff = Counter()
+    for i in range(n):
+        o,e = queries[i]
+        if o==1:
+            ff[f[e]]-=1
+            f[e]+=1
+            ff[f[e]]+=1
+        elif o==2:
+            ff[f[e]]-=1
+            f[e]-=1
+            ff[f[e]]+=1
+            if f[e]<=0:
+                del f[e]
+        else:
+            if ff[e]>0:
+                result.append(1)
+            else:
+                result.append(0)
+    return result
+
+# # Option 2
+# def freqQuery(queries):
+#     result=[]
+#     n = len(queries)
+#     f = {}
+#     ff = {}
+#     for i in range(n):
+#        o, e = queries[i]
+#        if (o==1):
+#            if e not in f:
+#                f[e]=0
+#            ff[f[e]]=ff.setdefault(f[e],0)-1
+#            f[e]=f.setdefault(e,0)+1
+#            ff[f[e]]=ff.setdefault(f[e],0)+1
+#        elif (o==2):
+#            if e in f:
+#                ff[f[e]]=ff.setdefault(f[e],0)-1
+#                f[e]=f.setdefault(e,0)-1
+#                ff[f[e]]=ff.setdefault(f[e],0)+1
+#                if f[e]<=0:
+#                    del f[e]
+#        else:
+#            if e in ff:
+#                if ff[e]:
+#                    result.append(1)
+#                else:
+#                    result.append(0)
+#            else:
+#                result.append(0)
+#     return result
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    q = int(input().strip())
+    queries = []
+    for _ in range(q):
+        queries.append(list(map(int, input().rstrip().split())))
+    ans = freqQuery(queries)
+    fptr.write('\n'.join(map(str, ans)))
+    fptr.write('\n')
+    fptr.close()
 
 
 
