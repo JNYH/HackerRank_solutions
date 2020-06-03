@@ -4,6 +4,47 @@
 
 
 ## Sorting: Bubble Sort
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the countSwaps function below.
+# # Option 1
+# def countSwaps(a):
+#     num_swap = 0
+#     while a != sorted(a):
+#         for i in range(n-1):
+#             tmp = 0
+#             if a[i] > a[i+1]:
+#                 tmp = a[i]
+#                 a[i] = a[i+1]
+#                 a[i+1] = tmp
+#                 num_swap += 1
+#     print('Array is sorted in {} swaps.'.format(num_swap))
+#     print('First Element:', a[0])
+#     print('Last Element:', a[-1])
+
+# Option 2
+def countSwaps(a):
+    num_swap = 0
+    while a != sorted(a):
+        for i in range(len(a) - 1):
+            tmp = 0
+            if a[i] > a[i+1]:
+                a[i], a[i+1] = a[i+1], a[i]
+                num_swap += 1
+    print('Array is sorted in {} swaps.'.format(num_swap))
+    print('First Element:', a[0])
+    print('Last Element:', a[-1])
+
+if __name__ == '__main__':
+    n = int(input())
+    a = list(map(int, input().rstrip().split()))
+    countSwaps(a)
+
 
 
 
