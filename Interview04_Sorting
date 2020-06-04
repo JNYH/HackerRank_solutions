@@ -124,6 +124,44 @@ for i in data:
 
 
 
+## Fraudulent Activity Notifications
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the activityNotifications function below.
+import bisect
+def activityNotifications(expenditure, d):
+    result = 0
+    if(d >= len(expenditure)):
+        return result
+    r = (d % 2) -1
+    m = d // 2
+    l = len(expenditure)
+    a = []
+    for x in expenditure[:d]:
+        bisect.insort_left(a, x)
+    for x in range(d,l):
+        mn = (a[m] + a[m+r])/2.0
+        if(expenditure[x] >= mn*2):
+            result+=1
+        a.pop(bisect.bisect_left(a,expenditure[x-d]))
+        bisect.insort(a,expenditure[x])
+    return result
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    nd = input().split()
+    n = int(nd[0])
+    d = int(nd[1])
+    expenditure = list(map(int, input().rstrip().split()))
+    result = activityNotifications(expenditure, d)
+    fptr.write(str(result) + '\n')
+    fptr.close()
+
 
 
 
