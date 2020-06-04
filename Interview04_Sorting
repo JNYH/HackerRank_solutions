@@ -145,9 +145,9 @@ def activityNotifications(expenditure, d):
     for x in expenditure[:d]:
         bisect.insort_left(a, x)
     for x in range(d,l):
-        mn = (a[m] + a[m+r])/2.0
+        mn = (a[m] + a[m+r]) /2
         if(expenditure[x] >= mn*2):
-            result+=1
+            result += 1
         a.pop(bisect.bisect_left(a,expenditure[x-d]))
         bisect.insort(a,expenditure[x])
     return result
