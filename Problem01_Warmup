@@ -2,12 +2,250 @@
 ## Warmup
 
 
+
 ## Solve Me First
+def solveMeFirst(a,b):
+    # Hint: Type return a+b below
+    return a+b
+
+num1 = int(input())
+num2 = int(input())
+res = solveMeFirst(num1,num2)
+print(res)
 
 
 
+## Simple Array Sum
+#!/bin/python3
+import os
+import sys
+
+#
+# Complete the simpleArraySum function below.
+#
+def simpleArraySum(ar):
+    #
+    # Write your code here.
+    #
+    total = sum(ar)
+    return total
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    ar_count = int(input())
+    ar = list(map(int, input().rstrip().split()))
+    result = simpleArraySum(ar)
+    fptr.write(str(result) + '\n')
+    fptr.close()
 
 
+
+## Compare the Triplets
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the compareTriplets function below.
+def compareTriplets(a, b):
+    result_a, result_b = [], []
+    for i in range(3):
+        if a[i] > b[i]:
+            result_a.append(1)
+        elif a[i] < b[i]:
+            result_b.append(1)
+    return [sum(result_a), sum(result_b)]
+    
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    a = list(map(int, input().rstrip().split()))
+    b = list(map(int, input().rstrip().split()))
+    result = compareTriplets(a, b)
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+    fptr.close()
+
+
+
+## A Very Big Sum
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the aVeryBigSum function below.
+def aVeryBigSum(ar):
+    return sum(ar)
+    
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    ar_count = int(input())
+    ar = list(map(int, input().rstrip().split()))
+    result = aVeryBigSum(ar)
+    fptr.write(str(result) + '\n')
+    fptr.close()
+
+
+
+## Diagonal Difference
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'diagonalDifference' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts 2D_INTEGER_ARRAY arr as parameter.
+#
+
+def diagonalDifference(arr):
+    diag1, diag2 = [], []
+    n = len(arr)
+    for i in range(n):
+        diag1.append(arr[i][i])
+        diag2.append(arr[i][n-1-i])
+    return abs(sum(diag1)-sum(diag2))
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    n = int(input().strip())
+    arr = []
+    for _ in range(n):
+        arr.append(list(map(int, input().rstrip().split())))
+    result = diagonalDifference(arr)
+    fptr.write(str(result) + '\n')
+    fptr.close()
+
+
+
+## Plus Minus
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the plusMinus function below.
+def plusMinus(arr):
+    size = len(arr)
+    count_pos, count_neg, count_zero = 0, 0, 0
+    for i in range(size):
+        if arr[i] > 0:
+            count_pos += 1
+        elif arr[i] < 0:
+            count_neg += 1
+        else:
+            count_zero += 1
+    print('{:.6f}'.format(count_pos/size))
+    print('{:.6f}'.format(count_neg/size))
+    print('{:.6f}'.format(count_zero/size))
+    return
+
+if __name__ == '__main__':
+    n = int(input())
+    arr = list(map(int, input().rstrip().split()))
+    plusMinus(arr)
+
+
+
+## Staircase
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the staircase function below.
+def staircase(n):
+    for m in range(n):
+        print((n - m - 1) * ' ' + (m + 1) * '#')
+
+if __name__ == '__main__':
+    n = int(input())
+    staircase(n)
+
+
+
+## Mini-Max Sum
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the miniMaxSum function below.
+def miniMaxSum(arr):
+    arr = sorted(arr)
+    min_int = arr[0]
+    max_int = arr[-1]
+    arr.pop(0)
+    arr.pop(-1)
+    print(min_int+sum(arr), max_int+sum(arr))
+    
+if __name__ == '__main__':
+    arr = list(map(int, input().rstrip().split()))
+    miniMaxSum(arr)
+
+
+
+## Birthday Cake Candles
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the birthdayCakeCandles function below.
+def birthdayCakeCandles(ar):
+    max_int = max(ar)
+    return ar.count(max_int)
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    ar_count = int(input())
+    ar = list(map(int, input().rstrip().split()))
+    result = birthdayCakeCandles(ar)
+    fptr.write(str(result) + '\n')
+    fptr.close()
+
+
+
+## Time Conversion
+#!/bin/python3
+import os
+import sys
+
+#
+# Complete the timeConversion function below.
+#
+def timeConversion(s):
+    #
+    # Write your code here.
+    if int(s[0:2])==12 and s[-2:]=='AM':
+        return ( '00' + s[2:8] )
+    elif s[-2:]=='PM' and int(s[0:2]) < 12:
+        return ( str(int(s[0:2])+12) + s[2:8])
+    else:
+        return ( s[:-2] )
+
+if __name__ == '__main__':
+    f = open(os.environ['OUTPUT_PATH'], 'w')
+    s = input()
+    result = timeConversion(s)
+    f.write(result + '\n')
+    f.close()
 
 
 
