@@ -1,0 +1,71 @@
+## Interview Preparation Kit
+## String Manipulation
+
+
+
+## Strings: Making Anagrams
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+#Complete the makeAnagram function below.
+from collections import Counter
+def makeAnagram(a, b):
+    a = Counter(a)
+    b = Counter(b)
+    intersection = a & b
+    a_removal = a - intersection
+    b_removal = b - intersection
+    result = sum(a_removal.values()) + sum(b_removal.values())
+    return result
+
+# # Option 2
+# from collections import Counter
+# def makeAnagram(a, b):
+#     #Counter for each string
+#     dict_a, dict_b = Counter(a), Counter(b) 
+#     #Counter for letters in 'a' and not in 'b' and viceversa
+#     letters_removed = (dict_a-dict_b) + (dict_b-dict_a)
+#     #Sum the occurrence of each extra letter
+#     return sum(letters_removed.values())
+
+# # Option 3
+# def makeAnagram(a, b):
+#     counter = 0
+#     for i in range(len(a)):
+#         t = a[i+1:].count(a[i])
+#         if a[i] not in b:
+#             counter += 1
+#         else: 
+#             if t >= b.count(a[i]):
+#                 counter += 1
+#     for i in range(len(b)):
+#         t = b[i+1:].count(b[i])
+#         if b[i] not in a:
+#             counter += 1
+#         else:
+#             if t >= a.count(b[i]):
+#                 counter += 1
+#     return counter
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    a = input()
+    b = input()
+    res = makeAnagram(a, b)
+    fptr.write(str(res) + '\n')
+    fptr.close()
+
+
+
+
+
+
+
+
+
+## end ##
+
