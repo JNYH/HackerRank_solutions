@@ -133,24 +133,50 @@ import re
 import sys
 
 # Complete the activityNotifications function below.
-import bisect
+# Option 1
 def activityNotifications(expenditure, d):
-    result = 0
-    if(d >= len(expenditure)):
-        return result
-    r = (d % 2) -1
-    m = d // 2
-    l = len(expenditure)
-    a = []
-    for x in expenditure[:d]:
-        bisect.insort_left(a, x)
-    for x in range(d,l):
-        mn = (a[m] + a[m+r]) /2
-        if(expenditure[x] >= mn*2):
-            result += 1
-        a.pop(bisect.bisect_left(a,expenditure[x-d]))
-        bisect.insort(a,expenditure[x])
-    return result
+    alert = 0 
+    MAX = 200 
+    c = [0] * (MAX+1)
+    for e in expenditure[:d] :
+        c[e] += 1
+
+    def median2(): # returns twice the median
+        s = 0
+        for x in range(MAX+1):
+            s += c[x]
+            if 2*s >= d : 
+                break
+        if d%2 == 1 or 2*s > d : 
+            return 2*x
+        return x + next( y for y in range(x+1,MAX+1) if c[y] )
+
+    for i in range(d,len(expenditure)):
+        if expenditure[i] >= median2() : 
+            alert += 1
+        c[expenditure[i-d]] -= 1 
+        c[expenditure[i]] += 1        
+    return alert
+
+# # Option 2
+# import bisect
+# def activityNotifications(expenditure, d):
+#     result = 0
+#     if(d >= len(expenditure)):
+#         return result
+#     r = (d % 2) -1
+#     m = d // 2
+#     l = len(expenditure)
+#     a = []
+#     for x in expenditure[:d]:
+#         bisect.insort_left(a, x)
+#     for x in range(d,l):
+#         mn = (a[m] + a[m+r])/2
+#         if(expenditure[x] >= mn*2):
+#             result+=1
+#         a.pop(bisect.bisect_left(a,expenditure[x-d]))
+#         bisect.insort(a,expenditure[x])
+#     return result
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
