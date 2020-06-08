@@ -158,25 +158,68 @@ def activityNotifications(expenditure, d):
         c[expenditure[i]] += 1        
     return alert
 
-# # Option 2
-# import bisect
-# def activityNotifications(expenditure, d):
-#     result = 0
-#     if(d >= len(expenditure)):
-#         return result
-#     r = (d % 2) -1
-#     m = d // 2
-#     l = len(expenditure)
-#     a = []
-#     for x in expenditure[:d]:
-#         bisect.insort_left(a, x)
-#     for x in range(d,l):
-#         mn = (a[m] + a[m+r])/2
-#         if(expenditure[x] >= mn*2):
-#             result+=1
-#         a.pop(bisect.bisect_left(a,expenditure[x-d]))
-#         bisect.insort(a,expenditure[x])
-#     return result
+# Option 2
+import bisect
+def activityNotifications(expenditure, d):
+    result = 0
+    if(d >= len(expenditure)):
+        return result
+    r = (d % 2) -1
+    m = d // 2
+    l = len(expenditure)
+    a = []
+    for x in expenditure[:d]:
+        bisect.insort_left(a, x)
+    for x in range(d,l):
+        mn = (a[m] + a[m+r])/2
+        if(expenditure[x] >= mn*2):
+            result+=1
+        a.pop(bisect.bisect_left(a,expenditure[x-d]))
+        bisect.insort(a,expenditure[x])
+    return result
+
+# Option 3
+def activityNotifications(expenditure, d):
+    count=[0]*201
+    ans=0
+    if d>=n:
+        return 0
+    for i in range(d):
+        count[expenditure[i]]+=1
+    x=0
+    if d%2==0:
+        for j in range(d,n):
+            a=0
+            flag=0
+            for k in range(201):
+                    a+=count[k]
+                    if a>=(d//2) and flag==0:
+                        first=k
+                        flag=1
+                    if a>=((d//2)+1):
+                        second=k
+                        break
+            mean=(first+second)/2
+            if expenditure[j]>=(2*mean):
+                ans+=1
+            count[expenditure[x]]-=1
+            count[expenditure[j]]+=1
+            x+=1
+    else:
+        for j in range(d,n):
+            a=0
+            for k in range(201):
+                    a+=count[k]
+                    if a>=((d//2)+1):
+                        second=k
+                        break
+            mean=second
+            if expenditure[j]>=(2*mean):
+                ans+=1
+            count[expenditure[x]]-=1
+            count[expenditure[j]]+=1
+            x+=1
+    return ans
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
