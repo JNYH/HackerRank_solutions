@@ -93,6 +93,61 @@ if __name__ == '__main__':
 
 
 
+## Sherlock and the Valid String
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the isValid function below.
+# Option 1
+from collections import Counter
+def isValid(s):
+    freq_list = list(Counter(s).values())
+    first = freq_list[0]
+    flag = 0
+    for i in range(1, len(freq_list)):   
+        if(abs(freq_list[i] - first) >= 1):
+            flag += 1
+    if flag > 1:
+        return 'NO'
+    else:
+        return 'YES'
+
+# Option 2
+from collections import Counter
+def isValid(s):
+    char_dict = Counter(s)
+    c = 0
+    for char in s:
+        if char not in char_dict:
+            char_dict[char] = 1
+        else:
+            char_dict[char] += 1
+    current_value = 0
+    previous_value = 0
+    for index, key in enumerate(char_dict):
+        current_value = char_dict[key]
+        if index == 0:
+            previous_value = char_dict[key]
+        if abs(current_value - previous_value) >= 1:
+            c += 1
+        if c > 1:
+            return 'NO'
+    return 'YES'
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    s = input()
+    result = isValid(s)
+    fptr.write(result + '\n')
+    fptr.close()
+
+
+
+
 
 
 
