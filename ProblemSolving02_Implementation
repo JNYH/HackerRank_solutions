@@ -98,6 +98,43 @@ if __name__ == '__main__':
 
 
 
+## Between Two Sets
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'getTotalX' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts following parameters:
+#  1. INTEGER_ARRAY a
+#  2. INTEGER_ARRAY b
+#
+def getTotalX(a, b):
+    count=0
+    for num in range(max(a), max(b)+1):
+        divisible1 = [True if num%x==0 else False for x in a]
+        divisible2 = [True if y%num==0 else False for y in b]
+        if all(divisible1) == True and all(divisible2) == True:
+            count += 1
+    return count
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    first_multiple_input = input().rstrip().split()
+    n = int(first_multiple_input[0])
+    m = int(first_multiple_input[1])
+    arr = list(map(int, input().rstrip().split()))
+    brr = list(map(int, input().rstrip().split()))
+    total = getTotalX(arr, brr)
+    fptr.write(str(total) + '\n')
+    fptr.close()
+
+
 
 
 
