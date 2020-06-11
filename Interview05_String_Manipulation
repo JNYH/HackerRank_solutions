@@ -261,6 +261,10 @@ if __name__ == '__main__':
 
 
 ## Common Child
+"""
+Common computer science problem: 
+https://en.wikipedia.org/wiki/Longest_common_subsequence_problem
+"""
 #!/bin/python3
 import math
 import os
