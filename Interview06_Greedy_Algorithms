@@ -16,8 +16,8 @@ def minimumAbsoluteDifference(arr):
     arr = sorted(arr)
     min_values = []
     for i in range(len(arr)-1):
-        difference = arr[i+1] - arr[i]
-        min_values.append(difference)
+        diff = arr[i+1] - arr[i]
+        min_values.append(diff)
     return min(min_values)
 
 if __name__ == '__main__':
