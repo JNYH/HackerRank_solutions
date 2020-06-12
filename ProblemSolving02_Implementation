@@ -417,14 +417,14 @@ import sys
 # Complete the getMoneySpent function below.
 #
 def getMoneySpent(keyboards, drives, b):
-    c=[]
+    leftover = []
     if min(keyboards)+min(drives) > b: 
         return(-1)
     for i in keyboards:
         for j in drives:
             if b-i-j >= 0:
-                c.append(b-i-j)
-    return(abs(min(c)-b))
+                leftover.append(b-i-j)
+    return(b - min(leftover))
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
@@ -440,6 +440,7 @@ if __name__ == '__main__':
     moneySpent = getMoneySpent(keyboards, drives, b)
     fptr.write(str(moneySpent) + '\n')
     fptr.close()
+
 
 
 
