@@ -346,6 +346,37 @@ if __name__ == '__main__':
 
 
 
+## Drawing Book
+#!/bin/python3
+import os
+import sys
+
+#
+# Complete the pageCount function below.
+#
+def pageCount(n, p):
+    l =[]
+    front_flips = 0
+    total_flips = n//2
+    for page in range(0,n+1):
+        if page % 2 ==0 and page !=0:
+            front_flips+=1
+        if page == p:
+            l.append(front_flips)
+            back_flips = total_flips - front_flips
+            l.append(back_flips)
+    return min(l)
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    n = int(input())
+    p = int(input())
+    result = pageCount(n, p)
+    fptr.write(str(result) + '\n')
+    fptr.close()
+
+
+
 
 
 
