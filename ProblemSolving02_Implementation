@@ -609,6 +609,35 @@ if __name__ == '__main__':
 
 
 
+## Designer PDF Viewer
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+import string
+def designerPdfViewer(h, word):
+    alphabet = list(string.ascii_lowercase)
+    ref = dict(list(zip(alphabet, h)))
+    height = []
+    for letter in word:
+        if letter in ref:
+            height.append(ref[letter])
+    print(height)
+    return min(height) * max(height) * len(height)
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    h = list(map(int, input().rstrip().split()))
+    word = input()
+    result = designerPdfViewer(h, word)
+    fptr.write(str(result) + '\n')
+    fptr.close()
+
+
+
 
 
 
