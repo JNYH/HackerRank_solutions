@@ -876,7 +876,8 @@ def jumpingOnClouds(c, k):
         if p >= len(c) : 
             p = p%len(c)
         e = e-1 - (c[p]*2)
-        if p == 0 : break 
+        if p == 0 : 
+            break 
     return e
 
 if __name__ == '__main__':
