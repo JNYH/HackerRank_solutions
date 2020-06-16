@@ -944,6 +944,56 @@ if __name__ == '__main__':
 
 
 
+## Append and Delete
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the appendAndDelete function below.
+def appendAndDelete(s, t, k):
+    ops = 0
+    for i in range(max(len(s), len(t))):
+        if i == min(len(s), len(t)):
+            # If this statement is true, then either string s
+            # equals t from 0 to i or vice-versa
+            # Therefore set ops equal to difference
+            # between lengths of s and t
+            ops = abs(len(s) - len(t))
+            break
+        elif s[i] != t[i]:
+            # Consider given example
+            # s = hackerhappy
+            # t = hackerrank
+            # Statement is true when i = 6
+            # 11 - 6 = 5 deletions, happy
+            # 10 - 6 = 4 additions, rank
+            # Total ops = 5 + 4 = 9
+            ops = len(s) - i + len(t) - i
+            break
+
+    # If ops is greater than k, then the answer must be "No"
+    # Else if ops is odd and k is even (i.e., ops < k),
+    # there exists no combination of additional ops such that 
+    # ops == k to make s == t
+    if ops > k or ops % 2 == 1 and k % 2 == 0:
+        return 'No'
+
+    return 'Yes'
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    s = input()
+    t = input()
+    k = int(input())
+    result = appendAndDelete(s, t, k)
+    fptr.write(result + '\n')
+    fptr.close()
+
+
+
 
 
 
