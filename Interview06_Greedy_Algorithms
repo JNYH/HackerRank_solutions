@@ -79,6 +79,50 @@ if __name__ == '__main__':
 
 
 
+## Greedy Florist
+"""
+We first sort the given list of prices of flowers.
+
+Consider a case where n = 10 flowers, and cost c = [1,2,3,4] and k = 4 friends. Then first we consider flower [1,2,3,4] for orignal price. Next we have to buy 4 more that is [1,2,3,4] at twice the price. Next we have to buy 2 more, for these we have to consider the lowest priced flower that is [1,2] for thrice the price.
+
+Now same logic we apply by repeating the array c by total_loop (how many time all the flowers can be considered). For example in the previous example we make c as [1,2,3,4,1,2,3,4]. Now the remaining two lowest priced flowers are added at the front of this array as, [1,2,1,2,3,4,1,2,3,4]. Once we have this array, we start with last k elements, sum them and then multiply them with the current purchase 'p'.
+"""
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the getMinimumCost function below.
+def getMinimumCost(k, c):
+    c.sort()
+    l = len(c)
+    total_loop = n//l       # total number of complete loops
+    last_elements = n%l     # number of remaining flowers
+    c = c[:last_elements] + c*total_loop    # explained above
+    p = 1                                   # count of purchases
+    i = 1
+    result = 0
+    while (l - (i-1)*k >= 0):
+        result += sum(c[max(l-i*k,0):l-(i-1)*k])*p  
+        i += 1
+        p += 1
+    return result
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    nk = input().split()
+    n = int(nk[0])
+    k = int(nk[1])
+    c = list(map(int, input().rstrip().split()))
+    minimumCost = getMinimumCost(k, c)
+    fptr.write(str(minimumCost) + '\n')
+    fptr.close()
+
+
+
+
 
 
 
