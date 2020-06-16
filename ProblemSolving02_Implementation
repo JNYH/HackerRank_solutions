@@ -892,6 +892,37 @@ if __name__ == '__main__':
 
 
 
+## Find Digits
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the findDigits function below.
+def findDigits(n):
+    digit = list(str(n))
+    tally = 0
+    for i in range(len(digit)):
+        try:
+            if n % int(digit[i]) == 0:
+                tally += 1
+        except ZeroDivisionError:
+            pass
+    return tally
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    t = int(input())
+    for t_itr in range(t):
+        n = int(input())
+        result = findDigits(n)
+        fptr.write(str(result) + '\n')
+    fptr.close()
+
+
+
 
 
 
