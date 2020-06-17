@@ -1075,9 +1075,9 @@ import re
 import sys
 
 # Complete the cutTheSticks function below.
-import collections
+from collections import Counter
 def cutTheSticks(arr):
-    freq = collections.Counter(arr)
+    freq = Counter(arr)
     total_sticks = len(arr)
     result = []
     for e in sorted(set(arr)):
