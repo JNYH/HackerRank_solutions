@@ -1243,6 +1243,191 @@ if __name__ == '__main__':
 
 
 
+## Queen's Attack II
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the queensAttack function below.
+# Option 1
+def queensAttack(n, k, r, c, obstacles):
+    n1 = n
+    result = 0
+    nr = []
+    if r != n1:
+        nr.append(n1+1)
+    sr = []
+    if r != 1:
+        sr.append(0)
+    ec = []
+    if c != n1:
+        ec.append(n1+1)
+    wc = []
+    if c != 1:
+        wc.append(0)
+    nwr = []# r = 8 or c = 1
+    nwc = []
+    if (n1 - r != 0) and (c - 1 != 0):
+        if (n1 - r < c - 1):
+            nwr.append(n1+1)
+        else:
+            nwc.append(0)
+
+    ner = []# r = 8 or c = 8
+    nec = []
+    if (n1 - r != 0) and (n1 - c != 0):
+        if (n1 - r) < (n1 - c):
+            ner.append(n1+1)
+        else:
+            nec.append(n1+1)
+        
+    swr = []# r = 1 or c = 1
+    swc = []
+    if (r - 1 != 0) and (c - 1 != 0):
+        if (r - 1) < (c - 1):
+            swr.append(0)
+        else:
+            swc.append(0)
+        
+    ser = []# r = 1 or c = 8
+    sec = []
+    if (r - 1 != 0) and (n1 - c != 0):
+        if (r - 1) < (n1 - c):
+            ser.append(0)
+        else:
+            sec.append(n1+1)
+
+    for i in range(k):
+        if obstacles[i][0] == r:
+            if (obstacles[i][1] < c):
+                if (len(wc) != 0):
+                    wc.append(obstacles[i][1])
+            else:
+                if len(ec) != 0:
+                    ec.append(obstacles[i][1])
+        elif obstacles[i][1] == c:
+            if obstacles[i][0] < r:
+                if len(sr) != 0:
+                    sr.append(obstacles[i][0])
+            else:
+                if len(nr) != 0:
+                    nr.append(obstacles[i][0])
+        else:
+            if abs(r-obstacles[i][0]) == abs(c-obstacles[i][1]):
+                if (obstacles[i][0] - r) > 0 and (obstacles[i][1] - c) < 0:
+                    if len(nwr) != 0:
+                        nwr.append(obstacles[i][0])
+                    if len(nwc) != 0:
+                        nwc.append(obstacles[i][1])
+                if (obstacles[i][0] - r) > 0 and (obstacles[i][1] - c) > 0:
+                    if len(ner) != 0:
+                        ner.append(obstacles[i][0])
+                    if len(nec) != 0:
+                        nec.append(obstacles[i][1])
+                if (obstacles[i][0] - r) < 0 and (obstacles[i][1] - c) < 0:
+                    if len(swr) != 0:
+                        swr.append(obstacles[i][0])
+                    if len(swc) != 0:
+                        swc.append(obstacles[i][1])
+                if (obstacles[i][0] - r) < 0 and (obstacles[i][1] - c) > 0:
+                    if len(ser) != 0:
+                        ser.append(obstacles[i][0])
+                    if len(sec) != 0:
+                        sec.append(obstacles[i][1])
+                    
+    if len(nr) != 0:
+        result += min(nr) - r - 1
+    if len(sr) != 0:
+        result += r - max(sr) - 1
+    if len(ec) != 0:
+        result += min(ec) - c - 1
+    if len(wc) != 0:
+        result += c - max(wc) - 1
+    if len(nwr) != 0:
+        result += min(nwr) - r - 1
+    if len(nwc) != 0:
+        result += c - max(nwc) - 1
+    if len(ner) != 0:
+        result += min(ner) - r - 1
+    if len(nec) != 0:
+        result += min(nec) - c - 1
+    if len(swr) != 0:
+        result += r - max(swr) - 1
+    if len(swc) != 0:
+        result += c - max(swc) - 1
+    if len(ser) != 0:
+        result += r - max(ser) - 1
+    if len(sec) != 0:
+        result += min(sec) - c - 1
+    return result
+
+# Option 2
+def queensAttack(n, k, r_q, c_q, obstacles):
+    north = east = n + 1
+    south = west = 0
+    north_east = min(n + 1 - r_q, n + 1 - c_q)
+    south_east = min(r_q, n + 1 - c_q)
+    south_west = min(r_q, c_q)
+    north_west = min(n + 1 - r_q, c_q)
+    for obstacle in obstacles:
+        row, col = obstacle
+        if col == c_q and row > r_q and row < north:
+            north = row
+        elif col == c_q and row < r_q and row > south:
+            south = row
+        elif row == r_q and col > c_q and col < east:
+            east = col
+        elif row == r_q and col < c_q and col > west:
+            west = col
+        elif ( row > r_q and col > c_q 
+                and (row - r_q) == (col - c_q)
+                and (row - r_q) < north_east ):
+            north_east = row - r_q
+        elif ( row < r_q and col > c_q 
+                and (r_q - row) == (col - c_q)
+                and (r_q - row) < south_east ):
+            south_east = r_q - row
+        elif ( row < r_q and col < c_q
+                and (r_q - row) == (c_q - col)
+                and (r_q - row) < south_west ):
+            south_west = r_q - row
+        elif ( row > r_q and col < c_q 
+                and (row - r_q) == (c_q - col)
+                and (row - r_q) < north_west ):
+            north_west = row - r_q
+
+    move_north = north - r_q - 1
+    move_east = east - c_q - 1
+    move_south = r_q - south - 1
+    move_west = c_q - west - 1
+    move_north_east = north_east - 1
+    move_south_east = south_east - 1
+    move_south_west = south_west - 1
+    move_north_west = north_west - 1
+    result = (move_north + move_east + move_south + move_west + move_north_east 
+                + move_south_east + move_south_west + move_north_west)
+    return result
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    nk = input().split()
+    n = int(nk[0])
+    k = int(nk[1])
+    r_qC_q = input().split()
+    r_q = int(r_qC_q[0])
+    c_q = int(r_qC_q[1])
+    obstacles = []
+    for _ in range(k):
+        obstacles.append(list(map(int, input().rstrip().split())))
+    result = queensAttack(n, k, r_q, c_q, obstacles)
+    fptr.write(str(result) + '\n')
+    fptr.close()
+
+
+
 
 
 
