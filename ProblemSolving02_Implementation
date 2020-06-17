@@ -1139,6 +1139,38 @@ if __name__ == '__main__':
 
 
 
+## Repeated String
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the repeatedString function below.
+# Option 1
+def repeatedString(s, n):
+    count = s.count('a')
+    full_str = n//len(s)
+    remainder = n%len(s) 
+    total = count*full_str + s[:remainder].count('a')
+    return total
+
+# Option 2
+def repeatedString(s, n):
+    return (s.count('a') * (n//len(s)) + s[:n%len(s)].count('a'))
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    s = input()
+    n = int(input())
+    result = repeatedString(s, n)
+    fptr.write(str(result) + '\n')
+    fptr.close()
+
+
+
+
 
 
 
