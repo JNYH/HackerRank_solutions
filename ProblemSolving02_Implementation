@@ -1210,9 +1210,26 @@ import re
 import sys
 
 # Complete the equalizeArray function below.
+# Option 1
 from collections import Counter
 def equalizeArray(arr):
     freq = Counter(arr)
+    highest = max(list(freq.values()))
+    return len(arr) - highest
+
+# Option 2
+from collections import Counter
+def equalizeArray(arr):
+    return len(arr) - Counter(arr).most_common()[0][1]
+
+# Option 3 using dictionary 
+def equalizeArray(arr):
+    freq = {}
+    for ele in arr:
+        if ele in freq:
+            freq[ele] += 1
+        else:
+            freq[ele] = 1
     highest = max(list(freq.values()))
     return len(arr) - highest
 
@@ -1223,6 +1240,7 @@ if __name__ == '__main__':
     result = equalizeArray(arr)
     fptr.write(str(result) + '\n')
     fptr.close()
+
 
 
 
