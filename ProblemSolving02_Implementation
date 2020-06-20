@@ -1429,6 +1429,72 @@ if __name__ == '__main__':
 
 
 ## ACM ICPC Team
+## ACM ICPC Team
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the acmTeam function below.
+# Option 1
+from itertools import combinations
+def acmTeam(topic):
+    comb = combinations(topic, 2)
+    m = 0
+    count = 0
+    for i in comb:
+        n = str(bin(((int(i[0],2) | int(i[1],2)))))[2:].count('1')
+        if n > m:            
+            m = n
+            count = 1
+        elif n == m:
+            count += 1
+    return (m, count)
+
+# Option 2
+from collections import defaultdict
+def acmTeam(topic):
+    # converted topic from a matrix of characters to a matrix of booleans
+    topic = [ [ topic[i][k]=='1' for k in range(m) ] for i in range(n) ]
+    c = defaultdict(int)
+    for i in range(n):
+        for j in range(i+1,n):
+            c[sum( topic[i][k] or topic[j][k] for k in range(m) )] += 1    
+    return max(c), c[max(c)]
+
+# Option 3
+from collections import Counter
+from itertools import combinations
+def acmTeam(topic):
+    Topic = [ int(s,2) for s in topic ]
+    result = Counter(bin(a|b).count('1') for a,b in combinations(Topic,2)) 
+    return max(result.items())
+
+# Option 4
+def acmTeam(topic):
+    n = len(topic)
+    combi = []
+    for i in range(n-1):
+        for j in range(i+1, n):
+            l = bin(int(topic[i],2) | int(topic[j],2))
+            combi.append(l.count('1'))
+    return( max(combi), combi.count(max(combi)) )  
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    nm = input().split()
+    n = int(nm[0])
+    m = int(nm[1])
+    topic = []
+    for _ in range(n):
+        topic_item = input()
+        topic.append(topic_item)
+    result = acmTeam(topic)
+    fptr.write('\n'.join(map(str, result)))
+    fptr.write('\n')
+    fptr.close()
 
 
 
