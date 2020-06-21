@@ -155,6 +155,97 @@ if __name__ == '__main__':
 
 
 ## Reverse Shuffle Merge
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the reverseShuffleMerge function below.
+# Option 1
+from collections import Counter
+def reverseShuffleMerge(s):
+    left = Counter(s)
+    keep = {char: int(freq / 2) for char, freq in left.items()}
+    shuffle = {char: int(freq / 2) for char, freq in left.items()}
+    result = []
+    for char in reversed(s):
+        if keep[char] > 0:
+            while result and result[-1] > char and shuffle[result[-1]] > 0:
+                removed = result.pop()
+                keep[removed] += 1
+                shuffle[removed] -= 1
+            result.append(char)
+            keep[char] -= 1
+        else:
+            shuffle[char] -= 1
+    return (''.join(result))
+
+# Option 2
+from collections import Counter
+def reverseShuffleMerge(s):
+    cnt = Counter(s)
+    req = Counter({k:v // 2 for k,v in cnt.items()})
+    rs = s[::-1]
+    ic = ord('a')
+    imax = ord('z') + 1
+    pos = -1
+    ans = ''
+    while ic < imax:
+        c = chr(ic)
+        if c not in list(+req):
+            ic += 1
+            continue
+        i = rs.find(c,pos + 1)
+        if len(+(req - Counter(rs[i:]))) > 0:
+            #not enough characters behind, find bigger character
+            ic += 1
+        else:
+            #there are enough characters behind
+            ans += c
+            pos = i     #new position to find
+            req[c] -= 1 #reduct request
+            ic = ord('a')   #find from a to z
+            if len(+req) == 0:  #find all
+                return ans
+        if ic >= imax:
+            ic -= 26
+
+# Option 3
+def reverseShuffleMerge(s):
+    cnt = {}
+    for char in s:
+        cnt[char] = cnt.get(char, 0)+1
+    freq = {}
+    used = {}
+    for char, val in cnt.items():
+        used[char] = used.get(char, 0)
+        freq[char] = freq.get(char, 0) + int(cnt[char]/2)
+    A = [s[-1]]
+    cnt[s[-1]] -= 1
+    used[s[-1]] += 1
+    for char in s[:-1][::-1]:
+        cnt[char]-=1
+        if used[char] >= freq[char]:
+            continue
+        while A and char < A[-1] and cnt[A[-1]]>freq[A[-1]]-used[A[-1]]:
+            used[A.pop()]-=1
+        A.append(char)
+        used[char]+=1
+    return ''.join(A)
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    s = input()
+    result = reverseShuffleMerge(s)
+    fptr.write(result + '\n')
+    fptr.close()
+
+
+
+
+
 
 
 
