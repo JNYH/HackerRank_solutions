@@ -3,6 +3,45 @@
 
 
 
+## Hash Tables: Ice Cream Parlor
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the whatFlavors function below.
+# Option 1
+def whatFlavors(cost, money):
+    ref_dict = {}
+    for i in range(len(cost)):
+        price = cost[i]
+        compliment = money - price
+        if compliment in ref_dict:
+            print(cost.index(compliment) +1 , i+1)
+        else:
+            ref_dict[price] = compliment
+
+# Option 2
+def whatFlavors(cost, money):
+    ref_dict = {}
+    for pos, price in enumerate(cost):
+        if price in ref_dict:
+            print(ref_dict[price] +1 , pos +1)
+        else:
+            ref_dict[money - price] = pos 
+
+if __name__ == '__main__':
+    t = int(input())
+    for t_itr in range(t):
+        money = int(input())
+        n = int(input())
+        cost = list(map(int, input().rstrip().split()))
+        whatFlavors(cost, money)
+
+
+
 ## Pairs
 #!/bin/python3
 import math
@@ -32,7 +71,7 @@ if __name__ == '__main__':
 
 
 
-(work in progress)
+
 
 
 
