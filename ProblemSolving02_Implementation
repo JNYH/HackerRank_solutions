@@ -1571,6 +1571,76 @@ if __name__ == '__main__':
 
 
 ## Organizing Containers of Balls
+"""
+1) Make a table of box totals (capacity of each box)
+2) Make a table of ball totals (total quantity of each ball type)
+3) Sort both tables
+4) If they are identical print Possible, otherwise print Impossible
+"""
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the organizingContainers function below.
+# Option 1
+def organizingContainers(container):
+    row_list = []
+    col_list = []
+    n = len(container)
+    for i in range(0,n):
+        row_list.append(sum(container[i]))
+        j = 0
+        tot = 0
+        for j in range(0,n):
+            tot += container[j][i]
+        col_list.append(tot)
+    row_list.sort()
+    col_list.sort()
+    if row_list==col_list:
+        return 'Possible'
+    else:
+        return 'Impossible'
+
+# Option 2
+def organizingContainers(container):
+    row_list = []
+    col_list = []
+    for i in container:
+        row_list.append(sum(i))
+    for k in list(zip(*container)):
+        col_list.append(sum(k))
+    row_list.sort()
+    col_list.sort()
+    if row_list==col_list:
+        return 'Possible'
+    else:
+        return 'Impossible'
+
+# Option 3
+def organizingContainers(container):
+    if sorted([sum(container[x]) for x in range(n)]) == sorted([sum(container[y][x] for y in range(n)) for x in range(n)]): 
+        return 'Possible'
+    else: 
+        return 'Impossible'
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    q = int(input())
+    for q_itr in range(q):
+        n = int(input())
+        container = []
+        for _ in range(n):
+            container.append(list(map(int, input().rstrip().split())))
+        result = organizingContainers(container)
+        fptr.write(result + '\n')
+    fptr.close()
+
+
+
+
 
 
 
