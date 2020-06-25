@@ -1640,6 +1640,47 @@ if __name__ == '__main__':
 
 
 
+## Encryption
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the encryption function below.
+# Option 1
+def encryption(s):
+    result = []
+    n = len(s)
+    row = math.ceil(math.sqrt(n))
+    col = 0
+    if row >= math.sqrt(n):
+        col = row
+    else:
+        col = row+1
+    for i in range(col):
+        for j in range(i,n,col):
+            result.append(s[j])
+        result.append(' ')
+    return (''.join(result))
+
+# Option 2
+from math import ceil, sqrt
+def encryption(s):
+    step = ceil(sqrt(len(s)))
+    return (' '.join(map(lambda x: s[x::step], range(step))))
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    s = input()
+    result = encryption(s)
+    fptr.write(result + '\n')
+    fptr.close()
+
+
+
+
 
 
 
