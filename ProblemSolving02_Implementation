@@ -1666,9 +1666,8 @@ def encryption(s):
     return (''.join(result))
 
 # Option 2
-from math import ceil, sqrt
 def encryption(s):
-    step = ceil(sqrt(len(s)))
+    step = math.ceil(math.sqrt(len(s)))
     return (' '.join(map(lambda x: s[x::step], range(step))))
 
 if __name__ == '__main__':
@@ -1677,9 +1676,6 @@ if __name__ == '__main__':
     result = encryption(s)
     fptr.write(result + '\n')
     fptr.close()
-
-
-
 
 
 
