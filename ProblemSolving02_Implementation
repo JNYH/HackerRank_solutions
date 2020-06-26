@@ -1756,7 +1756,7 @@ def kaprekarNumbers(p, q):
 # Option 2
 def kaprekarNumbers(p, q):
     found=False
-    if(p<9):
+    if p<9:
         p=9
         print('1',end=' ')
     for i in range(p,q+1):
@@ -1765,10 +1765,10 @@ def kaprekarNumbers(p, q):
         d=len(n)//2
         n1=n[:d]
         n2=n[d:]
-        if i == (int(n1)+int(n2)):
+        if i == int(n1)+int(n2):
             print(i,end=' ')
             found=True
-    if(not found):
+    if (not found):
         print('INVALID RANGE')
 
 # Option 3
