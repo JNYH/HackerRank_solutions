@@ -1730,6 +1730,65 @@ if __name__ == '__main__':
 
 
 
+## Modified Kaprekar Numbers
+"""
+In mathematics, a Kaprekar number for a given base is a non-negative integer, the representation of whose square in that base can be split into two parts that add up to the original number again. For instance, 45 is a Kaprekar number, because 45² = 2025 and 20+25 = 45.
+"""
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the kaprekarNumbers function below.
+# Option 1
+from math import pow
+def kaprekarNumbers(p, q):
+    result = []
+    for i in range(p, q + 1):
+        x = str(int(pow(i, 2)))
+        l = x[0:int(len(x) / 2)] if x[0:int(len(x) / 2)] else 0
+        r = x[int(len(x) / 2):len(x)] if x[int(len(x) / 2):len(x)] else 0
+        if(int(l) + int(r) == i): result.append(str(i))
+    print(' '.join(result) if len(result) > 0 else 'INVALID RANGE')
+
+# Option 2
+def kaprekarNumbers(p, q):
+    found=False
+    if(p<9):
+        p=9
+        print('1',end=' ')
+    for i in range(p,q+1):
+        n=i**2
+        n=str(n)
+        d=len(n)//2
+        n1=n[:d]
+        n2=n[d:]
+        if i == (int(n1)+int(n2)):
+            print(i,end=' ')
+            found=True
+    if(not found):
+        print('INVALID RANGE')
+
+# Option 3
+def check(i):
+    sq = str(i**2)
+    le = len(str(i))
+    r = sq[-le:]
+    l = sq[:-le] or '0'
+    return sum(map(int,(l,r)))==i
+def kaprekarNumbers(p, q):
+    arr = [i for i in range(p,q+1) if check(i)]
+    return print(*arr or ['INVALID RANGE'])
+
+if __name__ == '__main__':
+    p = int(input())
+    q = int(input())
+    kaprekarNumbers(p, q)
+
+
+
 
 
 
