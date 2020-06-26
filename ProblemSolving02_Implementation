@@ -1688,6 +1688,7 @@ import re
 import sys
 
 # Complete the biggerIsGreater function below.
+# Option 1
 def biggerIsGreater(w):
     arr = list(w)
     # Find non-increasing suffix
@@ -1707,6 +1708,17 @@ def biggerIsGreater(w):
     arr[i : ] = arr[len(arr)-1 : i-1 : -1]
     return ''.join(arr)
 
+# Option 2
+def biggerIsGreater(w):
+    for i in range(len(w)-1)[::-1]:
+        if w[i] < w[i+1]:
+            for j in range(i+1,len(w))[::-1]:
+                if w[i] < w[j]:
+                    lis = list(w) 
+                    lis[i],lis[j]=lis[j],lis[i]
+                    return ''.join(lis[:i+1]+lis[i+1:][::-1])
+    return 'no answer'
+
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
     T = int(input())
@@ -1715,6 +1727,10 @@ if __name__ == '__main__':
         result = biggerIsGreater(w)
         fptr.write(result + '\n')
     fptr.close()
+
+
+
+
 
 
 
