@@ -3,6 +3,7 @@
 
 
 
+
 ## Strings: Making Anagrams
 #!/bin/python3
 import math
@@ -62,6 +63,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Alternating Characters
 #!/bin/python3
 import math
@@ -91,6 +93,7 @@ if __name__ == '__main__':
         result = alternatingCharacters(s)
         fptr.write(str(result) + '\n')
     fptr.close()
+
 
 
 
@@ -145,6 +148,7 @@ if __name__ == '__main__':
     result = isValid(s)
     fptr.write(result + '\n')
     fptr.close()
+
 
 
 
@@ -260,6 +264,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Common Child
 """
 Common computer science problem: 
@@ -317,6 +322,7 @@ if __name__ == '__main__':
     result = commonChild(s1, s2)
     fptr.write(str(result) + '\n')
     fptr.close()
+
 
 
 
