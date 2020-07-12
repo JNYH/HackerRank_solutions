@@ -3,6 +3,7 @@
 
 
 
+
 ##  Hash Tables: Ransom Note
 def checkMagazine(magazine, note):
     if len(magazine) < len(note):
@@ -36,6 +37,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Two Strings
 #!/bin/python3
 import math
@@ -45,19 +47,19 @@ import re
 import sys
 
 # Complete the twoStrings function below.
-# # Option 1
-# def twoStrings(s1, s2):
-#     return 'YES' if any([i in s2 for i in s1]) else 'NO'
+# Option 1
+def twoStrings(s1, s2):
+    return 'YES' if any([i in s2 for i in s1]) else 'NO'
 
-# # Option 2
-# def twoStrings(s1, s2): 
-#     result = 'NO'
-#     a = set(list(s1)) 
-#     b = set(list(s2)) 
-#     c = a.intersection(b) 
-#     if (len(c) != 0): 
-#         result = 'YES' 
-#     return result
+# Option 2
+def twoStrings(s1, s2): 
+    result = 'NO'
+    a = set(list(s1)) 
+    b = set(list(s2)) 
+    c = a.intersection(b) 
+    if (len(c) != 0): 
+        result = 'YES' 
+    return result
 
 # Option 3
 def twoStrings(s1, s2):
@@ -80,6 +82,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Sherlock and Anagrams
 #!/bin/python3
 import math
@@ -89,33 +92,33 @@ import re
 import sys
 
 # Complete the sherlockAndAnagrams function below.
-# # Option 1
-# from collections import Counter
-# def sherlockAndAnagrams(s):
-#     anagrams = 0 
-#     for i in range(1, len(s)): 
-#         substrings = [] 
-#         for l in range(len(s)+1-i): 
-#             substrings.append(s[l:l+i]) 
-#         letters_in_sub = list(map(lambda x: Counter(x), substrings)) 
-#         for ele in letters_in_sub: 
-#             if letters_in_sub.count(ele)>1: 
-#                 anagrams += (letters_in_sub.count(ele)-1)/2 
-#     return int(anagrams)
+# Option 1
+from collections import Counter
+def sherlockAndAnagrams(s):
+    anagrams = 0 
+    for i in range(1, len(s)): 
+        substrings = [] 
+        for l in range(len(s)+1-i): 
+            substrings.append(s[l:l+i]) 
+        letters_in_sub = list(map(lambda x: Counter(x), substrings)) 
+        for ele in letters_in_sub: 
+            if letters_in_sub.count(ele)>1: 
+                anagrams += (letters_in_sub.count(ele)-1)/2 
+    return int(anagrams)
 
-# # Option 2
-# def sherlockAndAnagrams(s):
-#     dic = {}
-#     anagrams = 0
-#     for k in range(1, len(s)):
-#         for i in range(len(s)-k+1):
-#             j = i+k
-#             strr = ''.join(sorted(s[i:j]))
-#             dic[strr] = dic.get(strr,0)+1
-#     for v in dic.values():
-#         if v>1:
-#             anagrams += (v*(v-1))//2
-#     return anagrams
+# Option 2
+def sherlockAndAnagrams(s):
+    dic = {}
+    anagrams = 0
+    for k in range(1, len(s)):
+        for i in range(len(s)-k+1):
+            j = i+k
+            strr = ''.join(sorted(s[i:j]))
+            dic[strr] = dic.get(strr,0)+1
+    for v in dic.values():
+        if v>1:
+            anagrams += (v*(v-1))//2
+    return anagrams
 
 # Option 3
 def sherlockAndAnagrams(s):
@@ -142,6 +145,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Count Triplets
 #!/bin/python3
 import math
@@ -151,31 +155,31 @@ import re
 import sys
 
 # Complete the countTriplets function below.
-# # Option 1
-# from collections import defaultdict
-# def countTriplets(arr, r):    #(array, ratio)
-#     c = 0   #count
-#     triplets = defaultdict(lambda: defaultdict(lambda: 0))
-#     for num in arr:
-#         if num in triplets:
-#             c += triplets[num][2]
-#             triplets[num*r][2] += triplets[num][1]
-#         triplets[num*r][1] += 1
-#     return c
+# Option 1
+from collections import defaultdict
+def countTriplets(arr, r):    #(array, ratio)
+    c = 0   #count
+    triplets = defaultdict(lambda: defaultdict(lambda: 0))
+    for num in arr:
+        if num in triplets:
+            c += triplets[num][2]
+            triplets[num*r][2] += triplets[num][1]
+        triplets[num*r][1] += 1
+    return c
 
-# # Option 2
-# from collections import Counter
-# def countTriplets(arr, r):
-#     second = Counter()
-#     third = Counter()
-#     c = 0   #count
-#     for num in arr:
-#         if num in third:
-#             c += third[num]
-#         if num in second:
-#             third[num*r] += second[num]
-#         second[num*r] += 1
-#     return c
+# Option 2
+from collections import Counter
+def countTriplets(arr, r):
+    second = Counter()
+    third = Counter()
+    c = 0   #count
+    for num in arr:
+        if num in third:
+            c += third[num]
+        if num in second:
+            third[num*r] += second[num]
+        second[num*r] += 1
+    return c
 
 # Option 3
 from collections import defaultdict
@@ -198,6 +202,7 @@ if __name__ == '__main__':
     ans = countTriplets(arr, r)
     fptr.write(str(ans) + '\n')
     fptr.close()
+
 
 
 
@@ -236,36 +241,36 @@ def freqQuery(queries):
                 result.append(0)
     return result
 
-# # Option 2
-# def freqQuery(queries):
-#     result=[]
-#     n = len(queries)
-#     f = {}
-#     ff = {}
-#     for i in range(n):
-#        o, e = queries[i]
-#        if (o==1):
-#            if e not in f:
-#                f[e]=0
-#            ff[f[e]]=ff.setdefault(f[e],0)-1
-#            f[e]=f.setdefault(e,0)+1
-#            ff[f[e]]=ff.setdefault(f[e],0)+1
-#        elif (o==2):
-#            if e in f:
-#                ff[f[e]]=ff.setdefault(f[e],0)-1
-#                f[e]=f.setdefault(e,0)-1
-#                ff[f[e]]=ff.setdefault(f[e],0)+1
-#                if f[e]<=0:
-#                    del f[e]
-#        else:
-#            if e in ff:
-#                if ff[e]:
-#                    result.append(1)
-#                else:
-#                    result.append(0)
-#            else:
-#                result.append(0)
-#     return result
+# Option 2
+def freqQuery(queries):
+    result=[]
+    n = len(queries)
+    f = {}
+    ff = {}
+    for i in range(n):
+       o, e = queries[i]
+       if (o==1):
+           if e not in f:
+               f[e]=0
+           ff[f[e]]=ff.setdefault(f[e],0)-1
+           f[e]=f.setdefault(e,0)+1
+           ff[f[e]]=ff.setdefault(f[e],0)+1
+       elif (o==2):
+           if e in f:
+               ff[f[e]]=ff.setdefault(f[e],0)-1
+               f[e]=f.setdefault(e,0)-1
+               ff[f[e]]=ff.setdefault(f[e],0)+1
+               if f[e]<=0:
+                   del f[e]
+       else:
+           if e in ff:
+               if ff[e]:
+                   result.append(1)
+               else:
+                   result.append(0)
+           else:
+               result.append(0)
+    return result
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
@@ -277,6 +282,7 @@ if __name__ == '__main__':
     fptr.write('\n'.join(map(str, ans)))
     fptr.write('\n')
     fptr.close()
+
 
 
 
