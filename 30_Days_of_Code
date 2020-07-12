@@ -1,6 +1,10 @@
-30 Days of Code
+## Hackerrank
+## 30 Days of Code
 
-Day 0: Hello, World.
+
+
+
+# Day 0: Hello, World.
 # Read a full line of input from stdin and save it to our dynamically typed variable, input_string.
 input_string = input()
 
@@ -11,7 +15,9 @@ print('Hello, World.')
 print(input_string)
 
 
-Day 1: Data Types
+
+
+# Day 1: Data Types
 # Declare second integer, double, and String variables.
 int_2 = input()
 double_2 = input()
@@ -33,7 +39,9 @@ print(sum_double)
 print(sum_string)
 
 
-Day 2: Operators
+
+
+# Day 2: Operators
 import math
 import os
 import random
@@ -56,7 +64,9 @@ if __name__ == '__main__':
     solve(meal_cost, tip_percent, tax_percent)
 
 
-Day 3: Intro to Conditional Statements
+
+
+# Day 3: Intro to Conditional Statements
 import math
 import os
 import random
@@ -80,7 +90,9 @@ elif N % 2 == 0:
 # If  is even and greater than 20, print Not Weird
 
 
-Day 4: Class vs. Instance
+
+
+# Day 4: Class vs. Instance
 class Person:
     def __init__(self, initialAge):
         # to run some checks on initialAge
@@ -104,7 +116,9 @@ class Person:
         age += 1
 
 
-Day 5: Loops
+
+
+# Day 5: Loops
 import math
 import os
 import random
@@ -118,14 +132,16 @@ for i in range(1,11):
     print(n, 'x', i, '=', n*i)
 
 
-Day 6: Let's Review
+# Day 6: Let's Review
 n = int(input())  # number of strings
 for _ in range(n):
     word = input()
     print(word[::2], word[1::2])  # print even letters, odd letters
 
 
-Day 7: Arrays
+
+
+# Day 7: Arrays
 import math
 import os
 import random
@@ -141,7 +157,9 @@ if __name__ == '__main__':
     print(' '.join(new_arr))
 
 
-Day 8: Dictionaries and Maps
+
+
+# Day 8: Dictionaries and Maps
 # n = int(input())
 # phonebook = {}
 # for _ in range(n):
@@ -176,7 +194,9 @@ while 1:
         break
 
 
-Day 9: Recursion 3
+
+
+# Day 9: Recursion 3
 import math
 import os
 import random
@@ -198,7 +218,9 @@ if __name__ == '__main__':
     fptr.close()
 
 
-Day 10: Binary Numbers
+
+
+# Day 10: Binary Numbers
 import math
 import os
 import random
@@ -214,7 +236,9 @@ if __name__ == '__main__':
     print(len(max(b)))
 
 
-Day 11: 2D Arrays
+
+
+# Day 11: 2D Arrays
 import math
 import os
 import random
@@ -234,7 +258,9 @@ for i in range(0,4):
 print(max(hourglass_sum))
 
 
-Day 12: Inheritance
+
+
+# Day 12: Inheritance
 class Person:
 	def __init__(self, firstName, lastName, idNumber):
 		self.firstName = firstName
@@ -278,7 +304,9 @@ class Student(Person):
 line = input().split()
 
 
-Day 13: Abstract Classes
+
+
+# Day 13: Abstract Classes
 from abc import ABCMeta, abstractmethod
 class Book(object, metaclass=ABCMeta):
     def __init__(self,title,author):
@@ -304,14 +332,15 @@ new_novel=MyBook(title,author,price)
 new_novel.display()
 
 
-Day 14: Scope
+
+
+# Day 14: Scope
 class Difference:
     def __init__(self, a):
         self.__elements = a
 
     def computeDifference(self):
         self.maximumDifference = abs( sorted(a)[0] - sorted(a)[-1] )
-
 # End of Difference class
 
 _ = input()
@@ -323,7 +352,43 @@ d.computeDifference()
 print(d.maximumDifference)
 
 
-Day 16: Exceptions - String to Integer
+
+
+# Day 15: Linked List
+class Node:
+    def __init__(self,data):
+        self.data = data
+        self.next = None 
+class Solution: 
+    def display(self,head):
+        current = head
+        while current:
+            print(current.data,end=' ')
+            current = current.next
+
+    def insert(self,head,data): 
+        if head == None:
+            self.head=Node(data)
+        else:
+            temp = self.head
+            while self.head.next != None:
+                self.head = self.head.next
+            self.head.next = Node(data)
+            self.head = temp
+        return self.head
+
+mylist= Solution()
+T=int(input())
+head=None
+for i in range(T):
+    data=int(input())
+    head=mylist.insert(head,data)    
+mylist.display(head); 	  
+
+
+
+
+# Day 16: Exceptions - String to Integer
 import sys
 S = input().strip()
 try:
@@ -332,7 +397,9 @@ except:
     print("Bad String")
 
 
-Day 17: More Exceptions
+
+
+# Day 17: More Exceptions
 #Write your code here
 class Calculator(object):
     def power(self, n, p):
@@ -352,7 +419,9 @@ for i in range(T):
         print(e) 
 
 
-Day 18: Queues and Stacks
+
+
+# Day 18: Queues and Stacks
 import sys
 from queue import Queue
 
@@ -401,7 +470,9 @@ else:
     print("The word, "+s+", is not a palindrome.") 
 
 
-Day 19: Interfaces
+
+
+# Day 19: Interfaces
 class AdvancedArithmetic(object):
     def divisorSum(n):
         raise NotImplementedError
@@ -421,7 +492,9 @@ print("I implemented: " + type(my_calculator).__bases__[0].__name__)
 print(s)
 
 
-Day 20: Sorting
+
+
+# Day 20: Sorting
 import sys
 
 n = int(input().strip())
@@ -443,7 +516,9 @@ print('First Element:', a[0])
 print('Last Element:', a[-1])
 
 
-Day 21: Generics
+
+
+# Day 21: Generics
 #include <iostream>
 #include <vector>
 #include <string>
@@ -490,7 +565,9 @@ int main() {
 }
 
 
-Day 22: Binary Search Trees
+
+
+# Day 22: Binary Search Trees
 class Node:
     def __init__(self,data):
         self.right=self.left=None
@@ -524,7 +601,9 @@ height=myTree.getHeight(root)
 print(height)     
 
 
-Day 23: BST Level-Order Traversal
+
+
+# Day 23: BST Level-Order Traversal
 import sys
 
 class Node:
@@ -564,7 +643,9 @@ for i in range(T):
 myTree.levelOrder(root)
 
 
-Day 24: More Linked Lists
+
+
+# Day 24: More Linked Lists
 class Node:
     def __init__(self,data):
         self.data = data
@@ -608,7 +689,9 @@ head=mylist.removeDuplicates(head)
 mylist.display(head); 
 
 
-Day 25: Running Time and Complexity
+
+
+# Day 25: Running Time and Complexity
 """
 If a number x is divisable by another number less or equal to the square root of x... it is NOT prime. That is the reason for O(sqrt(n)) run time.
 """
@@ -630,7 +713,9 @@ for _ in range(T):
     print(is_prime(n))
 
 
-Day 26: Nested Logic
+
+
+# Day 26: Nested Logic
 # Enter your code here. Read input from STDIN. Print output to STDOUT
 d1, m1, y1 = map(int, input().split())
 d2, m2, y2 = map(int, input().split())
@@ -645,7 +730,9 @@ else:
     print(0)
 
 
-Day 27: Testing
+
+
+# Day 27: Testing
 def minimum_index(seq):
     if len(seq) == 0:
         raise ValueError("Cannot get the minimum value index from an empty sequence")
@@ -695,7 +782,6 @@ def TestWithEmptyArray():
     else:
         assert False
 
-
 def TestWithUniqueValues():
     seq = TestDataUniqueValues.get_array()
     assert len(seq) >= 2
@@ -723,7 +809,9 @@ TestiWithExactyTwoDifferentMinimums()
 print("OK")
 
 
-Day 28: RegEx, Patterns, and Intro to Databases
+
+
+# Day 28: RegEx, Patterns, and Intro to Databases
 #!/bin/python3
 
 import math
@@ -747,7 +835,9 @@ if __name__ == '__main__':
         print(e)
 
 
-Day 29: Bitwise AND
+
+
+# Day 29: Bitwise AND
 #!/bin/python3
 
 import math
@@ -763,6 +853,8 @@ if __name__ == '__main__':
         n = int(nk[0])
         k = int(nk[1])
         print(k-1 if ((k-1) | k) <= n else k-2)
+
+
 
 
 ## end ##
