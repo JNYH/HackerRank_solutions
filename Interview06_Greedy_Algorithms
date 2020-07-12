@@ -3,6 +3,7 @@
 
 
 
+
 ## Minimum Absolute Difference in an Array
 #!/bin/python3
 import math
@@ -27,6 +28,7 @@ if __name__ == '__main__':
     result = minimumAbsoluteDifference(arr)
     fptr.write(str(result) + '\n')
     fptr.close()
+
 
 
 
@@ -79,6 +81,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Greedy Florist
 """
 We first sort the given list of prices of flowers.
@@ -122,6 +125,7 @@ if __name__ == '__main__':
 
 
 
+
 # Max Min
 #!/bin/python3
 import math
@@ -151,6 +155,7 @@ if __name__ == '__main__':
     result = maxMin(k, arr)
     fptr.write(str(result) + '\n')
     fptr.close()
+
 
 
 
@@ -241,6 +246,7 @@ if __name__ == '__main__':
     result = reverseShuffleMerge(s)
     fptr.write(result + '\n')
     fptr.close()
+
 
 
 
