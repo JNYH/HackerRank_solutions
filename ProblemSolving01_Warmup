@@ -3,6 +3,7 @@
 
 
 
+
 ## Solve Me First
 def solveMeFirst(a,b):
     # Hint: Type return a+b below
@@ -12,6 +13,7 @@ num1 = int(input())
 num2 = int(input())
 res = solveMeFirst(num1,num2)
 print(res)
+
 
 
 
@@ -37,6 +39,7 @@ if __name__ == '__main__':
     result = simpleArraySum(ar)
     fptr.write(str(result) + '\n')
     fptr.close()
+
 
 
 
@@ -69,6 +72,7 @@ if __name__ == '__main__':
 
 
 
+
 ## A Very Big Sum
 #!/bin/python3
 import math
@@ -91,6 +95,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Diagonal Difference
 #!/bin/python3
 import math
@@ -105,7 +110,6 @@ import sys
 # The function is expected to return an INTEGER.
 # The function accepts 2D_INTEGER_ARRAY arr as parameter.
 #
-
 def diagonalDifference(arr):
     diag1, diag2 = [], []
     n = len(arr)
@@ -123,6 +127,7 @@ if __name__ == '__main__':
     result = diagonalDifference(arr)
     fptr.write(str(result) + '\n')
     fptr.close()
+
 
 
 
@@ -157,6 +162,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Staircase
 #!/bin/python3
 import math
@@ -173,6 +179,7 @@ def staircase(n):
 if __name__ == '__main__':
     n = int(input())
     staircase(n)
+
 
 
 
@@ -199,6 +206,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Birthday Cake Candles
 #!/bin/python3
 import math
@@ -219,6 +227,7 @@ if __name__ == '__main__':
     result = birthdayCakeCandles(ar)
     fptr.write(str(result) + '\n')
     fptr.close()
+
 
 
 
@@ -249,5 +258,5 @@ if __name__ == '__main__':
 
 
 
-## end ##
 
+## end ##
