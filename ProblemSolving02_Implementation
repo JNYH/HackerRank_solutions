@@ -3,6 +3,7 @@
 
 
 
+
 ## Grading Students
 #!/bin/python3
 import math
@@ -39,6 +40,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Apple and Orange
 #!/bin/python3
 import math
@@ -65,6 +67,7 @@ if __name__ == '__main__':
     apples = list(map(int, input().rstrip().split()))
     oranges = list(map(int, input().rstrip().split()))
     countApplesAndOranges(s, t, a, b, apples, oranges)
+
 
 
 
@@ -95,6 +98,7 @@ if __name__ == '__main__':
     result = kangaroo(x1, v1, x2, v2)
     fptr.write(result + '\n')
     fptr.close()
+
 
 
 
@@ -136,6 +140,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Breaking the Records
 #!/bin/python3
 import math
@@ -166,6 +171,7 @@ if __name__ == '__main__':
     fptr.write(' '.join(map(str, result)))
     fptr.write('\n')
     fptr.close()
+
 
 
 
@@ -206,6 +212,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Divisible Sum Pairs
 #!/bin/python3
 import math
@@ -241,6 +248,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Migratory Birds
 #!/bin/python3
 import math
@@ -264,6 +272,7 @@ if __name__ == '__main__':
     result = migratoryBirds(arr)
     fptr.write(str(result) + '\n')
     fptr.close()
+
 
 
 
@@ -293,6 +302,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Bon Appétit
 #!/bin/python3
 import math
@@ -316,6 +326,7 @@ if __name__ == '__main__':
     bill = list(map(int, input().rstrip().split()))
     b = int(input().strip())
     bonAppetit(bill, k, b)
+
 
 
 
@@ -343,6 +354,7 @@ if __name__ == '__main__':
     result = sockMerchant(n, ar)
     fptr.write(str(result) + '\n')
     fptr.close()
+
 
 
 
@@ -377,6 +389,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Counting Valleys
 #!/bin/python3
 import math
@@ -405,6 +418,7 @@ if __name__ == '__main__':
     result = countingValleys(n, s)
     fptr.write(str(result) + '\n')
     fptr.close()
+
 
 
 
@@ -443,6 +457,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Cats and a Mouse
 #!/bin/python3
 import math
@@ -471,6 +486,7 @@ if __name__ == '__main__':
         result = catAndMouse(x, y, z)
         fptr.write(result + '\n')
     fptr.close()
+
 
 
 
@@ -512,6 +528,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Picking Numbers
 #!/bin/python3
 import math
@@ -540,6 +557,7 @@ if __name__ == '__main__':
     result = pickingNumbers(a)
     fptr.write(str(result) + '\n')
     fptr.close()
+
 
 
 
@@ -596,6 +614,7 @@ if __name__ == '__main__':
 
 
 
+
 ## The Hurdle Race
 #!/bin/python3
 import math
@@ -622,6 +641,7 @@ if __name__ == '__main__':
     result = hurdleRace(k, height)
     fptr.write(str(result) + '\n')
     fptr.close()
+
 
 
 
@@ -654,6 +674,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Utopian Tree
 #!/bin/python3
 import math
@@ -679,6 +700,7 @@ if __name__ == '__main__':
         result = utopianTree(n)
         fptr.write(str(result) + '\n')
     fptr.close()
+
 
 
 
@@ -726,6 +748,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Beautiful Days at the Movies
 #!/bin/python3
 import math
@@ -754,6 +777,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Viral Advertising
 #!/bin/python3
 import math
@@ -777,6 +801,7 @@ if __name__ == '__main__':
     result = viralAdvertising(n)
     fptr.write(str(result) + '\n')
     fptr.close()
+
 
 
 
@@ -808,6 +833,7 @@ if __name__ == '__main__':
         result = saveThePrisoner(n, m, s)
         fptr.write(str(result) + '\n')
     fptr.close()
+
 
 
 
@@ -847,6 +873,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Sequence Equation
 #!/bin/python3
 import math
@@ -872,6 +899,7 @@ if __name__ == '__main__':
     fptr.write('\n'.join(map(str, result)))
     fptr.write('\n')
     fptr.close()
+
 
 
 
@@ -908,6 +936,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Find Digits
 #!/bin/python3
 import math
@@ -939,6 +968,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Extra Long Factorials
 #!/bin/python3
 import math
@@ -957,6 +987,7 @@ def extraLongFactorials(n):  # recursive
 if __name__ == '__main__':
     n = int(input())
     print(extraLongFactorials(n))
+
 
 
 
@@ -1010,6 +1041,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Sherlock and Squares
 #!/bin/python3
 import math
@@ -1039,6 +1071,7 @@ if __name__ == '__main__':
         result = squares(a, b)
         fptr.write(str(result) + '\n')
     fptr.close()
+
 
 
 
@@ -1082,6 +1115,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Cut the sticks
 #!/bin/python3
 import math
@@ -1112,6 +1146,7 @@ if __name__ == '__main__':
     fptr.write('\n'.join(map(str, result)))
     fptr.write('\n')
     fptr.close()
+
 
 
 
@@ -1155,6 +1190,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Repeated String
 #!/bin/python3
 import math
@@ -1186,6 +1222,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Jumping on the Clouds
 #!/bin/python3
 import math
@@ -1214,6 +1251,7 @@ if __name__ == '__main__':
     result = jumpingOnClouds(c)
     fptr.write(str(result) + '\n')
     fptr.close()
+
 
 
 
@@ -1256,6 +1294,7 @@ if __name__ == '__main__':
     result = equalizeArray(arr)
     fptr.write(str(result) + '\n')
     fptr.close()
+
 
 
 
@@ -1444,6 +1483,7 @@ if __name__ == '__main__':
 
 
 
+
 ## ACM ICPC Team
 ## ACM ICPC Team
 #!/bin/python3
@@ -1514,6 +1554,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Taum and B'day
 #!/bin/python3
 import math
@@ -1567,6 +1608,7 @@ if __name__ == '__main__':
         result = taumBday(b, w, bc, wc, z)
         fptr.write(str(result) + '\n')
     fptr.close()
+
 
 
 
@@ -1640,6 +1682,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Encryption
 #!/bin/python3
 import math
@@ -1676,6 +1719,7 @@ if __name__ == '__main__':
     result = encryption(s)
     fptr.write(result + '\n')
     fptr.close()
+
 
 
 
@@ -1730,9 +1774,12 @@ if __name__ == '__main__':
 
 
 
+
 ## Modified Kaprekar Numbers
 """
-In mathematics, a Kaprekar number for a given base is a non-negative integer, the representation of whose square in that base can be split into two parts that add up to the original number again. For instance, 45 is a Kaprekar number, because 45² = 2025 and 20+25 = 45.
+In mathematics, a Kaprekar number for a given base is a non-negative integer, 
+the representation of whose square in that base can be split into two parts that add up to the original number again. 
+For instance, 45 is a Kaprekar number, because 45² = 2025 and 20+25 = 45.
 """
 #!/bin/python3
 import math
@@ -1786,6 +1833,7 @@ if __name__ == '__main__':
     p = int(input())
     q = int(input())
     kaprekarNumbers(p, q)
+
 
 
 
