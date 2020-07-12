@@ -3,6 +3,7 @@
 
 
 
+
 ## Sorting: Bubble Sort
 #!/bin/python3
 import math
@@ -12,20 +13,20 @@ import re
 import sys
 
 # Complete the countSwaps function below.
-# # Option 1
-# def countSwaps(a):
-#     num_swap = 0
-#     while a != sorted(a):
-#         for i in range(n-1):
-#             tmp = 0
-#             if a[i] > a[i+1]:
-#                 tmp = a[i]
-#                 a[i] = a[i+1]
-#                 a[i+1] = tmp
-#                 num_swap += 1
-#     print('Array is sorted in {} swaps.'.format(num_swap))
-#     print('First Element:', a[0])
-#     print('Last Element:', a[-1])
+# Option 1
+def countSwaps(a):
+    num_swap = 0
+    while a != sorted(a):
+        for i in range(n-1):
+            tmp = 0
+            if a[i] > a[i+1]:
+                tmp = a[i]
+                a[i] = a[i+1]
+                a[i+1] = tmp
+                num_swap += 1
+    print('Array is sorted in {} swaps.'.format(num_swap))
+    print('First Element:', a[0])
+    print('Last Element:', a[-1])
 
 # Option 2
 def countSwaps(a):
@@ -47,6 +48,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Mark and Toys
 #!/bin/python3
 import math
@@ -56,15 +58,15 @@ import re
 import sys
 
 # Complete the maximumToys function below.
-# # Option 1
-# def maximumToys(prices, k):
-#     c = 0   # count
-#     total = 0   # cumulative prices
-#     prices.sort()
-#     while total <= k:
-#         total += prices[c]
-#         c += 1
-#     return c-1   # remove the last item that burst the budget
+# Option 1
+def maximumToys(prices, k):
+    c = 0   # count
+    total = 0   # cumulative prices
+    prices.sort()
+    while total <= k:
+        total += prices[c]
+        c += 1
+    return c-1   # remove the last item that burst the budget
 
 # Option 2
 def maximumToys(prices, k):
@@ -86,6 +88,7 @@ if __name__ == '__main__':
     result = maximumToys(prices, k)
     fptr.write(str(result) + '\n')
     fptr.close()
+
 
 
 
@@ -121,6 +124,7 @@ for i in range(n):
 data = sorted(data, key=cmp_to_key(Player.comparator))
 for i in data:
     print(i.name, i.score)
+
 
 
 
@@ -233,6 +237,7 @@ if __name__ == '__main__':
 
 
 
+
 ## Merge Sort: Counting Inversions
 #!/bin/python3
 import math
@@ -293,5 +298,5 @@ if __name__ == '__main__':
 
 
 
-## end ##
 
+## end ##
