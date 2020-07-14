@@ -1857,8 +1857,7 @@ def beautifulTriplets(d, arr):
 # Option 2
 def beautifulTriplets(d, arr):
     sarr = set(arr)
-    return len([x for x in arr if x+d in sarr
-        and x+d+d in sarr])
+    return len([x for x in arr if x+d in sarr and x+d+d in sarr])
 
 # Option 3
 from collections import Counter
