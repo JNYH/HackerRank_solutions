@@ -1838,6 +1838,50 @@ if __name__ == '__main__':
 
 
 ## Beautiful Triplets
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the beautifulTriplets function below.
+# Option 1
+def beautifulTriplets(d, arr):
+    result = 0
+    for i in range(n):
+        if (arr[i]+d in arr) and (arr[i]+d+d in arr):
+            result += 1
+    return result
+
+# Option 2
+def beautifulTriplets(d, arr):
+    sarr = set(arr)
+    return len([x for x in arr if x+d in sarr
+        and x+d+d in sarr])
+
+# Option 3
+from collections import Counter
+def beautifulTriplets(d, arr):
+    freq = Counter(arr)
+    result = 0
+    for num in arr:
+        if freq[num+d] and freq[num+d+d]:
+            result += 1
+    return result
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    nd = input().split()
+    n = int(nd[0])
+    d = int(nd[1])
+    arr = list(map(int, input().rstrip().split()))
+    result = beautifulTriplets(d, arr)
+    fptr.write(str(result) + '\n')
+    fptr.close()
+
+
+
 
 
 
