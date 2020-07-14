@@ -1883,6 +1883,54 @@ if __name__ == '__main__':
 
 
 ## Minimum Distances
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the minimumDistances function below.
+# Option 1
+def minimumDistances(a):
+    distance = []
+    for x in a:
+        d = (len(a)-1-a[::-1].index(x)) - a.index(x)
+        if d > 0:
+            distance.append(d)
+    if len(distance)==0:
+        return (-1)
+    else:
+        return (min(distance))
+
+# Option 2
+def minimumDistances(a):
+    distance = []
+    for i in range(len(a)-1):
+        for j in range(i+1, len(a)):
+            if a[i]==a[j]:
+                distance.append(abs(i-j))
+    return (min(distance) if len(distance)>0 else -1)
+
+# Option 3
+def minimumDistances(a):
+    minimum = len(a)
+    index_dict = {}
+    for idx, num in enumerate(a):
+        if num in index_dict:
+            distance = idx - index_dict[num]
+            if distance < minimum:
+                minimum = distance
+        index_dict[num] = idx
+    return (minimum if minimum<len(a) else -1)
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    n = int(input())
+    a = list(map(int, input().rstrip().split()))
+    result = minimumDistances(a)
+    fptr.write(str(result) + '\n')
+    fptr.close()
 
 
 
