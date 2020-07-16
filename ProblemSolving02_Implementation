@@ -2021,7 +2021,6 @@ def timeInWords(h, m):
             28:"twenty eight minutes",
             29:"twenty nine minutes",
             30:"half" }
-
     hrs = { 1:"one",
             2:"two",
             3:"three",
@@ -2035,14 +2034,12 @@ def timeInWords(h, m):
             11:"eleven",
             12:"twelve",
             13:"one" }
-
     if m == 0:
         return (hrs[h] + " o' clock")
     elif m <= 30:
         return (mins[m] + " past " + hrs[h])
     else:
         return (mins[60-m] + ' to ' + hrs[h+1])
-
 
 # Option 2
 def timeInWords(h, m):
@@ -2067,7 +2064,6 @@ def timeInWords(h, m):
             "eighteen",
             "nineteen",
             "twenty"   ]
-
     if m==0:
         return num[h] + " o' clock"
     if m==1:
