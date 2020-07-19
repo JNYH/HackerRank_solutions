@@ -2095,6 +2095,54 @@ if __name__ == '__main__':
 
 
 ## Chocolate Feast
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the chocolateFeast function below.
+# Option 1
+def chocolateFeast(n, c, m):
+    chocolates = n // c
+    wrappers = n // c
+    while wrappers >= m:
+        new_chocs = wrappers // m
+        wrappers -= new_chocs * m
+        chocolates += new_chocs
+        wrappers += new_chocs
+    return chocolates
+
+# Option 2
+def chocolateFeast(n, c, m):
+    chocolates = n//c
+    wrappers = chocolates
+    while wrappers >= m:
+        chocolates += wrappers // m
+        wrappers = wrappers//m + wrappers%m
+    return chocolates
+
+# Option 3
+def chocolateFeast(n, c, m):
+    chocolates = n//c
+    wrappers = chocolates
+    while wrappers >= m:
+        chocolates += 1
+        wrappers = wrappers - m + 1
+    return chocolates
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    t = int(input())
+    for t_itr in range(t):
+        ncm = input().split()
+        n = int(ncm[0])
+        c = int(ncm[1])
+        m = int(ncm[2])
+        result = chocolateFeast(n, c, m)
+        fptr.write(str(result) + '\n')
+    fptr.close()
 
 
 
