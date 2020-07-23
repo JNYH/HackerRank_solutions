@@ -2229,6 +2229,69 @@ if __name__ == '__main__':
 
 
 ## Flatland Space Stations
+"""
+1. Sort the array in incresing order. 
+2. Take the maximum distance from the starting city (0) and from the last city from the nearest station. Also eliminate the case of only 1 staion. 
+3. Now take the maximum distance from the given station to any city using formula (c[i+1]-c[i])/2. Try drawing the diagrams and you will get the formula. 
+4. The maximum value of distance is the answer.
+"""
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the flatlandSpaceStations function below.
+# Option 1
+def flatlandSpaceStations(n, c):
+    c.sort()
+    max_distance = max(c[0], n-1 - c[-1])
+    for i in range(len(c)-1):
+        max_distance = max((c[i+1]-c[i])//2, max_distance)
+    return max_distance
+
+# Option 2
+def flatlandSpaceStations(n, c):
+    c.sort()
+    diff = []
+    for x in range(len(c) + 1):
+        if x == 0:
+            diff.append(c[x])
+        elif x == len(c):
+            diff.append((n - 1) - c[x-1])
+        else:
+            diff.append((c[x] - c[x-1]) // 2)
+    return max(diff)
+
+# Option 3
+def flatlandSpaceStations(n, c):
+    c.sort()
+    maximum = max(c[0], n - c[-1] - 1) # initialize with ends
+    for i in range(1, m):
+        d = c[i] - c[i-1]
+        maximum = max(d//2, maximum)
+    return maximum
+
+# Option 4
+def flatlandSpaceStations(n, c):
+    c.sort()
+    return max(c[0],n-1-c[-1],*[(c[i+1]-c[i])//2 for i in range(len(c)-1)])
+    
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    nm = input().split()
+    n = int(nm[0])
+    m = int(nm[1])
+    c = list(map(int, input().rstrip().split()))
+    result = flatlandSpaceStations(n, c)
+    fptr.write(str(result) + '\n')
+    fptr.close()
+
+
+
+
+
 
 
 
