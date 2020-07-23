@@ -2267,7 +2267,7 @@ def flatlandSpaceStations(n, c):
 # Option 3
 def flatlandSpaceStations(n, c):
     c.sort()
-    maximum = max(c[0], n - c[-1] - 1) # initialize with ends
+    maximum = max(c[0], n - c[-1] - 1)    # initialize 
     for i in range(1, m):
         d = c[i] - c[i-1]
         maximum = max(d//2, maximum)
