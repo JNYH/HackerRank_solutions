@@ -21,6 +21,27 @@ for a0 in range(t):
 
 
 
+## Project Euler #2: Even Fibonacci numbers
+"""
+Fibonacci series = 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, …
+"""
+#!/bin/python3
+import sys
+
+t = int(input().strip())
+for a0 in range(t):
+    n = int(input().strip())
+    total = 0
+    a = 0
+    b = 1
+    while b < n:
+        if b%2==0:    #even
+            total += b
+        a,b = b,a+b
+    print(total)
+    
+    
+
 
 
 
