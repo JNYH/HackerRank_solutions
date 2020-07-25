@@ -2292,6 +2292,59 @@ if __name__ == '__main__':
 
 
 ## Fair Rations
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the fairRations function below.
+# Option 1
+def fairRations(B):
+    B = [i%2 for i in B]
+    c = 0   #count
+    for i in range(len(B)-1):
+        if B[i] and B[i+1]:
+            B[i] = 0
+            B[i+1] = 0
+            c += 1
+        elif B[i] and not B[i+1]:
+            B[i] = 0
+            B[i+1] = 1
+            c += 1
+    return 'NO' if any(B) else c*2
+
+# Option 2
+def fairRations(B):
+    c = 0   #count
+    for i in range(0, len(B)-1):
+        if B[i]%2 != 0:   #odd
+            c = c+2
+            B[i+1] = B[i+1] + 1
+    return (c if B[-1]%2==0 else 'NO')
+
+# Option 3:
+def fairRations(B):
+    c = 0   #count
+    for i in range(len(B)):
+        try:
+            if B[i]%2 is 1:   #odd
+                c += 2
+                B[i+1] += 1
+        except:
+            return 'NO'
+    return c
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    N = int(input())
+    B = list(map(int, input().rstrip().split()))
+    result = fairRations(B)
+    fptr.write(str(result) + '\n')
+    fptr.close()
+
+
 
 
 
