@@ -43,6 +43,33 @@ for a0 in range(t):
     
 
 
+## Project Euler #3: Largest prime factor
+"""
+Any number can be broken down to a product of it's prime factors. For example, 100 = 2x2x5x5. So let's start with 2 and divide the number as long as it's divisible by 2. Then we move onto 3 and 4. We keep doing this until the number is not divisible anymore and just print it. In this method, there is no reason to check for primes. If a number is divisible by 4, say, we would have already divided it by 2 twice. And the final number we are left with would be the largest prime factor.
+We just have a single loop going to sqrt(N). So the complexity of this code is O(sqrtN).
+"""
+#!/bin/python3
+import sys
+
+t = int(input().strip())
+for a0 in range(t):
+    n = int(input().strip())
+    i=2
+    while i <= n**0.5:
+        if n%i==0:
+            n = n//i
+        else:
+            # edge case is i==2 where we add 1
+            if i==2:
+                i=3
+            else:
+                i+=2
+    print(n)
+
+
+
+
+
 
 
 
