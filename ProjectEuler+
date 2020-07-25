@@ -1,0 +1,35 @@
+## HackerRank
+## ProjectEuler+
+
+
+
+
+## Project Euler #1: Multiples of 3 and 5
+#!/bin/python3
+import sys
+
+def sum_ap(n, d):
+    n = (n-1)//d
+    return d*n*(n+1)
+
+t = int(input().strip())
+for a0 in range(t):
+    n = int(input().strip())
+    total = sum_ap(n,3) + sum_ap(n,5) - sum_ap(n,15)
+    print(int(int(total) >> 1))
+
+
+
+
+
+
+
+
+
+
+
+(work in progress)
+
+
+
+## end ##
