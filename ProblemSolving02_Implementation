@@ -2614,6 +2614,77 @@ if __name__ == '__main__':
 
 
 
+## 3D Surface Area
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the surfaceArea function below.
+# Option 1
+def surfaceArea(A):
+    # Pad the grid width a layer of 0
+    # for easier calculation
+    a = [[0] * (len(A[0]) + 2)]
+    for row in A:
+        a.append([0] + row + [0])
+    a.append([0] * (len(A[0]) + 2))
+    
+    # Bottom and top area
+    result = len(A) * len(A[0]) * 2
+    
+    # Side area is just the sum of differences
+    # between adjacent cells. Be careful not to
+    # count a side twice.
+    for i in range(1, len(a)):
+        for j in range(1, len(a[i])):
+            result += abs(a[i][j] - a[i-1][j])
+            result += abs(a[i][j] - a[i][j-1])
+    return result
+
+# Option 2
+def surfaceArea(A):
+    result = 0
+    for i in range(len(A)):   #for list in list
+        for e in range(len(A[i])):   #for cell in list
+            c = A[i][e]
+            s = (c*4)+2
+            if i > 0:   #left side limit
+                s -= min(c,A[i-1][e])*2
+            if e > 0:   #upper limit
+                s -= min(c,A[i][e-1])*2
+            result += s
+    return result
+
+# Option 3
+def surfaceArea(A):
+    result = 0
+    for j in range(0,len(A)):
+        for i in range(0,len(A[0])):
+            result += 2*(1+2*A[j][i])
+    for j in range(0,len(A[0])):        
+        for i in range(0,len(A)-1):
+            result -= min(A[i][j],A[i+1][j])*2
+    for j in range(0,len(A)):        
+        for i in range(0,len(A[0])-1):
+            result -= min(A[j][i],A[j][i+1])*2        
+    return result
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    HW = input().split()
+    H = int(HW[0])
+    W = int(HW[1])
+    A = []
+    for _ in range(H):
+        A.append(list(map(int, input().rstrip().split())))
+    result = surfaceArea(A)
+    fptr.write(str(result) + '\n')
+    fptr.close()
+
+
 
 
 
