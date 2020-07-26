@@ -2523,6 +2523,62 @@ if __name__ == '__main__':
 
 
 
+## Happy Ladybugs
+"""
+Dont bother swapping characters until you find a valid string. 
+Only need to check for 2 happy conditions:
+1. There are at least one empty cell and there is no Letter with count 1
+OR
+2. There is no empty cell but the given string is happy
+"""
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the happyLadybugs function below.
+# Option 1
+def happyLadybugs(b):
+    for color in set(b):
+        if color != '_' and b.count(color) == 1:
+            return 'NO'
+    
+    if b.count('_') == 0:
+        for i in range(1,n-1):
+            if b[i-1]!=b[i] and b[i+1]!=b[i]:
+                return 'NO'
+    return 'YES'
+
+# Option 2
+from collections import Counter
+def happyLadybugs(b):
+    counter = Counter(b)
+    for key,val in counter.items():
+        if key!='_' and val==1:
+            return 'NO'
+    if '_' in b:
+        return 'YES'
+    for idx in range(1, len(b)):
+        if b[idx]==b[idx-1] or b[idx]==b[idx+1]:
+            continue
+        else:
+            return 'NO'
+    return 'YES'
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    g = int(input())
+    for g_itr in range(g):
+        n = int(input())
+        b = input()
+        result = happyLadybugs(b)
+        fptr.write(result + '\n')
+    fptr.close()
+
+
+
 
 
 
