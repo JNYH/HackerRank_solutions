@@ -2580,6 +2580,41 @@ if __name__ == '__main__':
 
 
 
+## Strange Counter
+#!/bin/python3
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the strangeCounter function below.
+# Option 1
+def strangeCounter(t):
+    interval = 3
+    while t > interval:
+        t -= interval
+        interval *= 2
+    return (interval-t+1)
+
+# Option 2
+def strangeCounter(t):
+    interval = 3
+    while 2*interval-2 <= t:
+        interval *= 2
+    return interval - (t-(interval-2))
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    t = int(input())
+    result = strangeCounter(t)
+    fptr.write(str(result) + '\n')
+    fptr.close()
+
+
+
+
+
 
 
 
