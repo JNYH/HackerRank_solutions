@@ -2490,7 +2490,7 @@ def gridSearch(G, P):
     ROW = len(P)
     COL = len(P[0])
     for x,y in enumerate(G):
-        for i in ((k.start(0)) for k in re.finditer('(?=%s)'%P[0], y)):
+        for i in (k.start(0) for k in re.finditer('(?=%s)'%P[0], y)):
             for j in range(1, ROW):
                 if G[j+x][i:i+COL] != P[j]:
                     break
