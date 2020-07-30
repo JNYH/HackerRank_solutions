@@ -259,6 +259,33 @@ for a0 in range(t):
 
 
 ## Project Euler #10: Summation of primes
+"""
+There is a very efficient algorithm called the Sieve of Eratosthenes that is very simple. This alorithm will help you create an array of booleans of size 1000000 that will tell you whether a number is a prime or not.
+https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
+Create another array that holds the sum of all of the prime numbers less than the index
+"""
+#!/bin/python3
+import sys
+
+limit = 1000000
+sum_prime_arr = [0] * limit
+prime_arr = [True] * limit
+prime_arr[0] = prime_arr[1] = False
+for i, isprime in enumerate(prime_arr):
+    if isprime:
+        sum_prime_arr[i] = sum_prime_arr[i-1] + i
+        for n in range(i*i, limit, i):
+            prime_arr[n] = False
+    else:
+        sum_prime_arr[i] = sum_prime_arr[i-1]
+
+t = int(input().strip())
+for prime_arr0 in range(t):
+    n = int(input().strip())
+    print(sum_prime_arr[n])
+    
+
+
 
 
 
