@@ -294,24 +294,25 @@ This can be done without boundary checking by just making the 2D array 26 column
 #!/bin/python3
 import sys
 
-l = []
+g = []
 for _ in range(20):
     grid_t = [1,1,1]
     grid_t.extend([int(x) for x in input().split()])
     grid_t.extend([1,1,1])
-    l.append(grid_t)
+    g.append(grid_t)
 pad = [0]*26
 for _ in range(3):
-    l.append(pad)
+    g.append(pad)
 m = []
 for r in range(20):
     for c in range(3,23):
-        m1 = l[r][c]*l[r][c+1]*l[r][c+2]*l[r][c+3]
-        m2 = l[r][c]*l[r+1][c]*l[r+2][c]*l[r+3][c]
-        m3 = l[r][c]*l[r+1][c+1]*l[r+2][c+2]*l[r+3][c+3]
-        m4 = l[r][c]*l[r+1][c-1]*l[r+2][c-2]*l[r+3][c-3]
+        m1 = g[r][c]*g[r][c+1]*g[r][c+2]*g[r][c+3]
+        m2 = g[r][c]*g[r+1][c]*g[r+2][c]*g[r+3][c]
+        m3 = g[r][c]*g[r+1][c+1]*g[r+2][c+2]*g[r+3][c+3]
+        m4 = g[r][c]*g[r+1][c-1]*g[r+2][c-2]*g[r+3][c-3]
         m.append(max(m1,m2,m3,m4))
 print(max(m))
+
 
 
 
