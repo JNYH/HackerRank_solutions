@@ -296,9 +296,9 @@ import sys
 
 g = []
 for _ in range(20):
-    grid_t = [1,1,1]
+    grid_t = [0,0,0]
     grid_t.extend([int(x) for x in input().split()])
-    grid_t.extend([1,1,1])
+    grid_t.extend([0,0,0])
     g.append(grid_t)
 pad = [0]*26
 for _ in range(3):
