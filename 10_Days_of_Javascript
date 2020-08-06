@@ -1,5 +1,8 @@
 10 days of Java Script
 
+
+
+
 Day 0 a: Hello, World!
 function greeting(parameterVariable) {
     // This line prints 'Hello, World!' to the console:
@@ -14,6 +17,8 @@ function main() {
 output:
 Hello, World!
 Welcome to 10 Days of JavaScript!
+
+
 
 
 Day 0 b: Data Types
@@ -43,6 +48,8 @@ output:
 HackerRank is the best place to learn and practice coding!
 
 
+
+
 Day 1 a: Arithmetic Operators
 function getArea(length, width) {
     let area;
@@ -65,6 +72,8 @@ output:
 15
 
 
+
+
 Day 1 b: Functions
 function factorial(n){  // int n between 1 and 10
     if(n === 0){
@@ -79,6 +88,8 @@ function main() {
 }
 output:
 24
+
+
 
 
 Day 1 c: Let and Const
@@ -102,6 +113,8 @@ function main() {
 output:
 21.237166338267002
 16.336281798666924
+
+
 
 
 Day 2 a: Conditional Statements: If-Else
@@ -130,6 +143,8 @@ function main() {
 }
 
 
+
+
 Day 2 b: Conditional Statements: Switch
 function getLetter(s) {
     let letter;
@@ -156,6 +171,8 @@ function main() {
 }
 output:
 A
+
+
 
 
 Day 2 c: Loops
@@ -192,6 +209,8 @@ p
 s
 
 
+
+
 Day 3 a: Try, Catch, and Finally
 function reverseString(s) {  // to reverse string s using the split, reverse, and join methods
   try{
@@ -209,6 +228,8 @@ function main() {
 output: 4321, 
 s.split is not a function 
 1234
+
+
 
 
 Day 3 b: Arrays
@@ -240,6 +261,8 @@ function main() {
 }
 output:
 5
+
+
 
 
 Day 3 c: Throw
@@ -275,6 +298,8 @@ YES
 YES
 
 
+
+
 Day 4 a: Create a Rectangle Object
 function Rectangle(a, b) {
   this.length = a;
@@ -296,6 +321,8 @@ output:
 5
 18
 20
+
+
 
 
 Day 4 b: Count Objects
@@ -329,6 +356,8 @@ function main() {
 }
 output:
 2
+
+
 
 
 Day 4 c: Classes
@@ -372,6 +401,8 @@ output:
 143
 
 
+
+
 Day 5 a: Inheritance
 class Rectangle {
     constructor(w, h) {
@@ -403,6 +434,8 @@ if (JSON.stringify(Object.getOwnPropertyNames(Square.prototype)) === JSON.string
     console.log(-1);
     console.log(-1);
 }
+
+
 
 
 Day 5 b: Template Literals
@@ -438,6 +471,8 @@ output:
 14
 
 
+
+
 Day 5 c: Arrow Functions
 /*
  * Modify and return the array so that all even elements are doubled and all odd elements are tripled.
@@ -461,6 +496,8 @@ function main() {
 }
 output:
 3 4 9 8 15
+
+
 
 
 Day 6 a: Bitwise Operators
@@ -494,6 +531,8 @@ output:
 0
 
 
+
+
 Day 6 b: JavaScript Dates
 // The days of the week are: "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
 
@@ -516,6 +555,8 @@ function main() {
 output:
 Sunday
 Wednesday
+
+
 
 
 Day 7 a: Regular Expressions I
@@ -542,6 +583,8 @@ output:
 false, true, false
 
 
+
+
 Day 7 b: Regular Expressions II
 function regexVar() {
     /*
@@ -558,6 +601,8 @@ function main() {
     console.log(!!s.match(re));
 }
 output: true, true, false, false
+
+
 
 
 Day 7 c: Regular Expressions III
@@ -588,125 +633,246 @@ output:
 5
 
 
-Day 8: Create a Button
-button.css
+
+
+Day 8 a: Create a Button
+css/button.css
 #btn {
     width: 96px;
     height: 48px;
     font-size: 24px;
 }
 
-button.js
-var btn = document.createElement("Button");
+js/button.js
+/* Create a button */
+var buttonCounter = document.getElementById('btn');
 
-btn.innerHTML = "0";
-btn.id = "btn";
-document.body.appendChild(btn);
+/* What to do when the button is clicked */
+buttonCounter.addEventListener('click', function() {
+    /* Increment number on button's label by 1 */
+    buttonCounter.innerHTML = +(buttonCounter.innerHTML) + 1;
+});
 
-btn.onclick = function() {
-    btn.innerHTML++;
-}
+index.html
+<!-- Enter your HTML code here -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Button</title>
+        <link rel="stylesheet" href="css/button.css" type="text/css">
+    </head>
+    <body>
+        <button id="btn">0</button>
+        <script src="js/button.js" type="text/javascript">
+        </script>
+    </body>
+</html>
 
 
-Day 8: Buttons Container
-buttonsGrid.css
-#btns {
+
+
+Day 8 b: Buttons Container
+css/buttonsGrid.css
+.buttonContainer {
     width: 75%;
 }
-
-.btn {
+.buttonContainer > .button {
     width: 30%;
     height: 48px;
     font-size: 24px;
 }
 
-buttonsGrid.js
-/* Could adapt this to a general matrix rotation function */
-btn5.onclick = function() {
-    let temp = btn1.innerHTML;
-    btn1.innerHTML = btn4.innerHTML;
-    btn4.innerHTML = btn7.innerHTML;
-    btn7.innerHTML = btn8.innerHTML;
-    btn8.innerHTML = btn9.innerHTML;
-    btn9.innerHTML = btn6.innerHTML;
-    btn6.innerHTML = btn3.innerHTML;
-    btn3.innerHTML = btn2.innerHTML;
-    btn2.innerHTML = temp;
+js/buttonsGrid.js
+/* Create the button container */
+var container = document.createElement('div');
+/* Set the container's style class */
+container.className = 'buttonContainer';
+/* Set the container id */
+container.id = 'btns';
+
+/* Create an array of references to the buttons */
+var buttons = [9];
+for (var i = 0; i < 9; i++) {
+    /* Create a button */
+    buttons[i] = document.createElement('button');
+    /* Set the button's id */
+    buttons[i].id = 'btn' + (i + 1);
+    /* Set the button's display label */
+    buttons[i].innerHTML = (i + 1);
+    /* Set the button's style class */
+    buttons[i].className = 'button';
+    /* Add button to div container */
+    container.appendChild(buttons[i]);
 }
+/* Add div container to document */
+document.body.appendChild(container);
+
+/* Get next label in circular rotation */
+function getNextLabel(currentLabel) {
+    /* The list of values to iterate circularly */
+    var labels = [1, 4, 7, 8, 9, 6, 3, 2];
+
+    /* Get the index of the button's next label in labels */
+    var index = (labels.indexOf(+(currentLabel)) + 1) % labels.length;
+
+    /* Return next label */
+    return labels[index];
+}
+
+/* Update the label's innerHTML on click */
+function updateLabel() {
+    for (var i = 0; i < 4; i++) {
+        buttons[i].innerHTML = getNextLabel(buttons[i].innerHTML);
+    }
+    for (var i = 5; i < 9; i++) {
+        buttons[i].innerHTML = getNextLabel(buttons[i].innerHTML);
+    }
+}
+
+btn5.addEventListener("click", function() {
+    /* Rotate button labels */
+    updateLabel();
+});
+
+index.html
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Buttons Grid</title>
+        <link rel="stylesheet" href="css/buttonsGrid.css" type="text/css">
+    </head>
+    <body>
+        <script src="js/buttonsGrid.js" type="text/javascript"></script>
+    </body>
+</html>
+
+
 
 
 Day 9: Binary Calculator
-binaryCalculator.css
+css/binaryCalculator.css
 body {
-  width: 33%;
+    width: 33%
 }
-
 #res {
-  background-color: lightgray;
-  border: solid;
-  height: 48px;
-  font-size: 20px;
+    background-color: lightgray;
+    border: solid;
+    height: 48px;
+    font-size: 20px;
+}
+#btns > .binaryButton {
+    background-color: lightgreen;
+    color: brown;
+}
+#btns > .operatorButton {
+    background-color: black;
+    color: red;
+}
+#btns > .utilityButton {
+    background-color: darkgreen;
+    color: white;
+}
+#btns > .button {
+    width: 25%;
+    height: 36px;
+    font-size: 18px;
+    /* This is just here to create the even spacing you'd see with HTML buttons */
+    margin: 0px;
 }
 
-#btns button {
-  width: 25%;
-  height: 36px;
-  font-size: 18px;
-  margin:0;
-  float: left;
+js/binaryCalculator.js
+/* Creates Buttons and Lays Them Out */
+
+var resultDiv = document.createElement('div');
+resultDiv.id = 'res';
+resultDiv.addEventListener('click', buttonClick);
+document.body.appendChild(resultDiv);
+
+var buttonsDiv = document.createElement('div');
+buttonsDiv.id = 'btns';
+document.body.appendChild(buttonsDiv);
+
+var ids = ['btn0', 'btn1', 'btnClr', 'btnEql', 'btnSum', 'btnSub', 'btnMul', 'btnDiv'];
+var innerHTMLs = ['0', '1', 'C', '=', '+', '-', '*', '/'];
+var styles = ['binaryButton', 'binaryButton', 'utilityButton', 'utilityButton', 'operatorButton', 'operatorButton', 'operatorButton', 'operatorButton'];
+
+for (var i = 0; i < ids.length; i++) {
+    var button = document.createElement('button');
+    button.innerHTML = innerHTMLs[i];
+    button.id = ids[i];
+    button.className = 'button ' + styles[i];
+    button.addEventListener('click', buttonClick);
+    buttonsDiv.appendChild(button);
 }
 
-#btn0, #btn1 {
-  background-color: lightgreen;
-  color: brown;
-}
 
-#btnClr, #btnEql {
-  background-color: darkgreen;
-  color: white;
-}
+/* Implements Calculator */
 
-#btnSum, #btnSub, #btnMul, #btnDiv {
-  background-color: black;
-  color: red;
-}
+var operator = '';
 
-binaryCalculator.js
-/* Adapted from code by @eloyekunle - thanks! */
+function buttonClick(e) {
+    var button = e.target || e.srcElement;
 
-let btns = document.getElementsByTagName('button');
-for (let btn of btns) {
-    button.onclick = click;
-}
+    /* If CLEAR, empty result box and last operator */
+    if (button.id == 'btnClr') {
+        operator = '';
+        resultDiv.innerHTML = '';
+    }
+    /* If not CLEAR and not EQUALS, add to expression */
+    else if (button.id != 'btnEql') {
 
-function click(e) {
-    var btn = e.target || e.srcElement;
-    var action = document.getElementById(btn.id).innerHTML;
-    var res = document.getElementById('res');
-    
-    switch (action) {
-        case '0':
-        case '1':
-        case '+':
-        case '-':
-        case '*':
-        case '/':
-            res.innerHTML += action;
-            break;
-        case 'C':
-            res.innerHTML = '';
-            break;
-        case '=':
-            /* Parse binary numbers from res;
-             * replace with decimal equivalents */
-            var expr = res.innerHTML;
-            var nums = /(\d+)/g;
-            expr = expr.replace(nums, function(match) {
-                return parseInt(match, 2);
-            })
+        /* If operator was clicked */
+        if (button.id != 'btn0' && button.id != 'btn1') {
+            /* If operator was previously clicked, evaluate expression */
+            if (operator != '') {
+                evaluate();
+            }
+            /* Set current operator */
+            operator = button.innerHTML;
+        }
 
-            /* Evaluate res and convert back to binary */
-            res.innerHTML = eval(expr).toString(2);
-            break;
+        /* Append pressed button to expression */
+        resultDiv.innerHTML += button.innerHTML;
+    }
+    // else btnEeql, evaluate expression
+    else {
+        evaluate();
     }
 }
+
+function evaluate() {
+    var operands = resultDiv.innerHTML.split(operator);
+    /* */
+    resultDiv.innerHTML = (
+            Math.floor(
+                eval(parseInt(operands[0], 2) 
+                + operator 
+                + parseInt(operands[1], 2))
+            )
+        ).toString(2);
+
+    /* Clear previous operator */
+    operator = '';
+}
+
+index.html
+<!-- Enter your HTML code here -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Binary Calculator</title>
+        <link rel="stylesheet" href="css/binaryCalculator.css" type="text/css">
+    </head>
+    <body>
+        <script src="js/binaryCalculator.js" type="text/javascript"></script>
+    </body>
+</html>
+
+
+
+
+
+/* end */
