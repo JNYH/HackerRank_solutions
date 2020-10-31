@@ -9,6 +9,58 @@ print "Hello HackerRank!!"
 
 
 ## Ruby Tutorial - Everything is an Object
+# Everything is an object in Ruby. For instance, if you type print self
+# In the code-editor, Ruby treats self as the object in which it is currently referred to.
+
+print self
+Expected Output
+main
+
+
+
+
+## Ruby Tutorial - Object Methods
+def odd_or_even(number)
+    # add your code here
+    return number.even?
+end
+
+(0...gets.to_i).each do |i|
+    puts odd_or_even(gets.to_i)
+end
+
+
+
+
+## Ruby Tutorial - Object Method Parameters
+# Three variables a, b, and c are already defined. 
+# Your task is to write code that checks whether a is within the range of b and c by calling the method range?
+
+# write your code here
+a.range? b, c
+
+
+
+
+## Lazy Evaluation
+# Lazy evaluation is an evaluation strategy that delays the assessment of an expression until its value is needed. Example:
+power_array = -> (power, array_size) do 
+    1.upto(Float::INFINITY).lazy.map { |x| x**power }.first(array_size) 
+end
+
+puts power_array.(2 , 4)    #[1, 4, 9, 16]
+puts power_array.(2 , 10)   #[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+puts power_array.(3, 5)     #[1, 8, 27, 64, 125]
+
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+# Option 1
+require 'prime'
+p Prime.each.lazy.select{|x| x.to_s == x.to_s.reverse}.first(gets.to_i)
+
+# Option 2
+require 'prime'
+n = gets.to_i
+p Prime.each.lazy.select{|x| x == x.to_s.reverse.to_i}.first(n)
 
 
 
