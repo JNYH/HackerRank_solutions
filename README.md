@@ -1,7 +1,7 @@
 # HackerRank
 This is a documentation of my Hackerrank solutions.
 
-My profile:
+## My profile:
 https://www.hackerrank.com/jnyh1
 
 
