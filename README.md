@@ -1,4 +1,4 @@
-# HackerRank
+# HackerRank_solutions
 This is a documentation of my Hackerrank solutions.
 
 ## My profile:
