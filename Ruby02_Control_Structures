@@ -1,0 +1,38 @@
+## Ruby
+## Control Structures
+
+
+## Ruby Control Structures - Each
+# use control structure each to iterate through its collections
+# given a method called scoring with an array passed as an argument. Elements of the array are of the class User.
+# User class has a method update_score
+# task is to iterate through each of the elements in the array using each and call the method update_score on every element
+
+# Option 1
+def scoring(array)
+    # iterate through each of the element in array using *each* and call update_score on it
+    array.each do |user|
+        user.update_score
+    end
+end
+
+# Option 2
+def scoring(array)
+    # iterate through each of the element in array using *each* and call update_score on it
+    array.each { 
+        |user|
+        user.update_score
+        }
+end
+
+
+
+
+
+
+
+
+
+(work in progress)
+
+## end ##
