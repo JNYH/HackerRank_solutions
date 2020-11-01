@@ -16,6 +16,9 @@ print self
 Expected Output
 main
 
+# everything in object.main is an object (of object class)
+# main is a method of the object class
+
 
 
 
@@ -38,29 +41,6 @@ end
 
 # write your code here
 a.range? b, c
-
-
-
-
-## Lazy Evaluation
-# Lazy evaluation is an evaluation strategy that delays the assessment of an expression until its value is needed. Example:
-power_array = -> (power, array_size) do 
-    1.upto(Float::INFINITY).lazy.map { |x| x**power }.first(array_size) 
-end
-
-puts power_array.(2 , 4)    #[1, 4, 9, 16]
-puts power_array.(2 , 10)   #[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-puts power_array.(3, 5)     #[1, 8, 27, 64, 125]
-
-# Enter your code here. Read input from STDIN. Print output to STDOUT
-# Option 1
-require 'prime'
-p Prime.each.lazy.select{|x| x.to_s == x.to_s.reverse}.first(gets.to_i)
-
-# Option 2
-require 'prime'
-n = gets.to_i
-p Prime.each.lazy.select{|x| x == x.to_s.reverse.to_i}.first(n)
 
 
 
