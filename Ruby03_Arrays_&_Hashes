@@ -72,6 +72,88 @@ end
 
 
 ## Ruby Array - Index, Part 2
+For the array,
+arr = [9, 5, 1, 2, 3, 4, 0, -1]
+• To access the elements from the end of the list, we can use negative indices.
+ > arr[-1]
+ => -1
+• The first element of the array can be accessed using
+ > arr.first
+ => 9
+• The last element of the array can be accessed using
+ > arr.last
+ => -1
+• The first n elements of the array can be accessed using
+ arr.take(3)
+ => [9, 5, 1]
+• Everything but the first n elements of the array can be accessed using
+ arr.drop(3)
+ => [2, 3, 4, 0, -1]
+
+def neg_pos(arr, index)
+    # return the element of the array at the position `index` from the end of the list
+    arr[-index]
+end
+
+def first_element(arr)
+    # return the first element of the array
+    arr.first
+end
+
+def last_element(arr)
+    # return the last element of the array
+    arr.last
+end
+
+def first_n(arr, n)
+    # return the first n elements of the array
+    arr.take(n)
+end
+
+def drop_n(arr, n)
+    # drop the first n elements of the array and return the rest
+    arr.drop(n)
+end
+
+
+
+
+## Ruby Array - Addition
+Arrays provide a variety of methods that allow to add elements to them.
+• push allows one to add an element to the end of the list.
+ >x = [1,2]
+ >x.push(3)
+ => [1,2,3]
+• insert allows one to add one or more elements starting from a given index (shifting elements after the given index in the process).
+ >x = [1,2]
+ >x.insert(1, 5, 6, 7)
+ => [1, 5, 6, 7, 2]
+• unshift allows one or more elements to be added at the beginning of the list.
+ >x = [1,2,3]
+ >x.unshift(10, 20, 30)
+ => [10, 20, 30, 1, 2, 3]
+
+def end_arr_add(arr, element)
+    # Add `element` to the end of the Array variable `arr` and return `arr`
+    arr.push(element)
+end
+
+def begin_arr_add(arr, element)
+    # Add `element` to the beginning of the Array variable `arr` and return `arr`
+    arr.unshift(element)
+end
+
+def index_arr_add(arr, index, element)
+    # Add `element` at position `index` to the Array variable `arr` and return `arr`
+    arr.insert(index, element)
+end
+
+def index_arr_multiple_add(arr, index)
+    # add any two elements to the arr at the index
+    arr.insert(index, 8, 88)
+end
+
+
 
 
 
